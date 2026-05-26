@@ -450,6 +450,39 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   .cover-kpi-row { flex-wrap: wrap; }
   .cover-kpi { min-width: 40%; margin-bottom: 16px; }
 }
+
+
+/* ── GANTT LUCE ── */
+.gantt-panel { border: var(--border); background: var(--paper); margin: 22px 0 28px; overflow: hidden; }
+.gantt-scroll { overflow-x: auto; padding-bottom: 4px; }
+.gantt { min-width: 1080px; }
+.gantt-head, .gantt-row { display: grid; grid-template-columns: 210px repeat(24, 1fr) 116px; align-items: stretch; }
+.gantt-head { background: var(--paper-warm); border-bottom: 2px solid var(--ink-faint); position: sticky; top: 52px; z-index: 5; }
+.gantt-month, .gantt-label, .gantt-due { font-size: 9px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-light); padding: 8px 6px; border-right: 1px solid var(--ink-faint); text-align: center; }
+.gantt-label { text-align:left; color: var(--ink); padding-left: 14px; }
+.gantt-row { min-height: 44px; border-bottom: 1px solid var(--ink-faint); position: relative; }
+.gantt-row:last-child { border-bottom: none; }
+.gantt-task { padding: 9px 12px 9px 14px; border-right: 1px solid var(--ink-faint); font-size: 12px; line-height: 1.25; color: var(--ink-mid); background: rgba(255,255,255,.25); }
+.gantt-task strong { color: var(--ink); font-size: 12px; }
+.gantt-cell { border-right: 1px solid rgba(228,232,234,.85); position: relative; }
+.gantt-bar { grid-column: var(--start) / span var(--span); align-self: center; height: 18px; border-radius: 20px; margin: 0 3px; z-index: 2; box-shadow: 0 1px 0 rgba(0,0,0,.08); }
+.gantt-bar.ri { background: linear-gradient(90deg, var(--accent), var(--accent-mid)); }
+.gantt-bar.ss { background: linear-gradient(90deg, var(--gold), #d5aa35); }
+.gantt-bar.diss { background: repeating-linear-gradient(45deg, rgba(14,95,122,.85), rgba(14,95,122,.85) 6px, rgba(184,146,42,.85) 6px, rgba(184,146,42,.85) 12px); }
+.gantt-ms { width: 16px; height: 16px; background: var(--ink); transform: rotate(45deg); align-self: center; justify-self: center; z-index: 3; box-shadow: 0 0 0 3px rgba(255,255,255,.65); }
+.gantt-ms.gold { background: var(--gold); }
+.gantt-ms.accent { background: var(--accent); }
+.gantt-due { border-left: 1px solid var(--ink-faint); border-right: none; display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--ink-mid); background: rgba(255,255,255,.3); }
+.gantt-legend { display:flex; gap:10px; flex-wrap:wrap; margin: 12px 0 4px; font-size:11px; color:var(--ink-mid); }
+.legend-dot { width:12px; height:12px; border-radius:10px; display:inline-block; margin-right:6px; vertical-align:-2px; }
+.legend-ri { background:var(--accent); } .legend-ss { background:var(--gold); } .legend-diss { background:repeating-linear-gradient(45deg, var(--accent), var(--accent) 4px, var(--gold) 4px, var(--gold) 8px); }
+.dissem-grid { display:grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 20px 0; }
+.dissem-card { border: var(--border); background: var(--paper); padding: 16px; border-left: 3px solid var(--accent); }
+.dissem-card.final { border-left-color: var(--gold); }
+.dissem-card h4 { font-size: 13px; margin-bottom: 8px; color: var(--ink); }
+.dissem-card p { font-size: 12px; color: var(--ink-mid); line-height: 1.55; }
+@media (max-width: 900px) { .dissem-grid { grid-template-columns: 1fr; } }
+
 </style>
 </head>
 <body>
@@ -938,9 +971,51 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   </details>
 </section>
 
-<!-- ═══ §04 PERSONALE & TARIFFE ═══ -->
+
+<!-- ═══ §04 GANTT & DISSEMINATION ═══ -->
+<section class="section reveal" id="gantt">
+  <p class="section-eyebrow">04 &nbsp;·&nbsp; Pianificazione, milestone e dissemination</p>
+  <h2 class="section-title">Gantt LUCE: <em>mesi, deliverable e consegne</em></h2>
+  <p class="or-detail-intro">Il Gantt operativo è costruito su 24 mesi, con lettura da gennaio 2024 a dicembre 2025 per renderlo coerente con la rappresentazione lineare presente nei materiali LUCE. Le tre ancore di verifica sono: M1 in Q4 2024 per scenario operativo e requisiti di base, M7 in Q2 2025 per specifiche implementative KPI–Digital Twin, M3 in Q4 2025 per simulatore prototipale e verifica delle dashboard.</p>
+
+  <div class="gantt-legend">
+    <span><i class="legend-dot legend-ri"></i>Ricerca Industriale · OR1</span>
+    <span><i class="legend-dot legend-ss"></i>Sviluppo Sperimentale · OR5</span>
+    <span><i class="legend-dot legend-diss"></i>Dissemination / valorizzazione</span>
+  </div>
+  <div class="gantt-panel"><div class="gantt-scroll"><div class="gantt"><div class="gantt-head"><div class="gantt-label">Attività / Deliverable</div><div class="gantt-month">Gen 24</div><div class="gantt-month">Feb</div><div class="gantt-month">Mar</div><div class="gantt-month">Apr</div><div class="gantt-month">Mag</div><div class="gantt-month">Giu</div><div class="gantt-month">Lug</div><div class="gantt-month">Ago</div><div class="gantt-month">Set</div><div class="gantt-month">Ott</div><div class="gantt-month">Nov</div><div class="gantt-month">Dic</div><div class="gantt-month">Gen 25</div><div class="gantt-month">Feb</div><div class="gantt-month">Mar</div><div class="gantt-month">Apr</div><div class="gantt-month">Mag</div><div class="gantt-month">Giu</div><div class="gantt-month">Lug</div><div class="gantt-month">Ago</div><div class="gantt-month">Set</div><div class="gantt-month">Ott</div><div class="gantt-month">Nov</div><div class="gantt-month">Dic</div><div class="gantt-due">Consegna</div></div><div class="gantt-row"><div class="gantt-task"><strong>OR1 · RI</strong><br>Framework + KPI + modelli predittivi</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Q4 2024</div><div class="gantt-bar ri" style="--start:2;--span:12;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A1.1 / D1.1</strong><br>Framework complessivo Entrepreneurial Ecosystem</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Mag 2024</div><div class="gantt-bar ri" style="--start:2;--span:5;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A1.2 / D1.2</strong><br>Traiettorie di mercato e dinamiche settoriali</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Ott 2024</div><div class="gantt-bar ri" style="--start:4;--span:7;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A1.3 / D1.3</strong><br>Sistema KPI e metriche multi-dimensionali</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Dic 2024</div><div class="gantt-bar ri" style="--start:5;--span:8;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A1.4 / D1.4</strong><br>Modelli predittivi e rischio</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Feb 2025</div><div class="gantt-bar ri" style="--start:7;--span:8;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A1.5 / D1.5</strong><br>Algoritmi previsione andamento PMI</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Apr 2025</div><div class="gantt-bar ri" style="--start:9;--span:8;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A1.6 / D1.6</strong><br>Algoritmi ranking iniziative imprenditoriali</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Giu 2025</div><div class="gantt-bar ri" style="--start:10;--span:9;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A1.7 / D1.7</strong><br>Digital Twin e What-if per Technology Transfer</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Giu 2025</div><div class="gantt-bar ri" style="--start:12;--span:8;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>OR5 · SS</strong><br>Entrepreneurial Intelligence Solution</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Q4 2025</div><div class="gantt-bar ss" style="--start:14;--span:12;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A5.1 / D5.1</strong><br>Prototipo Data Extraction</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Mag 2025</div><div class="gantt-bar ss" style="--start:14;--span:5;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A5.2 / D5.2</strong><br>Dashboard KPI e performance</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Giu 2025</div><div class="gantt-bar ss" style="--start:15;--span:5;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A5.3 / D5.3</strong><br>Suite valutazione e ranking imprese</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Ago 2025</div><div class="gantt-bar ss" style="--start:17;--span:5;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A5.4 / D5.4</strong><br>Simulatore performance e KPI-Digital Twin</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Ott 2025</div><div class="gantt-bar ss" style="--start:18;--span:6;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A5.5 / D5.5</strong><br>Risk Management con simulazioni scenario</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Nov 2025</div><div class="gantt-bar ss" style="--start:20;--span:5;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>A5.6 / D5.6</strong><br>Integrazione e test prototipo piattaforma</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Dic 2025</div><div class="gantt-bar ss" style="--start:22;--span:4;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>M1</strong><br>Scenario operativo e requisiti base</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Q4 2024</div><div class="gantt-ms accent" style="grid-column:13;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>M7</strong><br>Specifiche KPI–Digital Twin e case study</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Q2 2025</div><div class="gantt-ms gold" style="grid-column:19;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>M3</strong><br>Simulatore prototipale finale</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Q4 2025</div><div class="gantt-ms gold" style="grid-column:25;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>DIS-1</strong><br>Pagina progetto + scheda divulgativa avvio</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Feb 2024</div><div class="gantt-bar diss" style="--start:3;--span:2;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>DIS-2</strong><br>Nota tecnica fonti dati, privacy, ToS e architettura</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Ott 2024</div><div class="gantt-bar diss" style="--start:8;--span:4;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>DIS-3</strong><br>Report divulgativo OR1: framework, KPI, traiettorie</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Dic 2024</div><div class="gantt-bar diss" style="--start:11;--span:3;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>DIS-4</strong><br>Demo intermedia KPI Dashboard / Data Extraction</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Giu 2025</div><div class="gantt-bar diss" style="--start:17;--span:3;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>DIS-5</strong><br>DemoLab Digital Twin + Risk Management</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Nov 2025</div><div class="gantt-bar diss" style="--start:21;--span:3;"></div></div><div class="gantt-row"><div class="gantt-task"><strong>DIS-6</strong><br>Evento/scheda finale + sito + LinkedIn + allegato SAL</div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-due">Dic 2025</div><div class="gantt-bar diss" style="--start:25;--span:1;"></div></div></div></div></div>
+
+  <div class="grid-3 reveal" style="margin-top:22px">
+    <div class="metric"><span class="metric-val accent">Q4 2024</span><span class="metric-lbl">M1 · REQUISITI</span><p class="metric-sub">Scenario operativo, requisiti, KPI e specifiche piattaforma.</p></div>
+    <div class="metric"><span class="metric-val gold">Q2 2025</span><span class="metric-lbl">M7 · KPI-DIGITAL TWIN</span><p class="metric-sub">Case study, dashboard e specifiche implementative.</p></div>
+    <div class="metric"><span class="metric-val gold">Q4 2025</span><span class="metric-lbl">M3 · PROTOTIPO</span><p class="metric-sub">Simulatore prototipale, testing, dashboard e output finali.</p></div>
+  </div>
+
+  <h3 class="or-detail-sub-head" style="margin-top:22px">Deliverable di dissemination consigliati</h3>
+  <div class="dissem-grid">
+    <div class="dissem-card"><h4>DIS-1 · Scheda avvio progetto</h4><p><strong>Quando:</strong> Febbraio 2024. Landing/scheda progetto, obiettivi, partner, parole chiave e abstract divulgativo per sito e LinkedIn.</p></div>
+    <div class="dissem-card"><h4>DIS-2 · Nota dati & compliance</h4><p><strong>Quando:</strong> Ottobre 2024. Sintesi su fonti dati, API/licenze/open data, GDPR, ToS, rischi scraping e architettura di riferimento.</p></div>
+    <div class="dissem-card"><h4>DIS-3 · Report divulgativo OR1</h4><p><strong>Quando:</strong> Dicembre 2024. Framework, KPI, traiettorie di mercato, modelli predittivi e razionale scientifico.</p></div>
+    <div class="dissem-card"><h4>DIS-4 · Demo intermedia</h4><p><strong>Quando:</strong> Giugno 2025. Prima dimostrazione di Data Extraction, dashboard KPI e logica KPI–Digital Twin su case study.</p></div>
+    <div class="dissem-card"><h4>DIS-5 · DemoLab tecnico</h4><p><strong>Quando:</strong> Novembre 2025. Demo su Digital Twin, ranking, what-if e Risk Management con output dashboard e materiali per stakeholder.</p></div>
+    <div class="dissem-card final"><h4>DIS-6 · Dissemination finale</h4><p><strong>Quando:</strong> Dicembre 2025. Evento/demo conclusiva, scheda finale risultati, post LinkedIn, allegato SAL finale e pacchetto immagini/dashboard.</p></div>
+  </div>
+
+  <table class="data-table">
+    <thead><tr><th>Deliverable tecnico</th><th>Output di dissemination collegato</th><th>Finestra consigliata</th><th>Formato</th></tr></thead>
+    <tbody>
+      <tr><td>D1.1–D1.3</td><td>Framework, KPI e traiettorie di mercato in linguaggio divulgativo</td><td>Q4 2024</td><td>Report breve + pagina web</td></tr>
+      <tr><td>D1.4–D1.7</td><td>Modelli predittivi, ranking e Digital Twin spiegati con schema logico</td><td>Q2 2025</td><td>Nota tecnica + infografica</td></tr>
+      <tr><td>D5.1–D5.2</td><td>Demo Data Extraction e Dashboard KPI</td><td>Q2 2025</td><td>DemoLab + screenshot dashboard</td></tr>
+      <tr><td>D5.3–D5.5</td><td>Ranking, simulazione scenari e Risk Management</td><td>Q3–Q4 2025</td><td>Articolo tecnico + demo stakeholder</td></tr>
+      <tr><td>D5.6</td><td>Framework integrato e validazione finale</td><td>Q4 2025</td><td>Evento finale + allegato SAL + LinkedIn</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══ §05 PERSONALE & TARIFFE ═══ -->
 <section class="section reveal" id="personale">
-  <p class="section-eyebrow">04 &nbsp;·&nbsp; Personale, tariffe e fornitori</p>
+  <p class="section-eyebrow">05 &nbsp;·&nbsp; Personale, tariffe e fornitori</p>
   <h2 class="section-title">Tabella costi: personale <em>interno</em> e <em class="gold">fornitori R&amp;S</em></h2>
 
   <!-- Tariffe costo standard personale interno -->
@@ -1488,5 +1563,281 @@ window.simChartInst = new Chart(document.getElementById('simChart'), {
 // Init
 calcSim();
 </script>
+
+<!-- LUCE ADVANCED GANTT -->
+<section class="section reveal" id="luce-gantt-master">
+  <p class="section-eyebrow">07 · Governance temporale e dissemination</p>
+  <h2 class="section-title">Master Gantt <em>LUCE</em> · Deliverable · SAL · Dissemination</h2>
+
+  <div class="warning-box reveal">
+    <strong>Framework integrato LUCE</strong>
+    <p>
+      Il seguente modello integra OR, attività, milestone, deliverable tecnici, deliverable scientifici,
+      SAL e dissemination secondo la stessa logica strutturale utilizzata nel progetto NEPTA.
+      La struttura consente una lettura simultanea di avanzamento progettuale, output rendicontabili
+      e momenti di divulgazione.
+    </p>
+  </div>
+
+  <div class="grid-4">
+    <div class="metric">
+      <span class="metric-val accent">24</span>
+      <span class="metric-lbl">Mesi progetto</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val gold">14</span>
+      <span class="metric-lbl">Deliverable tecnici</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val success">6</span>
+      <span class="metric-lbl">Deliverable dissemination</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val">4</span>
+      <span class="metric-lbl">Milestone strategiche</span>
+    </div>
+  </div>
+
+  <details class="or-detail-block" open>
+    <summary class="or-detail-summary ri-sum">
+      <span class="or-detail-badge ri-badge">MASTER GANTT</span>
+      Timeline integrata Deliverable / SAL / Dissemination
+      <span class="or-detail-arrow">▼</span>
+    </summary>
+
+    <div class="or-detail-body">
+
+      <table class="or-detail-table">
+        <thead>
+          <tr>
+            <th>Cod.</th>
+            <th>Deliverable</th>
+            <th>OR</th>
+            <th>Periodo</th>
+            <th>Consegna</th>
+            <th>Tipo</th>
+            <th>Dissemination</th>
+            <th>SAL</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td><strong>D1.1</strong></td>
+            <td>Entrepreneurial Ecosystem Framework</td>
+            <td>OR1</td>
+            <td>M0 → M4</td>
+            <td>M4</td>
+            <td><span class="badge badge-blue">Research</span></td>
+            <td><span class="diss-partial">Parziale</span></td>
+            <td>SAL 1</td>
+          </tr>
+
+          <tr>
+            <td><strong>D1.2</strong></td>
+            <td>Knowledge & Process Model</td>
+            <td>OR1</td>
+            <td>M3 → M8</td>
+            <td>M8</td>
+            <td><span class="badge badge-blue">Research</span></td>
+            <td><span class="diss-yes">Sì</span></td>
+            <td>SAL 1</td>
+          </tr>
+
+          <tr>
+            <td><strong>D1.3</strong></td>
+            <td>KPI & Market Dynamics Model</td>
+            <td>OR1</td>
+            <td>M5 → M10</td>
+            <td>M10</td>
+            <td><span class="badge badge-blue">AI / KPI</span></td>
+            <td><span class="diss-yes">Sì</span></td>
+            <td>SAL 2</td>
+          </tr>
+
+          <tr>
+            <td><strong>D1.4</strong></td>
+            <td>AI Prediction & Risk Models</td>
+            <td>OR1</td>
+            <td>M8 → M14</td>
+            <td>M14</td>
+            <td><span class="badge badge-blue">AI Models</span></td>
+            <td><span class="diss-partial">Parziale</span></td>
+            <td>SAL 2</td>
+          </tr>
+
+          <tr>
+            <td><strong>D5.1</strong></td>
+            <td>Data Extraction Prototype</td>
+            <td>OR5</td>
+            <td>M8 → M12</td>
+            <td>M12</td>
+            <td><span class="badge badge-gold">Prototype</span></td>
+            <td><span class="diss-yes">Workshop</span></td>
+            <td>SAL 2</td>
+          </tr>
+
+          <tr>
+            <td><strong>D5.2</strong></td>
+            <td>KPI Dashboard Prototype</td>
+            <td>OR5</td>
+            <td>M10 → M16</td>
+            <td>M16</td>
+            <td><span class="badge badge-gold">Dashboard</span></td>
+            <td><span class="diss-yes">Demo</span></td>
+            <td>SAL 3</td>
+          </tr>
+
+          <tr>
+            <td><strong>D5.3</strong></td>
+            <td>Evaluation & Ranking Suite</td>
+            <td>OR5</td>
+            <td>M12 → M18</td>
+            <td>M18</td>
+            <td><span class="badge badge-gold">AI Suite</span></td>
+            <td><span class="diss-yes">Evento</span></td>
+            <td>SAL 3</td>
+          </tr>
+
+          <tr>
+            <td><strong>D5.4</strong></td>
+            <td>Digital Twin Simulator</td>
+            <td>OR5</td>
+            <td>M14 → M20</td>
+            <td>M20</td>
+            <td><span class="badge badge-gold">Digital Twin</span></td>
+            <td><span class="diss-partial">Limitata</span></td>
+            <td>SAL 4</td>
+          </tr>
+
+          <tr>
+            <td><strong>D5.5</strong></td>
+            <td>Scenario & Risk Simulation</td>
+            <td>OR5</td>
+            <td>M18 → M22</td>
+            <td>M22</td>
+            <td><span class="badge badge-gold">Simulation</span></td>
+            <td><span class="diss-yes">Conference</span></td>
+            <td>SAL 4</td>
+          </tr>
+
+          <tr>
+            <td><strong>D5.6</strong></td>
+            <td>Integrated Final Prototype</td>
+            <td>OR5</td>
+            <td>M20 → M24</td>
+            <td>M24</td>
+            <td><span class="badge badge-green">Final Prototype</span></td>
+            <td><span class="diss-yes">Final dissemination</span></td>
+            <td>SAL Finale</td>
+          </tr>
+
+          <tr class="subtotal-row">
+            <td colspan="8">Deliverable di dissemination</td>
+          </tr>
+
+          <tr>
+            <td><strong>DD1</strong></td>
+            <td>Kick-off dissemination report</td>
+            <td>Cross</td>
+            <td>M0 → M3</td>
+            <td>M3</td>
+            <td><span class="badge badge-neutral">Dissemination</span></td>
+            <td><span class="diss-yes">Sì</span></td>
+            <td>SAL 1</td>
+          </tr>
+
+          <tr>
+            <td><strong>DD2</strong></td>
+            <td>Scientific communication package</td>
+            <td>Cross</td>
+            <td>M6 → M10</td>
+            <td>M10</td>
+            <td><span class="badge badge-neutral">Scientific</span></td>
+            <td><span class="diss-yes">Sì</span></td>
+            <td>SAL 2</td>
+          </tr>
+
+          <tr>
+            <td><strong>DD3</strong></td>
+            <td>Mid-term dissemination report</td>
+            <td>Cross</td>
+            <td>M10 → M12</td>
+            <td>M12</td>
+            <td><span class="badge badge-neutral">Monitoring</span></td>
+            <td><span class="diss-yes">Sì</span></td>
+            <td>SAL 2</td>
+          </tr>
+
+          <tr>
+            <td><strong>DD4</strong></td>
+            <td>Workshop & stakeholder engagement</td>
+            <td>Cross</td>
+            <td>M12 → M18</td>
+            <td>M18</td>
+            <td><span class="badge badge-neutral">Workshop</span></td>
+            <td><span class="diss-yes">Pubblico</span></td>
+            <td>SAL 3</td>
+          </tr>
+
+          <tr>
+            <td><strong>DD5</strong></td>
+            <td>Technology transfer dissemination</td>
+            <td>Cross</td>
+            <td>M18 → M22</td>
+            <td>M22</td>
+            <td><span class="badge badge-neutral">TT</span></td>
+            <td><span class="diss-partial">Parziale</span></td>
+            <td>SAL 4</td>
+          </tr>
+
+          <tr>
+            <td><strong>DD6</strong></td>
+            <td>Final dissemination & exploitation report</td>
+            <td>Cross</td>
+            <td>M22 → M24</td>
+            <td>M24</td>
+            <td><span class="badge badge-neutral">Finale</span></td>
+            <td><span class="diss-yes">Sì</span></td>
+            <td>SAL Finale</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot filled"></div>
+          <div class="tl-date">M4</div>
+          <div class="tl-title">Milestone M1 · Framework Ecosystem</div>
+          <div class="tl-sub">Consegna D1.1 + definizione architettura iniziale</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot filled"></div>
+          <div class="tl-date">M12</div>
+          <div class="tl-title">Milestone M2 · Mid-Term Prototype</div>
+          <div class="tl-sub">Consegna D5.1 + DD3 · verifica KPI e stato avanzamento</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot filled"></div>
+          <div class="tl-date">M20</div>
+          <div class="tl-title">Milestone M3 · Digital Twin Validation</div>
+          <div class="tl-sub">Consegna D5.4 · simulazioni e DSS</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot filled"></div>
+          <div class="tl-date">M24</div>
+          <div class="tl-title">Milestone M4 · Final Exploitation</div>
+          <div class="tl-sub">Consegna finale prototipo + dissemination conclusiva</div>
+        </div>
+      </div>
+
+    </div>
+  </details>
+</section>
+
 </body>
 </html>
