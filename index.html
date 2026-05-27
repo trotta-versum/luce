@@ -484,6 +484,1117 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
 @media (max-width: 900px) { .dissem-grid { grid-template-columns: 1fr; } }
 
 </style>
+
+<style>
+.leogrande-panel {
+  border: 1px solid var(--ink-faint);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--paper);
+  margin-top: 22px;
+  overflow: hidden;
+}
+.leogrande-summary {
+  cursor: pointer;
+  padding: 18px 22px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.leogrande-summary::-webkit-details-marker { display: none; }
+.leogrande-body { padding: 22px 26px; }
+.leogrande-body p {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.leogrande-body ul {
+  margin: 10px 0 18px 20px;
+  color: var(--ink-mid);
+  font-size: 13px;
+  line-height: 1.75;
+}
+.leogrande-kpi {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: var(--ink-faint);
+  border: 1px solid var(--ink-faint);
+  margin: 18px 0;
+}
+.leogrande-kpi div {
+  background: var(--paper);
+  padding: 14px 16px;
+}
+.leogrande-kpi strong {
+  display: block;
+  font-size: 18px;
+  color: var(--accent);
+}
+.leogrande-kpi span {
+  font-size: 10px;
+  color: var(--ink-light);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+@media (max-width:900px){ .leogrande-kpi { grid-template-columns: 1fr; } }
+</style>
+
+
+<style>
+.scidiss-panel {
+  border: 1px solid var(--ink-faint);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--paper);
+  margin: 20px 0;
+  overflow: hidden;
+}
+.scidiss-summary {
+  cursor: pointer;
+  padding: 18px 22px;
+  background: var(--gold-light);
+  color: #8a5e0a;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.scidiss-summary::-webkit-details-marker { display: none; }
+.scidiss-body { padding: 22px 26px; }
+.scidiss-body p {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.deliv-card {
+  border: 1px solid var(--ink-faint);
+  border-radius: var(--radius);
+  margin: 12px 0;
+  background: var(--paper);
+  overflow: hidden;
+}
+.deliv-card summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  background: var(--paper-warm);
+  list-style: none;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ink);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.deliv-card summary::-webkit-details-marker { display: none; }
+.deliv-card-body { padding: 18px 22px; border-top: 1px solid var(--ink-faint); }
+.deliv-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 1px solid var(--ink-faint);
+  background: var(--ink-faint);
+  margin: 12px 0 18px;
+}
+.deliv-meta div { background: var(--paper); padding: 12px 14px; }
+.deliv-meta strong { display:block; font-size: 11px; color: var(--ink-light); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+.deliv-meta span { font-size: 13px; color: var(--ink); font-weight: 600; }
+.paper-structure {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin: 12px 0 18px;
+}
+.paper-structure th {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--paper-warm);
+  color: var(--ink-light);
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--ink-faint);
+}
+.paper-structure td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--ink-faint);
+  color: var(--ink-mid);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.paper-structure tr:last-child td { border-bottom: none; }
+.paper-pill {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: var(--accent-light);
+  color: var(--accent);
+  margin-right: 4px;
+  white-space: nowrap;
+}
+.paper-pill.gold { background: var(--gold-light); color: #8a5e0a; }
+.paper-pill.neutral { background: var(--paper-warm); color: var(--ink-mid); }
+@media (max-width:900px){ .deliv-meta { grid-template-columns: 1fr 1fr; } }
+</style>
+
+
+<style>
+/* FIX leggibilità Dissemination Scientifica */
+#scientific-dissemination {
+  background: var(--paper) !important;
+  position: relative;
+  z-index: 2;
+  overflow: visible !important;
+}
+
+#scientific-dissemination .scidiss-panel,
+#scientific-dissemination .scidiss-body,
+#scientific-dissemination .deliv-card,
+#scientific-dissemination .deliv-card-body,
+#scientific-dissemination .paper-structure,
+#scientific-dissemination .paper-structure td,
+#scientific-dissemination .paper-structure th {
+  background-color: var(--paper) !important;
+  opacity: 1 !important;
+}
+
+#scientific-dissemination .scidiss-summary {
+  background-color: var(--gold-light) !important;
+  color: #8a5e0a !important;
+}
+
+#scientific-dissemination .deliv-card summary {
+  background-color: var(--paper-warm) !important;
+  color: var(--ink) !important;
+}
+
+#scientific-dissemination .paper-structure th {
+  background-color: var(--paper-warm) !important;
+}
+
+#scientific-dissemination .warning-box {
+  background-color: var(--gold-light) !important;
+  opacity: 1 !important;
+}
+
+#scientific-dissemination p,
+#scientific-dissemination li,
+#scientific-dissemination td {
+  color: var(--ink-mid) !important;
+}
+
+#scientific-dissemination strong,
+#scientific-dissemination h2,
+#scientific-dissemination .section-title {
+  color: var(--ink) !important;
+}
+
+#scientific-dissemination .section-title em {
+  color: var(--accent) !important;
+}
+</style>
+
+
+<style>
+/* ===== FINAL UX CLEANUP ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+}
+
+details {
+  overflow: hidden;
+}
+
+details summary {
+  position: relative;
+  transition: all .22s ease;
+}
+
+details summary:hover {
+  filter: brightness(.98);
+}
+
+details summary span:last-child {
+  transition: transform .25s ease;
+}
+
+details[open] summary span:last-child {
+  transform: rotate(180deg);
+}
+
+.expand-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-top: 10px;
+  opacity: .9;
+}
+
+.expand-hint::before {
+  content: "↕";
+  font-size: 12px;
+}
+
+.scrollable-table {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--ink-faint);
+  background: var(--paper);
+  position: relative;
+}
+
+.scrollable-table::after {
+  content: "⇢ scorri";
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink-light);
+  opacity: .7;
+}
+
+.paper-structure,
+.or-detail-table {
+  min-width: 920px;
+}
+
+.deliv-card {
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+
+.deliv-card summary {
+  border-bottom: 1px solid transparent;
+}
+
+.deliv-card[open] summary {
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.scidiss-panel {
+  box-shadow: 0 2px 12px rgba(0,0,0,.03);
+}
+
+.warning-box {
+  border-radius: var(--radius);
+}
+
+.metric,
+.deliv-meta div {
+  transition: transform .18s ease;
+}
+
+.metric:hover,
+.deliv-meta div:hover {
+  transform: translateY(-1px);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link[href="#scientific-dissemination"]::after {
+  content: "↓";
+  margin-left: 6px;
+  font-size: 10px;
+  opacity: .65;
+}
+
+.section-title {
+  line-height: 1.15;
+}
+
+.section-eyebrow {
+  margin-bottom: 10px;
+}
+
+.deliv-card-body ul li {
+  margin-bottom: 6px;
+}
+
+.scidiss-body > details {
+  margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+
+  .paper-structure,
+  .or-detail-table {
+    min-width: 760px;
+  }
+
+  .scrollable-table::after {
+    content: "⇢";
+  }
+
+  .section-title {
+    font-size: clamp(26px, 7vw, 42px);
+  }
+}
+</style>
+
+
+<style>
+/* ===== FINAL SECTION VISIBILITY FIX ===== */
+#scientific-dissemination,
+#scientific-dissemination * {
+  opacity: 1 !important;
+}
+
+#scientific-dissemination {
+  display: block !important;
+  min-height: auto !important;
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  padding-bottom: 72px !important;
+  margin-bottom: 0 !important;
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+#scientific-dissemination::before,
+#scientific-dissemination::after {
+  display: none !important;
+}
+
+#scientific-dissemination .scidiss-panel,
+#scientific-dissemination .scidiss-body,
+#scientific-dissemination .deliv-card,
+#scientific-dissemination .deliv-card-body,
+#scientific-dissemination .scrollable-table,
+#scientific-dissemination .paper-structure,
+#scientific-dissemination .paper-structure tbody,
+#scientific-dissemination .paper-structure tr,
+#scientific-dissemination .paper-structure td {
+  background: var(--paper) !important;
+  color: var(--ink-mid) !important;
+}
+
+#scientific-dissemination .paper-structure th,
+#scientific-dissemination .deliv-card summary {
+  background: var(--paper-warm) !important;
+  color: var(--ink) !important;
+}
+
+#scientific-dissemination .scidiss-summary {
+  background: var(--gold-light) !important;
+  color: #8a5e0a !important;
+}
+
+#scientific-dissemination .section-eyebrow,
+#scientific-dissemination .expand-hint {
+  color: var(--ink-light) !important;
+}
+
+#scientific-dissemination .section-title,
+#scientific-dissemination .section-title strong,
+#scientific-dissemination strong {
+  color: var(--ink) !important;
+}
+
+#scientific-dissemination .section-title em {
+  color: var(--accent) !important;
+}
+
+#scientific-dissemination .warning-box {
+  background: var(--gold-light) !important;
+  color: var(--ink-mid) !important;
+  border-left: 3px solid var(--gold) !important;
+}
+
+#scientific-dissemination .scrollable-table {
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+}
+
+#scientific-dissemination .deliv-card:last-child {
+  margin-bottom: 48px !important;
+}
+
+footer {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 0 !important;
+}
+</style>
+
+
+<style>
+.nav-link[href="#scientific-dissemination"]::after {
+  content: "" !important;
+  margin-left: 0 !important;
+}
+</style>
+
+
+<style>
+/* ===== REMOVE LARGE WHITE SPACE ===== */
+
+#scientific-dissemination {
+  margin-top: 32px !important;
+  padding-top: 32px !important;
+}
+
+#scientific-dissemination::before,
+#scientific-dissemination::after {
+  display: none !important;
+  height: 0 !important;
+}
+
+.section {
+  margin-bottom: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+.timeline,
+.warning-box,
+.grid-4,
+.or-detail-block,
+.scidiss-panel {
+  margin-bottom: 18px !important;
+}
+
+footer {
+  margin-top: 12px !important;
+  padding-top: 24px !important;
+}
+
+/* remove accidental giant spacers */
+.spacer,
+.space,
+.empty-space,
+.blank-space {
+  display:none !important;
+  height:0 !important;
+}
+
+/* normalize huge inline spacing */
+div[style*="height:80px"],
+div[style*="height: 80px"],
+div[style*="height:100px"],
+div[style*="height: 100px"],
+div[style*="height:120px"],
+div[style*="height: 120px"],
+div[style*="height:300px"],
+div[style*="height: 300px"],
+div[style*="height:500px"],
+div[style*="height: 500px"] {
+  display:none !important;
+  height:0 !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* tighten gap between sections */
+section + section {
+  margin-top: 24px !important;
+}
+
+/* specifically reduce gap before dissemination */
+#luce-gantt-master + section {
+  margin-top: 28px !important;
+  padding-top: 0 !important;
+}
+</style>
+
+
+<style>
+/* ===== NAV CLEANUP ===== */
+.nav-link {
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+/* ===== DISSEMINATION READABILITY FIX ===== */
+#scientific-dissemination .deliv-card,
+#scientific-dissemination .deliv-card-body,
+#scientific-dissemination .paper-structure,
+#scientific-dissemination .paper-structure tbody,
+#scientific-dissemination .paper-structure tr,
+#scientific-dissemination .paper-structure td,
+#scientific-dissemination .paper-structure th {
+  transform: none !important;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  rotate: 0deg !important;
+}
+
+#scientific-dissemination .deliv-card {
+  overflow: visible !important;
+}
+
+#scientific-dissemination .paper-structure td,
+#scientific-dissemination .paper-structure th {
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+#scientific-dissemination .paper-structure {
+  border-collapse: collapse !important;
+}
+
+#scientific-dissemination .deliv-card summary {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+}
+
+#scientific-dissemination .deliv-card-body {
+  padding-top: 18px !important;
+}
+
+#scientific-dissemination .paper-pill {
+  writing-mode: horizontal-tb !important;
+}
+
+#scientific-dissemination .expand-hint {
+  margin-bottom: 18px !important;
+}
+</style>
+
+
+<style>
+/* ===== FINAL SPACING + SCIENTIFIC CONTRIBUTIONS CLEANUP ===== */
+#scientific-dissemination {
+  margin-top: 10px !important;
+  padding-top: 24px !important;
+}
+
+#scientific-dissemination.section {
+  border-top: 1px solid var(--ink-faint) !important;
+}
+
+#scientific-dissemination .section-title {
+  margin-bottom: 12px !important;
+}
+
+#scientific-dissemination .scidiss-panel {
+  margin-top: 14px !important;
+}
+
+section:has(+ #scientific-dissemination) {
+  margin-bottom: 6px !important;
+  padding-bottom: 12px !important;
+}
+
+/* fallback for browsers without :has */
+#simulatore,
+#simulation,
+#sim {
+  margin-bottom: 6px !important;
+  padding-bottom: 12px !important;
+}
+
+.chart-container {
+  margin-bottom: 12px !important;
+}
+
+.scidiss-body .deliv-card {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.contribution-tag {
+  display:inline-block;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:3px 8px;
+  border-radius:2px;
+  background:var(--accent-light);
+  color:var(--accent);
+  margin-right:4px;
+}
+
+.contribution-tag.gold {
+  background:var(--gold-light);
+  color:#8a5e0a;
+}
+
+.contribution-tag.neutral {
+  background:var(--paper-warm);
+  color:var(--ink-mid);
+}
+
+.event-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--ink-faint);
+  border:1px solid var(--ink-faint);
+  margin:14px 0 18px;
+}
+
+.event-grid > div {
+  background:var(--paper);
+  padding:14px 16px;
+}
+
+.event-grid strong {
+  display:block;
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-light);
+  margin-bottom:4px;
+}
+
+.event-grid span {
+  display:block;
+  font-size:13px;
+  color:var(--ink);
+  font-weight:600;
+  line-height:1.45;
+}
+
+@media(max-width:900px){
+  .event-grid { grid-template-columns:1fr 1fr; }
+}
+</style>
+
+
+<style>
+/* ===== ULTIMI CAMBIAMENTI RICHIESTI ===== */
+
+/* 1) Nomi partner in grassetto */
+.data-table td:last-child,
+.or-detail-table td:last-child,
+.paper-structure td:nth-child(3),
+.paper-structure td:nth-child(4),
+.paper-structure td:nth-child(5),
+.partner-name {
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+}
+
+/* 2) Raddrizza badge D1.x / D5.x / DD.x */
+.badge,
+.paper-pill,
+.contribution-tag,
+#scientific-dissemination .paper-pill,
+#scientific-dissemination .badge,
+#scientific-dissemination .contribution-tag,
+#scientific-dissemination summary,
+#scientific-dissemination summary *,
+.deliv-card summary,
+.deliv-card summary * {
+  transform: none !important;
+  rotate: 0deg !important;
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
+}
+
+/* 3) Migliora leggibilità deliverable */
+.paper-pill,
+.badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 58px !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+/* 4) Gantt più compatto */
+.gantt-container,
+.gantt-chart,
+.gantt-wrapper,
+#gantt,
+#luce-gantt-master .scrollable-table,
+#luce-gantt-master table {
+  max-height: 620px !important;
+  overflow-y: auto !important;
+}
+
+#luce-gantt-master table td,
+#luce-gantt-master table th {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  font-size: 11px !important;
+  line-height: 1.25 !important;
+}
+
+#luce-gantt-master .or-detail-body {
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+
+#luce-gantt-master .timeline {
+  margin-top: 14px !important;
+  margin-bottom: 12px !important;
+}
+
+#luce-gantt-master .tl-item {
+  margin-bottom: 10px !important;
+}
+
+#luce-gantt-master .section-title {
+  margin-bottom: 14px !important;
+}
+
+/* 5) Riduzione spazi tra simulazione e dissemination */
+#scientific-dissemination {
+  margin-top: 8px !important;
+  padding-top: 22px !important;
+  padding-bottom: 36px !important;
+}
+
+section + #scientific-dissemination,
+#luce-gantt-master + #scientific-dissemination {
+  margin-top: 8px !important;
+}
+
+.chart-container {
+  margin-bottom: 8px !important;
+}
+
+/* 6) Dissemination pulita e leggibile */
+#scientific-dissemination .deliv-card {
+  margin: 10px 0 !important;
+  overflow: visible !important;
+}
+
+#scientific-dissemination .deliv-card summary {
+  min-height: 48px !important;
+  padding: 12px 16px !important;
+}
+
+#scientific-dissemination .deliv-card-body {
+  padding: 14px 18px !important;
+}
+
+#scientific-dissemination .paper-structure th,
+#scientific-dissemination .paper-structure td {
+  transform: none !important;
+  writing-mode: horizontal-tb !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  padding: 8px 10px !important;
+}
+
+/* 7) Scroll chiaro se contenuto largo */
+.scrollable-table {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  max-width: 100% !important;
+}
+
+.scrollable-table::after {
+  content: "⇢ scorri" !important;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 9px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* 8) Partner table/celle: enfasi coerente */
+td strong,
+.partner-cell,
+.partner-cell * {
+  font-weight: 800 !important;
+}
+</style>
+
+
+<style>
+/* Angelo dissemination collapsed by default */
+.scidiss-panel:not([open]) .scidiss-body {
+  display: none;
+}
+
+.scidiss-summary {
+  cursor: pointer;
+}
+</style>
+
+
+
+<style id="final-definitive-presentation-fixes">
+/* ===== VERSIONE DEFINITIVA · PRESENTATION CLEANUP ===== */
+:root { --section-gap-final: 18px; }
+
+body { overflow-x: hidden; }
+.section {
+  padding-top: 32px !important;
+  padding-bottom: 28px !important;
+  margin-top: 0 !important;
+  margin-bottom: var(--section-gap-final) !important;
+}
+.section + .section { margin-top: 0 !important; }
+.section-title { margin-bottom: 16px !important; }
+.section-eyebrow { margin-bottom: 8px !important; }
+.callout, .warning-box, .grid-2, .grid-3, .grid-4, .grid-5, .data-table, .or-detail-block, .strategic-panel, .sim-output-grid { margin-bottom: 16px !important; }
+.chart-container { margin-bottom: 8px !important; }
+
+/* Gantt compatto e leggibile in slide */
+#luce-gantt-master { padding-bottom: 16px !important; margin-bottom: 6px !important; }
+#luce-gantt-master .section-title { margin-bottom: 10px !important; }
+#luce-gantt-master .gantt-panel {
+  margin: 12px 0 12px !important;
+  max-height: 560px !important;
+  overflow: hidden !important;
+  border-radius: 4px !important;
+}
+#luce-gantt-master .gantt-scroll { overflow-x: auto !important; overflow-y: auto !important; max-height: 560px !important; }
+#luce-gantt-master .gantt { min-width: 980px !important; }
+#luce-gantt-master .gantt-head,
+#luce-gantt-master .gantt-row { grid-template-columns: 178px repeat(24, minmax(24px, 1fr)) 92px !important; }
+#luce-gantt-master .gantt-row { min-height: 30px !important; }
+#luce-gantt-master .gantt-task { padding: 5px 8px 5px 10px !important; font-size: 10px !important; line-height: 1.15 !important; }
+#luce-gantt-master .gantt-task strong { font-size: 10.5px !important; }
+#luce-gantt-master .gantt-month,
+#luce-gantt-master .gantt-label,
+#luce-gantt-master .gantt-due { padding: 5px 4px !important; font-size: 8px !important; line-height: 1.1 !important; }
+#luce-gantt-master .gantt-bar { height: 12px !important; margin: 0 2px !important; }
+#luce-gantt-master .gantt-ms { width: 11px !important; height: 11px !important; box-shadow: 0 0 0 2px rgba(255,255,255,.75) !important; }
+#luce-gantt-master .gantt-legend { margin: 8px 0 4px !important; font-size: 10px !important; gap: 8px !important; }
+
+/* Dissemination: compatta, senza lettere capovolte e senza spazi bianchi inutili */
+#scientific-dissemination {
+  margin-top: 0 !important;
+  padding-top: 22px !important;
+  padding-bottom: 28px !important;
+  margin-bottom: 6px !important;
+  background: var(--paper) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  overflow: visible !important;
+}
+#scientific-dissemination .section-title { margin-bottom: 8px !important; }
+#scientific-dissemination > p { margin-top: 8px !important; margin-bottom: 8px !important; }
+#scientific-dissemination .expand-hint { margin-top: 6px !important; margin-bottom: 10px !important; }
+#scientific-dissemination .scidiss-panel { margin: 10px 0 0 !important; }
+#scientific-dissemination .scidiss-summary { min-height: 46px !important; padding: 12px 18px !important; }
+#scientific-dissemination .scidiss-body { padding: 16px 18px !important; }
+#scientific-dissemination .deliv-card { margin: 8px 0 !important; overflow: visible !important; }
+#scientific-dissemination .deliv-card summary { min-height: 42px !important; padding: 10px 14px !important; gap: 8px !important; }
+#scientific-dissemination .deliv-card-body { padding: 12px 16px !important; }
+#scientific-dissemination .deliv-meta { margin: 10px 0 12px !important; }
+#scientific-dissemination .deliv-meta div { padding: 9px 11px !important; }
+#scientific-dissemination .paper-structure { min-width: 820px !important; }
+#scientific-dissemination .paper-structure th,
+#scientific-dissemination .paper-structure td { padding: 7px 9px !important; font-size: 10.5px !important; line-height: 1.35 !important; }
+
+/* Fix definitivo per badge/inziali Deliverable: mai verticali, mai ruotati */
+.badge, .paper-pill, .contribution-tag,
+#scientific-dissemination .badge,
+#scientific-dissemination .paper-pill,
+#scientific-dissemination .contribution-tag,
+#scientific-dissemination summary,
+#scientific-dissemination summary *,
+#scientific-dissemination table,
+#scientific-dissemination th,
+#scientific-dissemination td,
+#scientific-dissemination span {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  transform: none !important;
+  rotate: 0deg !important;
+  direction: ltr !important;
+}
+.paper-pill, .badge, .contribution-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: auto !important;
+  white-space: nowrap !important;
+  line-height: 1.15 !important;
+}
+
+/* Collassabilità: Angelo e Mariani restano chiusi finché non si clicca sulla freccia */
+#scientific-dissemination .scidiss-panel:not([open]) .scidiss-body { display: none !important; }
+#scientific-dissemination .deliv-card:not([open]) .deliv-card-body { display: none !important; }
+
+/* Partner più leggibili */
+.partner-name, td strong, .partner-cell, .partner-cell * { font-weight: 800 !important; }
+
+footer { margin-top: 8px !important; padding-top: 20px !important; }
+@media (max-width: 900px) {
+  .section { padding: 26px 22px !important; }
+  #luce-gantt-master .gantt { min-width: 900px !important; }
+  #scientific-dissemination .paper-structure { min-width: 720px !important; }
+}
+</style>
+
+
+<style>
+/* ===== SAL 50% OPERATIVE SECTION ===== */
+.sal-status-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background:var(--ink-faint); border:1px solid var(--ink-faint); margin:18px 0 22px; }
+.sal-status-grid .metric { min-height:112px; }
+.status-table { width:100%; border-collapse:collapse; font-size:12px; margin:12px 0 22px; }
+.status-table th { font-size:9px; font-weight:800; letter-spacing:.10em; text-transform:uppercase; background:var(--paper-warm); color:var(--ink-light); padding:9px 11px; text-align:left; border-bottom:2px solid var(--ink-faint); }
+.status-table td { padding:9px 11px; border-bottom:1px solid var(--ink-faint); color:var(--ink-mid); vertical-align:top; line-height:1.45; }
+.status-table td:first-child, .status-table td:nth-child(2) { color:var(--ink); font-weight:700; }
+.status-pill { display:inline-flex; align-items:center; justify-content:center; min-width:74px; padding:4px 8px; border-radius:2px; font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; writing-mode:horizontal-tb !important; transform:none !important; }
+.status-closed { background:#cce8d5; color:#135224; }
+.status-progress { background:var(--gold-light); color:#8a5e0a; }
+.status-evidence { background:var(--accent-light); color:var(--accent); }
+.action-list { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 4px; }
+.action-card { border:1px solid var(--ink-faint); background:var(--paper); border-left:3px solid var(--accent); padding:14px 16px; border-radius:var(--radius); }
+.action-card.gold { border-left-color:var(--gold); }
+.action-card h4 { font-size:12px; margin-bottom:6px; color:var(--ink); }
+.action-card p { font-size:12px; color:var(--ink-mid); line-height:1.55; }
+@media(max-width:900px){ .sal-status-grid { grid-template-columns:1fr 1fr; } .action-list { grid-template-columns:1fr; } }
+</style>
+
+<style>
+/* ===== MICRO FIX FINALE: coerenza Sezione 3 + spazio Simulatore/Dissemination ===== */
+.section3-alignment {
+  margin-top: -8px !important;
+  margin-bottom: 14px !important;
+  padding: 12px 16px !important;
+  font-size: 11.5px !important;
+  line-height: 1.55 !important;
+}
+.sal-compact-dates { margin-bottom: 12px !important; }
+.sal-compact-dates .metric { padding: 14px 16px !important; min-height: 96px !important; }
+
+/* riduzione reale dello spazio bianco tra blocco simulatore, Gantt riepilogativo e dissemination */
+#simulatore.section {
+  margin-bottom: 0 !important;
+  padding-bottom: 8px !important;
+}
+#simulatore .strategic-panel,
+#simulatore .sim-output-grid,
+#simulatore .preset-row,
+#simulatore .chart-container {
+  margin-bottom: 10px !important;
+}
+#luce-gantt-master.section {
+  margin-top: 0 !important;
+  padding-top: 14px !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 0 !important;
+}
+#luce-gantt-master .section-title { margin-bottom: 10px !important; }
+#luce-gantt-master .section-eyebrow { margin-bottom: 6px !important; }
+#luce-gantt-master details.or-detail-block { margin-bottom: 0 !important; }
+#luce-gantt-master .or-detail-body { padding: 12px 16px !important; }
+#luce-gantt-master .scrollable-table { margin-bottom: 6px !important; }
+#luce-gantt-master .timeline { margin: 8px 0 0 !important; }
+#luce-gantt-master .tl-item { margin-bottom: 6px !important; }
+#luce-gantt-master + #scientific-dissemination,
+#scientific-dissemination.section {
+  margin-top: 0 !important;
+  padding-top: 14px !important;
+}
+#scientific-dissemination .section-title { margin-bottom: 8px !important; }
+#scientific-dissemination p[style*="margin-top:14px"] { margin-top: 6px !important; margin-bottom: 6px !important; }
+#scientific-dissemination .expand-hint { margin-top: 4px !important; margin-bottom: 8px !important; }
+
+/* elimina eventuali vuoti residui generati da reveal/section */
+#simulatore + #luce-gantt-master,
+#luce-gantt-master + #scientific-dissemination { border-top-width: 1px !important; }
+</style>
+
+
+
+<style id="fix-spazio-bianco-simulatore-dissemination">
+/* FIX DEFINITIVO: elimina il vuoto tra Simulatore e Dissemination */
+.reveal,
+.reveal.visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+#simulatore.section {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: 0 !important;
+}
+
+#simulatore .sim-output-grid {
+  margin-bottom: 0 !important;
+}
+
+#simulatore .chart-container {
+  height: 165px !important;
+  max-height: 165px !important;
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden !important;
+}
+
+#simulatore canvas#simChart {
+  display: block !important;
+  height: 165px !important;
+  max-height: 165px !important;
+  width: 100% !important;
+}
+
+/* Il blocco Gantt intermedio generava lo spazio bianco: lo elimino dal flusso tra simulatore e dissemination. */
+#luce-gantt-master {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+}
+
+#scientific-dissemination.section {
+  margin-top: 0 !important;
+  padding-top: 18px !important;
+  border-top: 1px solid var(--ink-faint) !important;
+}
+
+#simulatore + #luce-gantt-master + #scientific-dissemination,
+#simulatore + #scientific-dissemination {
+  margin-top: 0 !important;
+  padding-top: 18px !important;
+}
+</style>
+
+
+<style>
+/* ===== FIX FINALE SPAZIO BIANCO SIMULATORE → DISSEMINATION ===== */
+#simulatore { margin-bottom: 0 !important; padding-bottom: 12px !important; }
+#simulatore .chart-container { max-height: 260px !important; margin-bottom: 0 !important; }
+#simulatore canvas { max-height: 240px !important; }
+#scientific-dissemination { margin-top: 0 !important; padding-top: 20px !important; }
+#simulatore + #scientific-dissemination, section#simulatore + section#scientific-dissemination { margin-top: 0 !important; }
+</style>
 </head>
 <body>
 
@@ -506,8 +1617,8 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
         <span class="cover-kpi-lbl">Spese R&amp;S (RI + SS)</span>
       </div>
       <div class="cover-kpi">
-        <span class="cover-kpi-val">24 mesi</span>
-        <span class="cover-kpi-lbl">Durata · Dic 2023 → Dic 2025</span>
+        <span class="cover-kpi-val">36 mesi</span>
+        <span class="cover-kpi-lbl">Durata aggiornata · Dic 2023 → Dic 2026</span>
       </div>
       <div class="cover-kpi">
         <span class="cover-kpi-val">2 OR</span>
@@ -521,7 +1632,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   </div>
   <div class="cover-footer">
     <span class="cover-footer-brand">LUM Enterprise S.r.l. — LUMEN</span>
-    <span class="cover-footer-date">Dashboard v1.0 · Maggio 2026</span>
+    <span class="cover-footer-date">Dashboard SAL · Maggio 2026</span>
   </div>
 </section>
 
@@ -529,14 +1640,15 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
 <nav id="mainNav">
   <span class="nav-brand">LUCE</span>
   <div class="nav-links">
-    <a class="nav-link active" href="#contratto">01 · Contratto</a>
-    <a class="nav-link" href="#or1">02 · OR1 – RI</a>
-    <a class="nav-link" href="#or5">03 · OR5 – SS</a>
-    <a class="nav-link" href="#personale">04 · Personale &amp; Tariffe</a>
-    <a class="nav-link" href="#integrazione">05 · Dati &amp; Compliance</a>
-    <a class="nav-link" href="#partner">06 · Ecosistema Partner</a>
-    <a class="nav-link" href="#simulatore">07 · Simulatore</a>
-  </div>
+    <a class="nav-link active" href="#contratto">Contratto</a>
+    <a class="nav-link" href="#sal-50">SAL 50%</a>
+    <a class="nav-link" href="#or1">OR1 – RI</a>
+    <a class="nav-link" href="#or5">OR5 – SS</a>
+    <a class="nav-link" href="#personale">Personale &amp; Tariffe</a>
+    <a class="nav-link" href="#integrazione">Dati &amp; Compliance</a>
+    <a class="nav-link" href="#partner">Ecosistema Partner</a>
+    <a class="nav-link" href="#simulatore">Simulatore</a>
+  <a class="nav-link" href="#scientific-dissemination">Dissemination</a></div>
 </nav>
 
 <!-- ═══ §01 CONTRATTO ═══ -->
@@ -561,9 +1673,9 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
       <p class="metric-sub">Strumentazione e attrezzature</p>
     </div>
     <div class="metric">
-      <span class="metric-val gold">24 mesi</span>
-      <span class="metric-lbl">DURATA PROGETTO</span>
-      <p class="metric-sub">04/12/2023 → 03/12/2025</p>
+      <span class="metric-val gold">36 mesi</span>
+      <span class="metric-lbl">DURATA AGGIORNATA</span>
+      <p class="metric-sub">SAL operativo aggiornato</p>
     </div>
     <div class="metric">
       <span class="metric-val accent">OR1 + OR5</span>
@@ -630,28 +1742,36 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   </table>
 
   <!-- Cronoprogramma -->
-  <div class="grid-4 reveal">
+  <div class="grid-4 reveal sal-compact-dates">
     <div class="metric">
       <span class="metric-val accent" style="font-size:18px">04/12/2023</span>
       <span class="metric-lbl">AVVIO INVESTIMENTI</span>
+      <p class="metric-sub">Coerente con Sezione 3</p>
     </div>
     <div class="metric">
-      <span class="metric-val accent" style="font-size:18px">31/12/2024</span>
-      <span class="metric-lbl">REALIZZAZIONE 50%</span>
+      <span class="metric-val accent" style="font-size:18px">31/03/2026</span>
+      <span class="metric-lbl">TARGET SAL 50%</span>
+      <p class="metric-sub">Aggiornamento operativo da riunione</p>
     </div>
     <div class="metric">
-      <span class="metric-val accent" style="font-size:18px">03/12/2025</span>
-      <span class="metric-lbl">ULTIMAZIONE</span>
+      <span class="metric-val accent" style="font-size:18px">03/12/2026</span>
+      <span class="metric-lbl">ULTIMAZIONE PREVISTA</span>
+      <p class="metric-sub">Aggiornamento operativo da riunione</p>
     </div>
     <div class="metric">
       <span class="metric-val gold" style="font-size:18px">2026</span>
       <span class="metric-lbl">ESERCIZIO A REGIME</span>
+      <p class="metric-sub">Confermato in Sezione 3</p>
     </div>
+  </div>
+
+  <div class="callout callout-gold reveal section3-alignment">
+    <strong>Nota di coerenza con la Sezione 3:</strong> il formulario definitivo riporta il cronoprogramma originario con avvio investimenti <strong>04/12/2023</strong>, realizzazione 50% <strong>31/12/2024</strong>, ultimazione/entrata in funzione <strong>03/12/2025</strong>, entrata a regime <strong>04/12/2025</strong> ed esercizio a regime <strong>2026</strong>. La versione di presentazione mantiene il budget e la struttura OR della Sezione 3, ma recepisce per il SAL l’aggiornamento operativo emerso in riunione: <strong>target intermedio 31/03/2026</strong> e <strong>ultimazione prevista 03/12/2026</strong>.
   </div>
 
   <!-- Stato di avanzamento -->
   <div class="callout reveal" style="margin-bottom:16px">
-    <strong>Stato di avanzamento (settembre 2024):</strong> Le attività di Ricerca Industriale (OR1) risultano sostanzialmente completate, con la definizione del framework metodologico, dei modelli analitici e dei sistemi di KPI — già oggetto di numerose pubblicazioni scientifiche. Le attività di Sviluppo Sperimentale (OR5) sono in stato avanzato, con prototipi sviluppati e sottoposti a prime attività di test e validazione. <strong>Impegno economico:</strong> personale impegnato ~€166.000 (52% del budget personale OR1 = €317.520); fornitori di consulenza ~€30.000 (6% del budget fornitori OR1 = €570.000).
+    <strong>Stato di avanzamento storico (settembre 2024, da documento definitivo):</strong> Le attività di Ricerca Industriale (OR1) risultano sostanzialmente completate, con la definizione del framework metodologico, dei modelli analitici e dei sistemi di KPI — già oggetto di numerose pubblicazioni scientifiche. Le attività di Sviluppo Sperimentale (OR5) sono in stato avanzato, con prototipi sviluppati e sottoposti a prime attività di test e validazione. <strong>Impegno economico:</strong> personale impegnato ~€166.000 (52% del budget personale OR1 = €317.520); fornitori di consulenza ~€30.000 (6% del budget fornitori OR1 = €570.000).
   </div>
 
   <!-- Responsabili e sede -->
@@ -710,9 +1830,74 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   </div>
 </section>
 
-<!-- ═══ §02 OR1 – RICERCA INDUSTRIALE ═══ -->
+<!-- ═══ §02 SAL 50% – STATO E AZIONI OPERATIVE ═══ -->
+<section class="section reveal" id="sal-50">
+  <p class="section-eyebrow">02 &nbsp;·&nbsp; SAL intermedio 50%</p>
+  <h2 class="section-title">Relazione tecnica SAL: <em>stato, evidenze e azioni operative</em></h2>
+
+  <div class="callout reveal" style="margin-bottom:18px">
+    <strong>Aggiornamento da riunione:</strong> la presentazione è stata riallineata al SAL LUCE con avvio progetto <strong>04/12/2023</strong>, target intermedio <strong>31/03/2026</strong>, ultimazione prevista <strong>03/12/2026</strong>. La relazione conclusiva del SAL dovrà dimostrare una spesa complessiva pari a circa <strong>€692.624</strong>, corrispondente al 50% dell’investimento complessivo LUM Enterprise.
+  </div>
+
+  <div class="sal-status-grid reveal">
+    <div class="metric"><span class="metric-val accent">31/03/2026</span><span class="metric-lbl">TARGET SAL 50%</span><p class="metric-sub">Data di verifica intermedia</p></div>
+    <div class="metric"><span class="metric-val accent">€692,6k</span><span class="metric-lbl">SPESA DA DIMOSTRARE</span><p class="metric-sub">Circa 50% di €1.385.248</p></div>
+    <div class="metric"><span class="metric-val gold">03/12/2026</span><span class="metric-lbl">ULTIMAZIONE PREVISTA</span><p class="metric-sub">Chiusura progetto aggiornata</p></div>
+    <div class="metric"><span class="metric-val">Doc tecnici</span><span class="metric-lbl">DA CONDIVIDERE</span><p class="metric-sub">Evidenze OR/Deliverable per SAL</p></div>
+  </div>
+
+  <table class="status-table reveal">
+    <thead><tr><th>Area</th><th>Stato SAL</th><th>Attività da considerare concluse/documentabili</th><th>Attività ancora in corso</th><th>Evidenza tecnica da allegare</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>OR1 · Framework e modelli</td>
+        <td><span class="status-pill status-closed">Concluso</span></td>
+        <td>Definizione del framework Entrepreneurial Ecosystem; componenti organizzative, processi, conoscenza, competenze e servizi; prime traiettorie di mercato e sistema KPI.</td>
+        <td>Rafforzamento del collegamento tra modelli OR1 e prototipi OR5; aggiornamento delle evidenze per relazione tecnica.</td>
+        <td>Report OR1; articoli/dissemination; tavole KPI; estratto progetto definitivo.</td>
+      </tr>
+      <tr>
+        <td>OR5 · Prototipi software</td>
+        <td><span class="status-pill status-progress">In corso</span></td>
+        <td>Impostazione architetturale dei moduli: data extraction, dashboard KPI, valutazione/ranking, digital twin e simulazione rischio.</td>
+        <td>Completamento integrazione, test, validazione utente e raccolta screenshot/prove funzionali.</td>
+        <td>Demo prototipali; screenshot dashboard; schema architetturale; log test.</td>
+      </tr>
+      <tr>
+        <td>Data ingestion · Mariani</td>
+        <td><span class="status-pill status-evidence">Evidenza</span></td>
+        <td>Documento tecnico inserito: fonti dati interne/esterne, data ingestion layer, data processing, tassonomia competenze, storage, analytics e recommendation engine.</td>
+        <td>Collegamento formale del documento a D5.1/D5.2 e alla narrazione SAL come evidenza tecnico-prototipale.</td>
+        <td>Approfondimento Data Ingestion LUCE · Stefano Mariani.</td>
+      </tr>
+      <tr>
+        <td>Dissemination · Leogrande</td>
+        <td><span class="status-pill status-evidence">Evidenza</span></td>
+        <td>Contributi scientifici e attività di dissemination mantenuti in sezione collassabile, apribile solo tramite freccia.</td>
+        <td>Verifica coerenza tra eventi/promesse di dissemination e documenti effettivamente allegabili al SAL.</td>
+        <td>Paper/report; evento o abstract; consenso partner se richiesto.</td>
+      </tr>
+      <tr>
+        <td>Rendicontazione</td>
+        <td><span class="status-pill status-progress">Da chiudere</span></td>
+        <td>Quadro economico totale e quote RI/SS già valorizzate in presentazione.</td>
+        <td>Allineamento spesa rendicontabile a circa €692.624; riconciliazione costi personale, fornitori, spese generali e attivi materiali.</td>
+        <td>Timesheet, contratti, fatture, SAL tecnico, prospetto costi e check budget.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="action-list reveal">
+    <div class="action-card"><h4>1 · Chiudere il perimetro SAL</h4><p>Separare formalmente ciò che è già concluso/documentabile da ciò che resta in avanzamento, evitando di dichiarare conclusi moduli OR5 che richiedono ancora test e integrazione.</p></div>
+    <div class="action-card gold"><h4>2 · Preparare il fascicolo tecnico</h4><p>Allegare documenti su OR1, prototipi OR5, Data Ingestion Mariani, dissemination Leogrande, screenshot, demo, report KPI e note di validazione.</p></div>
+    <div class="action-card"><h4>3 · Riconciliare costi e avanzamento</h4><p>Costruire una tabella unica SAL con attività, deliverable, evidenze, costo imputato e stato; obiettivo economico: circa €692.624.</p></div>
+    <div class="action-card gold"><h4>4 · Validare la narrazione tecnica</h4><p>Usare la relazione SAL per mostrare continuità tra ricerca industriale, prototipazione, data ingestion, dashboard KPI, digital twin e risk simulation.</p></div>
+  </div>
+</section>
+
+<!-- ═══ §03 OR1 – RICERCA INDUSTRIALE ═══ -->
 <section class="section reveal" id="or1">
-  <p class="section-eyebrow">02 &nbsp;·&nbsp; Obiettivo realizzativo 1</p>
+  <p class="section-eyebrow">03 &nbsp;·&nbsp; Obiettivo realizzativo 1</p>
   <h2 class="section-title">OR1 – Innovation Ecosystem &amp; <em>Entrepreneurial Intelligence</em> Framework</h2>
   <p style="font-size:13px;color:var(--ink-mid);margin-bottom:24px;max-width:780px;line-height:1.75">
     Il nuovo OR1 accorpa gli obiettivi degli OR1 e OR2 originali, integrando soluzioni di <strong>AI generativa</strong> e modelli multimodali (2024–2025). È articolato in due sotto-obiettivi: <strong>OR1.1</strong> (Framework Entrepreneurial Ecosystem — 5 componenti) e <strong>OR1.2</strong> (Algoritmi e modelli di valutazione dei mercati e delle startup/imprese). Responsabile: <strong>LUM Enterprise</strong>.
@@ -814,7 +1999,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
       <p class="or-detail-intro">OR1 costruisce le <strong>basi metodologiche e concettuali</strong> dell'intero sistema LUCE. Le 7 attività coprono: framework teorico degli ecosistemi (A1.1), analisi traiettorie di mercato con System Dynamics (A1.2), definizione KPI ESG e multi-dimensionali (A1.3), modelli predittivi supervisionati e non supervisionati (A1.4), algoritmi di previsione PMI con NLP avanzato (A1.5), algoritmi di ranking e scoring (A1.6), Digital Twin e what-if analysis per il Technology Transfer (A1.7).</p>
 
       <p class="or-detail-sub-head">Attività e deliverable</p>
-      <table class="or-detail-table">
+      <div class="scrollable-table"><table class="or-detail-table">
         <thead><tr><th>Attività</th><th>Descrizione</th><th>Partner</th><th>Deliverable</th></tr></thead>
         <tbody>
           <tr><td><strong>A1.1</strong></td><td>Modellazione del Framework Complessivo — identificazione attori (startup, PMI, università, GI, centri ricerca), processi di TT, matching con opportunità di business, soluzioni per il trasferimento tecnologico.</td><td>LUM Ent., LUM Business School, Atomtech</td><td><span class="badge badge-neutral">D1.1</span></td></tr>
@@ -825,10 +2010,10 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
           <tr><td><strong>A1.6</strong></td><td>Algoritmi di Ranking — ranking iniziative imprenditoriali (ML supervisionato e non); scoring e raccomandazione; analisi profili aziendali per Technology Transfer (fatturato, settore, dipendenti, geografia); Hidden Markov, CNN, NLP, Reinforcement Learning.</td><td>LUM Ent., GD Services</td><td><span class="badge badge-neutral">D1.6</span></td></tr>
           <tr><td><strong>A1.7</strong></td><td>Digital Twin e What-If Analysis — modello TT (knowledge gain, probability to use, prototype readiness, business impact); Digital Twin per simulazione scenari di business; identificazione gap operativi e strategici per nuove iniziative progettuali.</td><td>LUM Ent.</td><td><span class="badge badge-neutral">D1.7</span></td></tr>
         </tbody>
-      </table>
+      </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
 
       <p class="or-detail-sub-head">Distribuzione risorse (giorni × uomo)</p>
-      <table class="or-detail-table">
+      <div class="scrollable-table"><table class="or-detail-table">
         <thead><tr><th>Attività</th><th>Tipo</th><th>Personale interno (gg)</th><th>Consulenze esterne (gg)</th><th>Fornitore consulenze</th></tr></thead>
         <tbody>
           <tr><td><strong>A1.1</strong></td><td><span class="badge badge-blue">RI</span></td><td>356,2</td><td>570 (60+290+220)</td><td>Software Design · LUM Bus.School · Atomtech</td></tr>
@@ -838,7 +2023,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
           <tr><td><strong>A1.5 – A1.7</strong></td><td><span class="badge badge-blue">RI</span></td><td>—</td><td>—</td><td>In pianificazione</td></tr>
           <tr class="subtotal-row"><td colspan="2"><strong>Totale OR1</strong></td><td><strong>1.090,6 gg</strong></td><td><strong>1.807,5 gg</strong></td><td>—</td></tr>
         </tbody>
-      </table>
+      </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
 
       <p class="or-detail-sub-head">Tabella disseminazione OR1</p>
       <table class="or-detail-table diss-table">
@@ -855,9 +2040,9 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   </details>
 </section>
 
-<!-- ═══ §03 OR5 – SVILUPPO SPERIMENTALE ═══ -->
+<!-- ═══ §04 OR5 – SVILUPPO SPERIMENTALE ═══ -->
 <section class="section reveal" id="or5">
-  <p class="section-eyebrow">03 &nbsp;·&nbsp; Obiettivo realizzativo 5</p>
+  <p class="section-eyebrow">04 &nbsp;·&nbsp; Obiettivo realizzativo 5</p>
   <h2 class="section-title">OR5 – Intelligence Entrepreneurial <em class="gold">Solution</em></h2>
   <p style="font-size:13px;color:var(--ink-mid);margin-bottom:24px;max-width:780px;line-height:1.75">
     OR5 unisce gli intenti degli ex OR5 e OR7, fornendo la traduzione operativa dei modelli OR1 in una <strong>piattaforma integrata SaaS abilitata da AI</strong>. Include: Data Extraction, Dashboard KPI, Suite Ranking, Digital Twin/Simulatore, Risk Management e framework integrato per startup e PMI technology-intensive. Partner principali: <strong>LUM Enterprise · GD Services · Software Design · Dynius</strong>.
@@ -932,7 +2117,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
       <p class="or-detail-intro">OR5 traduce in soluzioni prototipali operative i modelli e gli algoritmi sviluppati in OR1. L'architettura SaaS integra: piattaforma di data extraction con NLP/OCR, dashboard KPI predittiva, suite di valutazione e ranking ML-based, Digital Twin "KPI-Digital Twin" per simulazione scenari, laboratorio di Risk Management con Montecarlo e what-if, e infine integrazione e testing del framework completo con startup e PMI reali selezionate.</p>
 
       <p class="or-detail-sub-head">Attività e deliverable</p>
-      <table class="or-detail-table">
+      <div class="scrollable-table"><table class="or-detail-table">
         <thead><tr><th>Attività</th><th>Descrizione</th><th>Tecnologie chiave</th><th>Deliverable</th></tr></thead>
         <tbody>
           <tr><td><strong>A5.1</strong></td><td>Prototipo Piattaforma Data Extraction — web scraping su dati non strutturati, API integration, NLP (BERT/LLM), OCR avanzato, web scraping dinamico per aggiornamento continuo, report personalizzati con insight e raccomandazioni.</td><td>BERT, LLM, OCR, NLP, Web Scraping, ETL</td><td><span class="badge badge-neutral">D5.1</span></td></tr>
@@ -942,10 +2127,10 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
           <tr><td><strong>A5.5</strong></td><td>Prototipo Risk Management — laboratorio di analisi rischi con dati storici e predittivi; simulazioni Montecarlo (migliaia di scenari); ML per adattamento continuo calcolo del rischio; dashboard interattiva per visualizzazione esposizione al rischio e strategie preventive.</td><td>Montecarlo, ML Risk, What-If, Scenari</td><td><span class="badge badge-neutral">D5.5</span></td></tr>
           <tr><td><strong>A5.6</strong></td><td>Integrazione e Testing — integrazione di tutti i moduli in framework operativo unico; testing intensivo con startup/PMI selezionate; raccolta feedback; monitoraggio performance e reattività del sistema; ottimizzazione UX.</td><td>System Integration, Testing, UX Validation</td><td><span class="badge badge-neutral">D5.6</span></td></tr>
         </tbody>
-      </table>
+      </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
 
       <p class="or-detail-sub-head">Distribuzione risorse OR5 (giorni × uomo)</p>
-      <table class="or-detail-table">
+      <div class="scrollable-table"><table class="or-detail-table">
         <thead><tr><th>Attività (ex-OR7)</th><th>Tipo</th><th>Personale interno (gg)</th><th>Consulenze esterne (gg)</th><th>Fornitore consulenze</th></tr></thead>
         <tbody>
           <tr><td><strong>A5.1 (ex A7.1)</strong></td><td><span class="badge badge-gold">SS</span></td><td>346</td><td>532,5 (182,5+350)</td><td>Dynius · GD Services</td></tr>
@@ -953,7 +2138,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
           <tr><td><strong>A5.3 – A5.6</strong></td><td><span class="badge badge-gold">SS</span></td><td>—</td><td>—</td><td>LUM Ent., GD Services, Software Design, Dynius</td></tr>
           <tr class="subtotal-row"><td colspan="2"><strong>Totale OR5</strong></td><td><strong>630 gg</strong></td><td><strong>975 gg</strong></td><td>—</td></tr>
         </tbody>
-      </table>
+      </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
 
       <p class="or-detail-sub-head">Tabella disseminazione OR5</p>
       <table class="or-detail-table diss-table">
@@ -976,7 +2161,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
 <section class="section reveal" id="gantt">
   <p class="section-eyebrow">04 &nbsp;·&nbsp; Pianificazione, milestone e dissemination</p>
   <h2 class="section-title">Gantt LUCE: <em>mesi, deliverable e consegne</em></h2>
-  <p class="or-detail-intro">Il Gantt operativo è costruito su 24 mesi, con lettura da gennaio 2024 a dicembre 2025 per renderlo coerente con la rappresentazione lineare presente nei materiali LUCE. Le tre ancore di verifica sono: M1 in Q4 2024 per scenario operativo e requisiti di base, M7 in Q2 2025 per specifiche implementative KPI–Digital Twin, M3 in Q4 2025 per simulatore prototipale e verifica delle dashboard.</p>
+  <p class="or-detail-intro">Il Gantt operativo è stato ricondotto alla lettura SAL aggiornata: avvio 04/12/2023, target intermedio 50% al 31/03/2026 e ultimazione prevista al 03/12/2026. Le attività sono distinte tra componenti chiuse/documentabili e componenti ancora in corso, così da supportare la relazione tecnica del SAL e l’elenco delle evidenze da condividere.</p>
 
   <div class="gantt-legend">
     <span><i class="legend-dot legend-ri"></i>Ricerca Industriale · OR1</span>
@@ -1016,33 +2201,65 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
 <!-- ═══ §05 PERSONALE & TARIFFE ═══ -->
 <section class="section reveal" id="personale">
   <p class="section-eyebrow">05 &nbsp;·&nbsp; Personale, tariffe e fornitori</p>
-  <h2 class="section-title">Tabella costi: personale <em>interno</em> e <em class="gold">fornitori R&amp;S</em></h2>
+  <h2 class="section-title">Tariffe operative SAL, personale <em>interno</em> e <em class="gold">fornitori R&amp;S</em></h2>
 
-  <!-- Tariffe costo standard personale interno -->
-  <div class="reveal" style="margin-bottom:24px">
-    <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:10px">Costo standard unitario – Personale interno (PIA Puglia · D.I. MIUR MISE 116/2018)</p>
+  <!-- Tariffe operative SAL + nota su ipotesi simulativa -->
+  <div class="reveal" style="margin-bottom:20px">
+    <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:10px">Tariffe operative da prospetto SAL interno</p>
+    <div class="callout" style="margin-bottom:14px">
+      <strong>Nota di correttezza SAL:</strong> le tariffe riportate sotto sono quelle operative del prospetto di allocazione condiviso. Le precedenti fasce standard interne sono considerate esclusivamente <strong>ipotesi simulativa / benchmark interno non valido ai fini rendicontativi</strong>, salvo conferma documentale con contratti, lettere d’incarico, timesheet e prospetti costo ufficiali.
+    </div>
     <div class="tariffe-int">
       <div class="tariffa-card tc1">
-        <div class="tariffa-fascia">Alto – Dirigenti</div>
-        <div class="tariffa-val">€75,00/h</div>
-        <div class="tariffa-sub">€600/gg (8h) · es. N. Magaletti</div>
+        <div class="tariffa-fascia">Fascia operativa alta</div>
+        <div class="tariffa-val">€600/gg</div>
+        <div class="tariffa-sub">Magaletti · Di Molfetta in quota 2026/2027 · Giusy Secundo</div>
       </div>
       <div class="tariffa-card tc2">
-        <div class="tariffa-fascia">Medio – Quadri</div>
-        <div class="tariffa-val">€43,00/h</div>
-        <div class="tariffa-sub">€344/gg (8h) · es. Prof. Secundo, Del Vecchio</div>
+        <div class="tariffa-fascia">Fascia operativa intermedia</div>
+        <div class="tariffa-val">€344/gg</div>
+        <div class="tariffa-sub">Pasquale Del Vecchio</div>
       </div>
       <div class="tariffa-card tc3">
-        <div class="tariffa-fascia">Basso – Impiegati / Operai</div>
-        <div class="tariffa-val">€27,00/h</div>
-        <div class="tariffa-sub">€216/gg (8h) · es. Massaro, Iusco, ULA1-3</div>
+        <div class="tariffa-fascia">Fascia operativa base</div>
+        <div class="tariffa-val">€216/gg</div>
+        <div class="tariffa-sub">Leogrande · Notarnicola · Massaro · Iusco · Mariani · Vanna Trotta · altri profili operativi</div>
       </div>
     </div>
+    <table class="data-table" style="margin-top:16px;margin-bottom:0">
+      <thead>
+        <tr>
+          <th>Risorsa</th>
+          <th>Tariffa gg da prospetto</th>
+          <th>Note di lettura SAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Nicola Magaletti</strong></td><td class="num">€600/gg</td><td>Presente nelle annualità 2023–2026.</td></tr>
+        <tr><td><strong>Angelo Leogrande</strong></td><td class="num">€216/gg</td><td>Quota scientifica/dissemination e contributi metodologici.</td></tr>
+        <tr><td><strong>Mauro Di Molfetta</strong></td><td class="num">€216/gg / €600/gg</td><td>Tariffa variabile per annualità/ruolo nel prospetto: usare il valore dell’anno di competenza.</td></tr>
+        <tr><td><strong>Valeria Notarnicola</strong></td><td class="num">€216/gg</td><td>Allocazioni operative su 2024–2027.</td></tr>
+        <tr><td><strong>Massaro</strong></td><td class="num">€216/gg</td><td>Allocazioni operative 2024–2025.</td></tr>
+        <tr><td><strong>Iusco</strong></td><td class="num">€216/gg</td><td>Allocazioni operative SS.</td></tr>
+        <tr><td><strong>Stefano Mariani</strong></td><td class="num">€216/gg</td><td>Data ingestion / contributo tecnico aggiuntivo.</td></tr>
+        <tr><td><strong>Vanna Trotta</strong></td><td class="num">€216/gg</td><td>Allocazioni operative 2026–2027.</td></tr>
+        <tr><td><strong>Giusy Secundo</strong></td><td class="num">€600/gg</td><td>Presente nel prospetto con tariffa alta.</td></tr>
+        <tr><td><strong>Pasquale Del Vecchio</strong></td><td class="num">€344/gg</td><td>Presente nel prospetto 2023.</td></tr>
+        <tr><td><strong>Michele Posa / Domenica Barile</strong></td><td class="num">€216/gg</td><td>Presenti nel prospetto 2023.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-4 reveal" style="margin-bottom:20px">
+    <div class="metric"><span class="metric-val accent">€692.624</span><span class="metric-lbl">TARGET SAL 50%</span><p class="metric-sub">03/12/2023–16/04/2026</p></div>
+    <div class="metric"><span class="metric-val accent">€236.354</span><span class="metric-lbl">PERSONALE SAL</span><p class="metric-sub">Quota rendicontata prospetto</p></div>
+    <div class="metric"><span class="metric-val gold">€424.000</span><span class="metric-lbl">FORNITORI SAL</span><p class="metric-sub">GDS · Software Design · Enable</p></div>
+    <div class="metric"><span class="metric-val" style="color:var(--ink-mid)">€16.250</span><span class="metric-lbl">ATTIVI MATERIALI</span><p class="metric-sub">Importi senza IVA</p></div>
   </div>
 
   <!-- Tabella personale -->
   <div class="reveal">
-    <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:10px">Personale coinvolto nel progetto LUCE</p>
+    <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:10px">Personale coinvolto nel progetto LUCE · importi aggregati da verificare con prospetto SAL</p>
     <table class="profile-table" style="margin-bottom:24px">
       <thead>
         <tr>
@@ -1288,7 +2505,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   <details class="or-detail-block reveal" style="border:var(--border);border-radius:var(--radius);margin-top:20px">
     <summary class="or-detail-summary ri-sum"><span class="or-detail-badge ri-badge">Studio</span>Deliverable da integrare nel fascicolo LUCE<span class="or-detail-arrow">▼</span></summary>
     <div class="or-detail-body">
-      <table class="or-detail-table">
+      <div class="scrollable-table"><table class="or-detail-table">
         <thead><tr><th>Output</th><th>Contenuto da produrre</th><th>Uso nel progetto LUCE</th></tr></thead>
         <tbody>
           <tr><td><strong>Documento di Studio</strong></td><td>Data requirements, mappa fonti, metodi di accesso, compliance GDPR/ToS, rischi, architettura, dimensionamento, stima costi e matrice decisionale.</td><td>Allegato tecnico per giustificare OR1, OR5, scelte dati e sostenibilità della piattaforma.</td></tr>
@@ -1296,7 +2513,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
           <tr><td><strong>Stima volumi e costi</strong></td><td>Assunzioni esplicite su quantità dati, frequenza di aggiornamento, storage, API/rate limit, sicurezza e backup.</td><td>Supporto al budget tecnico e alla scelta cloud/on-prem.</td></tr>
           <tr><td><strong>Recruiting / CV</strong></td><td>Confronto tra scenario compliant-first, ibrido e alto rischio, con privacy-by-design e tracciabilità.</td><td>Criterio metodologico, evitando automazioni ad alto rischio nella fase industrializzabile.</td></tr>
         </tbody>
-      </table>
+      </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
     </div>
   </details>
 </section>
@@ -1309,12 +2526,12 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   <table class="data-table reveal">
     <thead><tr><th>Modulo / tema</th><th>Contenuto tecnico da coordinare</th><th>Partner / attuatore citato</th><th>Connessione con LUM Enterprise</th></tr></thead>
     <tbody>
-      <tr><td><strong>Mentoring &amp; Coaching online</strong></td><td>Assistente virtuale, virtual mentoring/coaching, contenuti personalizzati e interfaccia adattiva.</td><td>Lutech · Politecnico di Milano · PoliHub · Binp</td><td>Allineamento con modelli di ecosistema, competenze, servizi e stakeholder map di OR1.</td></tr>
-      <tr><td><strong>Smart Authoring</strong></td><td>AI generativa, RAG, prompt engineering, instructional design, learning object e riuso contenuti.</td><td>Lutech · Politecnico di Milano</td><td>Uso di knowledge graph, data catalog e modelli di conoscenza definiti in OR1.</td></tr>
-      <tr><td><strong>Recommendation, skill gap e churn</strong></td><td>Recommender system, analytics, scoring, previsione abbandono, pushing contenuti e percorsi personalizzati.</td><td>Lutech · Politecnico di Milano · Dynius</td><td>Coerenza con ranking/scoring imprese, KPI dinamici e sistemi predittivi OR1/OR5.</td></tr>
-      <tr><td><strong>Integration Engine</strong></td><td>Integrazione con ERP, HCM, CRM, LMS, fondi formazione, LTI Advantage, low-code e rule-based engine.</td><td>Lutech e partner tecnologici</td><td>Rende i dati disponibili alla piattaforma, ai data scientist e ai moduli frontend.</td></tr>
-      <tr><td><strong>Knowledge base &amp; LXP</strong></td><td>Knowledge base, classificazione documenti, interoperabilità LTI 1.3 con LMS/MOOC, testing performance.</td><td>Grifo Multimedia</td><td>Raccordo con NLP/OCR, data extraction e data quality previsti nella piattaforma OR5.</td></tr>
-      <tr><td><strong>Change Management sperimentale</strong></td><td>Sentiment analysis, segmentazione dipendenti, chatbot, raccomandazione contenuti e validazione pilota.</td><td>Progetto CM</td><td>Rafforza Technology Transfer, what-if analysis, risk management e Digital Twin.</td></tr>
+      <tr><td><strong>Mentoring &amp; Coaching online</strong></td><td>Assistente virtuale, virtual mentoring/coaching, contenuti personalizzati e interfaccia adattiva.</td><td><strong>Lutech · Politecnico di Milano · PoliHub · Binp</strong></td><td>Allineamento con modelli di ecosistema, competenze, servizi e stakeholder map di OR1.</td></tr>
+      <tr><td><strong>Smart Authoring</strong></td><td>AI generativa, RAG, prompt engineering, instructional design, learning object e riuso contenuti.</td><td><strong>Lutech · Politecnico di Milano</strong></td><td>Uso di knowledge graph, data catalog e modelli di conoscenza definiti in OR1.</td></tr>
+      <tr><td><strong>Recommendation, skill gap e churn</strong></td><td>Recommender system, analytics, scoring, previsione abbandono, pushing contenuti e percorsi personalizzati.</td><td><strong>Lutech · Politecnico di Milano · Dynius</strong></td><td>Coerenza con ranking/scoring imprese, KPI dinamici e sistemi predittivi OR1/OR5.</td></tr>
+      <tr><td><strong>Integration Engine</strong></td><td>Integrazione con ERP, HCM, CRM, LMS, fondi formazione, LTI Advantage, low-code e rule-based engine.</td><td><strong>Lutech e partner tecnologici</strong></td><td>Rende i dati disponibili alla piattaforma, ai data scientist e ai moduli frontend.</td></tr>
+      <tr><td><strong>Knowledge base &amp; LXP</strong></td><td>Knowledge base, classificazione documenti, interoperabilità LTI 1.3 con LMS/MOOC, testing performance.</td><td><strong>Grifo Multimedia</strong></td><td>Raccordo con NLP/OCR, data extraction e data quality previsti nella piattaforma OR5.</td></tr>
+      <tr><td><strong>Change Management sperimentale</strong></td><td>Sentiment analysis, segmentazione dipendenti, chatbot, raccomandazione contenuti e validazione pilota.</td><td><strong>Progetto CM</strong></td><td>Rafforza Technology Transfer, what-if analysis, risk management e Digital Twin.</td></tr>
     </tbody>
   </table>
   <div class="or-card-wide ri reveal">
@@ -1566,8 +2783,8 @@ calcSim();
 
 <!-- LUCE ADVANCED GANTT -->
 <section class="section reveal" id="luce-gantt-master">
-  <p class="section-eyebrow">07 · Governance temporale e dissemination</p>
-  <h2 class="section-title">Master Gantt <em>LUCE</em> · Deliverable · SAL · Dissemination</h2>
+  <p class="section-eyebrow">Governance temporale e dissemination</p>
+  <h2 class="section-title">Master Gantt <em>LUCE</em> · Deliverable · SAL · Dissemination</h2><p style="font-size:12px;color:var(--ink-light);margin-top:-8px;margin-bottom:12px;">Gantt compatto: usa lo scroll interno per consultare tutte le righe.</p>
 
   <div class="warning-box reveal">
     <strong>Framework integrato LUCE</strong>
@@ -1607,7 +2824,7 @@ calcSim();
 
     <div class="or-detail-body">
 
-      <table class="or-detail-table">
+      <div class="scrollable-table"><table class="or-detail-table">
         <thead>
           <tr>
             <th>Cod.</th>
@@ -1698,6 +2915,8 @@ calcSim();
             <td><span class="diss-yes">Evento</span></td>
             <td>SAL 3</td>
           </tr>
+
+
 
           <tr>
             <td><strong>D5.4</strong></td>
@@ -1803,7 +3022,7 @@ calcSim();
           </tr>
 
         </tbody>
-      </table>
+      </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
 
       <div class="timeline">
         <div class="tl-item">
@@ -1838,6 +3057,397 @@ calcSim();
     </div>
   </details>
 </section>
+
+<!-- SCIENTIFIC DISSEMINATION -->
+<section class="section reveal visible" id="scientific-dissemination" style="background:var(--paper) !important; opacity:1 !important; transform:none !important;">
+  <p class="section-eyebrow">Scientific dissemination</p>
+  
+<h2 class="section-title">Dissemination Scientifica <em>OR · Task · Deliverable</em></h2>
+<p style="max-width:920px;color:var(--ink-mid);line-height:1.75;font-size:14px;margin-top:14px;">
+La sezione integra il contributo scientifico del paper di Angelo Leogrande all’interno della struttura LUCE.
+Ogni deliverable è espandibile e contiene collegamenti diretti con OR, Task, output scientifici,
+componenti DSS/AI/NLP e momenti di dissemination rendicontabile.
+</p>
+<div class="expand-hint">clicca sui blocchi per espandere i contenuti</div>
+
+
+  <details class="scidiss-panel">
+    <summary class="scidiss-summary">
+      Contributo scientifico · Angelo Leogrande · Intelligent LMS per Skill Gap e Reskilling
+      <span>▼</span>
+    </summary>
+
+    <div class="scidiss-body">
+      <p>
+        Il paper <strong>“An Intelligent Learning Management System for Identifying Skill Gaps
+        and Supporting Workforce Reskilling in SMEs”</strong> rappresenta un contributo scientifico
+        trasversale alla dissemination LUCE. Il lavoro collega performance analytics, KPI,
+        gap index, NLP, skill gap analysis e sistemi LMS intelligenti per generare un modello
+        di supporto decisionale orientato alla trasformazione digitale delle PMI.
+      </p>
+
+      <div class="deliv-meta">
+        <div><strong>Autore principale</strong><span>Angelo Leogrande</span></div>
+        <div><strong>Natura output</strong><span>Paper scientifico / dissemination</span></div>
+        <div><strong>OR coinvolti</strong><span>OR1 · OR5 · Cross-OR</span></div>
+        <div><strong>Periodo suggerito</strong><span>M10 → M24</span></div>
+      </div>
+
+      <div class="warning-box">
+        <strong>Logica di integrazione</strong>
+        <p>
+          Ogni deliverable sotto riportato è collassabile e contiene: struttura del contributo scientifico,
+          relazione con il task LUCE, elementi del paper utilizzabili come evidenza tecnico-scientifica,
+          e output di dissemination collegabile a SAL, workshop o report finale.
+        </p>
+      </div>
+
+      
+      <details class="deliv-card">
+        <summary>
+          <span><span class="paper-pill gold">DATA INGESTION</span> Contributo tecnico · Stefano Mariani · Workforce Analytics MVP</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <p>
+            Il contributo tecnico di <strong>Stefano Mariani</strong> approfondisce la componente di
+            <strong>data ingestion</strong> e l’architettura funzionale di un sistema di analisi e pianificazione
+            del personale. Il lavoro descrive un sistema decisionale che incrocia dati interni aziendali,
+            dati di mercato e obiettivi strategici espressi in linguaggio naturale, generando analisi predittive
+            e raccomandazioni operative su formazione, hiring e outsourcing.
+          </p>
+
+          <div class="deliv-meta">
+            <div><strong>Contributo</strong><span>Data ingestion / architettura tecnica</span></div>
+            <div><strong>Autore</strong><span>Stefano Mariani</span></div>
+            <div><strong>OR coinvolti</strong><span>OR1 · OR5</span></div>
+            <div><strong>Deliverable</strong><span>D5.1 · D5.2 · D5.3 · D5.4</span></div>
+          </div>
+
+          <div class="scrollable-table">
+            <table class="paper-structure">
+              <thead>
+                <tr>
+                  <th>Strato / modulo</th>
+                  <th>Contenuto tecnico</th>
+                  <th>Relazione con LUCE</th>
+                  <th>Deliverable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Data Ingestion Layer</td>
+                  <td>Acquisizione di CV, valutazioni, performance, job postings, benchmark retributivi e dati di settore.</td>
+                  <td>Rende operativa la raccolta dati strutturati e non strutturati prevista dalla knowledge base LUCE.</td>
+                  <td>D5.1</td>
+                </tr>
+                <tr>
+                  <td>Data Processing Layer</td>
+                  <td>Parsing documenti, estrazione entità, normalizzazione competenze, aggregazione dati.</td>
+                  <td>Collega NLP, skill extraction e tassonomie alla costruzione di dati AI-ready.</td>
+                  <td>D5.1 · D5.2</td>
+                </tr>
+                <tr>
+                  <td>Skill Taxonomy Engine</td>
+                  <td>Uso di ESCO, tassonomia proprietaria tech e vector embeddings per ridurre ambiguità terminologiche.</td>
+                  <td>Supporta il modello competenze e la confrontabilità tra CV, mercato e obiettivi strategici.</td>
+                  <td>D1.3 · D5.2</td>
+                </tr>
+                <tr>
+                  <td>Storage Layer</td>
+                  <td>PostgreSQL, pgvector, Redis e object storage per profili, embedding, sessioni e documenti originali.</td>
+                  <td>Definisce una possibile architettura prototipale scalabile e manutenibile.</td>
+                  <td>D5.1 · D5.2</td>
+                </tr>
+                <tr>
+                  <td>Analytics Engine</td>
+                  <td>Gap analysis, rischio turnover, previsione domanda competenze, trend retributivi.</td>
+                  <td>Converte i dati acquisiti in insight predittivi e supporto decisionale.</td>
+                  <td>D5.3 · D5.4</td>
+                </tr>
+                <tr>
+                  <td>Recommendation Engine</td>
+                  <td>Raccomandazioni su training, hiring, outsourcing e restructuring con stime di costo, tempi e probabilità di successo.</td>
+                  <td>Traduce il gap in azioni operative e simulabili per il management.</td>
+                  <td>D5.3 · D5.4</td>
+                </tr>
+                <tr>
+                  <td>Presentation Layer / MVP</td>
+                  <td>Dashboard, REST API e generazione report PDF/DOCX.</td>
+                  <td>Rappresenta il front-end operativo per dissemination demo e rendicontazione tecnica.</td>
+                  <td>D5.2 · DD4 · DD6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="expand-hint">contenuto tecnico espandibile e scorrevole</div>
+
+          <div class="warning-box">
+            <strong>Valore per dissemination e rendicontazione</strong>
+            <p>
+              Il contributo Mariani può essere rendicontato come approfondimento tecnico-prototipale
+              su data ingestion, architettura a strati, normalizzazione competenze, MVP e dashboard.
+              È particolarmente utile come evidenza per un workshop/demo tecnico e come allegato
+              alla documentazione di SAL su D5.1–D5.4.
+            </p>
+          </div>
+        </div>
+      </details>
+
+
+      <details class="deliv-card">
+        <summary>
+          <span><span class="paper-pill">D1.3</span> KPI analytics e performance intelligence</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <div class="deliv-meta">
+            <div><strong>OR</strong><span>OR1 · Ricerca Industriale</span></div>
+            <div><strong>Task</strong><span>A1.3 · Definizione KPI</span></div>
+            <div><strong>Paper</strong><span>Sezioni 3–5</span></div>
+            <div><strong>Dissemination</strong><span>DD2 · DD3</span></div>
+          </div>
+          <div class="scrollable-table"><table class="paper-structure">
+            <thead><tr><th>Elemento paper</th><th>Contenuto scientifico</th><th>Uso nel deliverable LUCE</th></tr></thead>
+            <tbody>
+              <tr><td>Methodology</td><td>Approccio data-driven multi-stage per misurare performance e skill gap nelle PMI.</td><td>Base metodologica per la definizione del framework KPI.</td></tr>
+              <tr><td>Performance Metrics</td><td>EBITDA margin, revenue per employee, CAGR, cash flow stability, volatility, persistence.</td><td>Set iniziale di KPI multidimensionali per analisi comparativa.</td></tr>
+              <tr><td>Managerial interpretation</td><td>Collegamento tra KPI, criticità organizzative e fabbisogni formativi.</td><td>Traduzione dei KPI in indicatori utili per decision support e training need analysis.</td></tr>
+            </tbody>
+          </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
+        </div>
+      </details>
+
+      <details class="deliv-card">
+        <summary>
+          <span><span class="paper-pill">D1.4</span> Modelli predittivi, gap index e risk analysis</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <div class="deliv-meta">
+            <div><strong>OR</strong><span>OR1 · Ricerca Industriale</span></div>
+            <div><strong>Task</strong><span>A1.4 · Modelli predittivi</span></div>
+            <div><strong>Paper</strong><span>Sezioni 5–6</span></div>
+            <div><strong>Dissemination</strong><span>DD2 · DD4</span></div>
+          </div>
+          <div class="scrollable-table"><table class="paper-structure">
+            <thead><tr><th>Elemento paper</th><th>Contenuto scientifico</th><th>Uso nel deliverable LUCE</th></tr></thead>
+            <tbody>
+              <tr><td>Composite Gap Index</td><td>Indice sintetico che aggrega persistenza, crescita, produttività, redditività, stabilità finanziaria e volatilità.</td><td>Modello di scoring per classificare imprese e individuare aree di rischio.</td></tr>
+              <tr><td>Benchmarking</td><td>Confronto delle imprese rispetto a benchmark settoriali e geografici.</td><td>Metodo per identificare imprese sotto-performanti e fabbisogni di intervento.</td></tr>
+              <tr><td>Visual analytics</td><td>Distribuzione del Gap Index e scatter plot multidimensionali.</td><td>Evidenza grafica per report scientifico e dashboard decisionale.</td></tr>
+            </tbody>
+          </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
+        </div>
+      </details>
+
+      <details class="deliv-card">
+        <summary>
+          <span><span class="paper-pill gold">D5.1</span> Data extraction prototype · NLP su CV e profili competenza</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <div class="deliv-meta">
+            <div><strong>OR</strong><span>OR5 · Sviluppo Sperimentale</span></div>
+            <div><strong>Task</strong><span>A5.1 · Data extraction</span></div>
+            <div><strong>Paper</strong><span>Sezioni 3–4 · 7</span></div>
+            <div><strong>Dissemination</strong><span>DD3 · DD4</span></div>
+          </div>
+          <div class="scrollable-table"><table class="paper-structure">
+            <thead><tr><th>Elemento paper</th><th>Contenuto scientifico</th><th>Uso nel deliverable LUCE</th></tr></thead>
+            <tbody>
+              <tr><td>CV-based analysis</td><td>Analisi di CV anonimizzati per estrarre competenze individuali.</td><td>Specifiche del prototipo di estrazione dati non strutturati.</td></tr>
+              <tr><td>NLP</td><td>Uso di tecniche NLP per riconoscere skill e costruire profili competenza.</td><td>Motore di classificazione preliminare per skill intelligence.</td></tr>
+              <tr><td>Skill taxonomy</td><td>Strutturazione di competenze digitali, tecniche e trasversali.</td><td>Base dati per repository competenze e successivo matching con formazione.</td></tr>
+            </tbody>
+          </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
+        </div>
+      </details>
+
+      <details class="deliv-card">
+        <summary>
+          <span><span class="paper-pill gold">D5.2</span> KPI Dashboard e workforce analytics</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <div class="deliv-meta">
+            <div><strong>OR</strong><span>OR5 · Sviluppo Sperimentale</span></div>
+            <div><strong>Task</strong><span>A5.2 · Dashboard KPI</span></div>
+            <div><strong>Paper</strong><span>Figure 1–3 · Sez. 9–10</span></div>
+            <div><strong>Dissemination</strong><span>DD4</span></div>
+          </div>
+          <div class="scrollable-table"><table class="paper-structure">
+            <thead><tr><th>Elemento paper</th><th>Contenuto scientifico</th><th>Uso nel deliverable LUCE</th></tr></thead>
+            <tbody>
+              <tr><td>Firm benchmarking dashboard</td><td>Dashboard per benchmarking delle imprese e classificazione performance.</td><td>Modulo visuale del prototipo KPI LUCE.</td></tr>
+              <tr><td>Employee skill gap dashboard</td><td>Cruscotto per gap competenze individuali e organizzative.</td><td>Modulo workforce intelligence e training need analysis.</td></tr>
+              <tr><td>Training catalog alignment</td><td>Catalogo corsi collegato ai gap rilevati.</td><td>Output operativo per raccomandazione percorsi formativi.</td></tr>
+            </tbody>
+          </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
+        </div>
+      </details>
+
+      <details class="deliv-card">
+        <summary>
+          <span><span class="paper-pill gold">D5.3</span> Evaluation, ranking e adaptive recommendation engine</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <div class="deliv-meta">
+            <div><strong>OR</strong><span>OR5 · Sviluppo Sperimentale</span></div>
+            <div><strong>Task</strong><span>A5.3 · Ranking & Scoring</span></div>
+            <div><strong>Paper</strong><span>Sezioni 6–8 · 10–11</span></div>
+            <div><strong>Dissemination</strong><span>DD4 · DD5</span></div>
+          </div>
+          <div class="scrollable-table"><table class="paper-structure">
+            <thead><tr><th>Elemento paper</th><th>Contenuto scientifico</th><th>Uso nel deliverable LUCE</th></tr></thead>
+            <tbody>
+              <tr><td>Low-performing firms</td><td>Identificazione imprese con Gap Index negativo e criticità strutturali.</td><td>Ranking imprese / cluster di bisogno.</td></tr>
+              <tr><td>Skill Gap Indicator</td><td>Misura della distanza tra competenze disponibili e competenze richieste.</td><td>Scoring competenze e priorità di intervento.</td></tr>
+              <tr><td>Adaptive recommendations</td><td>Associazione tra gap e percorsi LMS personalizzati.</td><td>Motore di raccomandazione per reskilling.</td></tr>
+            </tbody>
+          </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
+        </div>
+      </details>
+
+      <details class="deliv-card">
+        <summary>
+          <span><span class="paper-pill gold">D5.4</span> DSS, simulazione e logica Digital Twin</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <div class="deliv-meta">
+            <div><strong>OR</strong><span>OR5 · Sviluppo Sperimentale</span></div>
+            <div><strong>Task</strong><span>A5.4 · DSS / Digital Twin</span></div>
+            <div><strong>Paper</strong><span>Sezioni 9–11</span></div>
+            <div><strong>Dissemination</strong><span>DD5 · DD6</span></div>
+          </div>
+          <div class="scrollable-table"><table class="paper-structure">
+            <thead><tr><th>Elemento paper</th><th>Contenuto scientifico</th><th>Uso nel deliverable LUCE</th></tr></thead>
+            <tbody>
+              <tr><td>Decision-support system</td><td>Integrazione tra performance, competenze, training e raccomandazioni.</td><td>Architettura logica DSS per supporto decisionale.</td></tr>
+              <tr><td>Scenario analysis</td><td>Uso dei gap per impostare azioni di miglioramento e reskilling.</td><td>Base concettuale per simulazioni what-if.</td></tr>
+              <tr><td>Learning-performance loop</td><td>Collegamento tra miglioramento competenze e performance organizzative.</td><td>Logica Digital Twin dei KPI e delle traiettorie di apprendimento.</td></tr>
+            </tbody>
+          </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
+        </div>
+      </details>
+
+      <details class="deliv-card">
+        <summary>
+          <span><span class="paper-pill neutral">DD2 · DD4 · DD5 · DD6</span> Output di dissemination scientifica</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <div class="scrollable-table"><table class="paper-structure">
+            <thead><tr><th>Deliverable dissemination</th><th>Output suggerito</th><th>Momento</th><th>Evidenza</th></tr></thead>
+            <tbody>
+              <tr><td>DD2 · Scientific communication package</td><td>Abstract, paper draft, poster scientifico</td><td>M10</td><td>Struttura paper + research question + metodologia</td></tr>
+              <tr><td>DD4 · Workshop tecnico-scientifico</td><td>Presentazione framework Intelligent LMS</td><td>M18</td><td>Figure 1–3, Gap Index e dashboard</td></tr>
+              <tr><td>DD5 · Technology transfer dissemination</td><td>Report su uso del framework per PMI e formazione</td><td>M22</td><td>Skill gap, training recommendations, DSS</td></tr>
+              <tr><td>DD6 · Final dissemination & exploitation</td><td>Report finale scientifico e valorizzazione risultati</td><td>M24</td><td>Paper finale + mapping OR/Deliverable + lesson learned</td></tr>
+            </tbody>
+          </table></div><div class="expand-hint">contenuto espandibile e scorrevole</div>
+        </div>
+      </details>
+
+    
+      <details class="deliv-card" open>
+        <summary>
+          <span><span class="paper-pill neutral">EVENTI / SAL</span> Piano di dissemination e rendicontazione degli eventi programmati</span>
+          <span>▼</span>
+        </summary>
+        <div class="deliv-card-body">
+          <p>
+            La dissemination viene organizzata come insieme di <strong>eventi programmati/promessi</strong>,
+            dimostrazioni tecniche, workshop e output scientifici collegati ai deliverable. Gli eventi possono
+            essere ospitati o co-organizzati da <strong>Lutech</strong>, tramite Campus/MILE, e da <strong>LUMEN</strong>,
+            con funzione di prova di avanzamento, valorizzazione dei risultati e supporto alla rendicontazione.
+          </p>
+
+          <div class="event-grid">
+            <div><strong>Formato</strong><span>Open day, workshop, hackathon, demo lab, webinar tecnico</span></div>
+            <div><strong>Soggetti</strong><span>Lutech · LUMEN · partner scientifici · PMI/startup</span></div>
+            <div><strong>Temi</strong><span>AI, Digital Twin, NLP, skill gap, LMS, entrepreneurship intelligence</span></div>
+            <div><strong>Evidenze</strong><span>Agenda, inviti, slide, foto/screenshot, verbale, report output</span></div>
+          </div>
+
+          <div class="scrollable-table">
+            <table class="paper-structure">
+              <thead>
+                <tr>
+                  <th>Momento</th>
+                  <th>Evento / output</th>
+                  <th>Organizzatore possibile</th>
+                  <th>Tema</th>
+                  <th>Deliverable</th>
+                  <th>Evidenza rendicontabile</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>M10–M12</td>
+                  <td>Scientific communication package</td>
+                  <td>LUMEN</td>
+                  <td>Paper Leogrande, KPI intelligence, skill gap analysis</td>
+                  <td>DD2 · D1.3 · D1.4</td>
+                  <td>Abstract, paper draft, slide, nota metodologica</td>
+                </tr>
+                <tr>
+                  <td>M12–M16</td>
+                  <td>Demo tecnica Data Ingestion</td>
+                  <td>LUMEN</td>
+                  <td>Data ingestion, CV parsing, tassonomie, architettura a strati</td>
+                  <td>DD3 · D5.1 · D5.2</td>
+                  <td>Demo, screenshot dashboard, schema architetturale, report tecnico</td>
+                </tr>
+                <tr>
+                  <td>M16–M18</td>
+                  <td>Workshop tecnico-scientifico</td>
+                  <td>LUMEN / Lutech</td>
+                  <td>Ranking, scoring, workforce analytics, recommendation engine</td>
+                  <td>DD4 · D5.3</td>
+                  <td>Agenda, registro presenze, slide, materiali evento, verbale</td>
+                </tr>
+                <tr>
+                  <td>M18–M22</td>
+                  <td>Demo lab / technology transfer session</td>
+                  <td>Lutech Campus / MILE con LUMEN</td>
+                  <td>Digital Twin, what-if analysis, DSS e scenari decisionali</td>
+                  <td>DD5 · D5.4</td>
+                  <td>Video/demo, report test, screenshot simulatore, documento lesson learned</td>
+                </tr>
+                <tr>
+                  <td>M22–M24</td>
+                  <td>Final dissemination & exploitation</td>
+                  <td>LUMEN / Lutech / partner progetto</td>
+                  <td>Risultati finali, industrializzazione, exploitation, roadmap futura</td>
+                  <td>DD6 · D5.6</td>
+                  <td>Report finale, pacchetto slide, comunicazione pubblica, evidenze evento</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="expand-hint">tabella rendicontazione scorrevole</div>
+
+          <div class="warning-box">
+            <strong>Nota di coerenza PIA/FESR</strong>
+            <p>
+              Per ogni evento o output di dissemination è opportuno conservare una traccia documentale:
+              programma, inviti, materiali prodotti, screenshot o foto, verbali, registro partecipanti se applicabile,
+              e collegamento esplicito al deliverable tecnico/scientifico presentato.
+            </p>
+          </div>
+        </div>
+      </details>
+
+
+    </div>
+  </details>
+</section>
+
+
+
 
 </body>
 </html>
