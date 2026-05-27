@@ -1693,6 +1693,16 @@ footer { margin-top: 8px !important; padding-top: 20px !important; }
 }
 </style>
 
+
+<style id="all-html-sal-update-final-css">
+.sal-big-number{font-size:38px;font-weight:800;color:var(--accent);line-height:1;margin:8px 0 10px;}
+.sal-scenario-panel{margin-bottom:14px!important;}
+#simulatore.section{padding-bottom:10px!important;margin-bottom:0!important;}
+#luce-gantt-master.section{padding-top:12px!important;margin-top:0!important;margin-bottom:0!important;padding-bottom:8px!important;}
+#scientific-dissemination.section{padding-top:12px!important;margin-top:0!important;}
+#simulatore + #luce-gantt-master, #luce-gantt-master + #scientific-dissemination{margin-top:0!important;}
+#salScenarioChart{max-height:210px;}
+</style>
 </head>
 <body>
 
@@ -2640,98 +2650,74 @@ footer { margin-top: 8px !important; padding-top: 20px !important; }
 
 <!-- ═══ §07 SIMULATORE ═══ -->
 <section class="section reveal" id="simulatore">
-  <p class="section-eyebrow">07 &nbsp;·&nbsp; Simulatore strategico</p>
-  <h2 class="section-title">Analisi scenari: <em>agevolazione</em> e distribuzione budget</h2>
-  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:24px;max-width:740px;line-height:1.75">
-    Il simulatore consente di esplorare diversi scenari di distribuzione del budget R&S (RI vs. SS, personale vs. fornitori) e di stimare l'agevolazione PIA ricevuta da LUM Enterprise in funzione delle percentuali di rimborso applicate. I parametri sono modificabili in tempo reale.
+  <p class="section-eyebrow">07 &nbsp;·&nbsp; Analisi scenari SAL</p>
+  <h2 class="section-title">Analisi scenari: <em>SAL 50%</em> e rendicontazione</h2>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:14px;max-width:820px;line-height:1.7">
+    La sezione è stata riallineata alla logica SAL: non simula più genericamente l’agevolazione PIA, ma confronta la spesa target del SAL 50% con le principali componenti rendicontabili emerse dal prospetto operativo: personale, fornitori, attivi materiali e quota residua da documentare/riconciliare.
   </p>
 
-  <!-- Preset -->
+  <div class="callout section3-alignment" style="margin-bottom:14px">
+    <strong>Nota SAL:</strong> i valori sono presentati come scenario operativo di lavoro per la relazione tecnica e per la raccolta documentale. Le tariffe standard interne eventualmente presenti nel documento restano <strong>ipotesi simulativa non rendicontativa</strong>; ai fini SAL fanno fede prospetti interni, contratti, fatture, timesheet e documenti tecnici allegati.
+  </div>
+
   <div class="preset-row reveal">
-    <button class="preset-btn" onclick="applyPreset('current')">📊 Progetto attuale</button>
-    <button class="preset-btn" onclick="applyPreset('maxRI')">🔬 Massimizza RI</button>
-    <button class="preset-btn" onclick="applyPreset('maxSS')">🛠 Massimizza SS</button>
-    <button class="preset-btn" onclick="applyPreset('internalize')">👥 Alta internaliz.</button>
-    <button class="preset-btn" onclick="applyPreset('external')">🤝 Alta esternaliz.</button>
+    <button class="preset-btn" onclick="applySalScenario('base')">📌 SAL base</button>
+    <button class="preset-btn" onclick="applySalScenario('prudente')">🧾 Scenario prudente</button>
+    <button class="preset-btn" onclick="applySalScenario('completo')">✅ Scenario completo</button>
   </div>
 
   <div class="grid-2 reveal">
-    <!-- Sliders colonna sx -->
     <div>
-      <div class="strategic-panel">
-        <h3>📐 Parametri di allocazione budget</h3>
-
-        <div class="slider-row">
-          <div class="slider-label">
-            <span>Quota Ricerca Industriale (OR1)</span>
-            <span class="slider-out" id="outRIPct">70%</span>
-          </div>
-          <input type="range" id="sRIPct" min="50" max="85" value="70" oninput="calcSim()">
-          <p class="slider-explain" id="explainRI">Budget RI = <strong id="budgetRI">€944.674</strong> · Budget SS = <strong id="budgetSS">€400.574</strong></p>
-        </div>
-
-        <div class="slider-row">
-          <div class="slider-label">
-            <span>% budget affidato a fornitori R&S</span>
-            <span class="slider-out" id="outFornPct">60%</span>
-          </div>
-          <input type="range" id="sFornPct" min="30" max="80" value="60" oninput="calcSim()">
-          <p class="slider-explain" id="explainForn">Budget fornitori = <strong id="budgetFornitori">€807.149</strong> · Budget personale = <strong id="budgetPersonale">€538.099</strong></p>
-        </div>
+      <div class="strategic-panel sal-scenario-panel">
+        <h3>🎯 Target economico SAL 50%</h3>
+        <div class="sal-big-number" id="salTargetMain">€692.624</div>
+        <p class="slider-explain">Target intermedio indicativo pari a circa il 50% dell’investimento complessivo LUM Enterprise. Finestra operativa SAL: avvio 04/12/2023, verifica intermedia 31/03/2026.</p>
+        <table class="breakdown-table" style="margin-top:12px">
+          <tr><td>Budget complessivo LUM Enterprise</td><td>€1.385.248</td></tr>
+          <tr><td>Budget R&S RI + SS</td><td>€1.345.248</td></tr>
+          <tr><td>Attivi materiali complessivi</td><td>€40.000</td></tr>
+          <tr><td><strong>Target SAL 50%</strong></td><td><strong>€692.624</strong></td></tr>
+        </table>
       </div>
 
-      <div class="strategic-panel">
-        <h3>📊 Parametri agevolazione (% rimborso PIA)</h3>
-
-        <div class="slider-row">
-          <div class="slider-label">
-            <span>Agevolazione Ricerca Industriale</span>
-            <span class="slider-out" id="outAgevRI">65%</span>
-          </div>
-          <input type="range" id="sAgevRI" min="50" max="75" value="65" oninput="calcSim()">
-          <p class="slider-explain">Tipico PMI piccola in consorzio GI: 65–70%. Interagisce con le percentuali contrattuali di RI/SS.</p>
-        </div>
-
-        <div class="slider-row">
-          <div class="slider-label">
-            <span>Agevolazione Sviluppo Sperimentale</span>
-            <span class="slider-out gold" id="outAgevSS">40%</span>
-          </div>
-          <input type="range" id="sAgevSS" class="gold-slider" min="25" max="50" value="40" oninput="calcSim()">
-          <p class="slider-explain">Tipico PMI piccola in consorzio GI: 40–45%. Agevolazione SS sempre inferiore a RI.</p>
+      <div class="strategic-panel sal-scenario-panel">
+        <h3>🧩 Composizione scenario selezionato</h3>
+        <table class="breakdown-table">
+          <tr><td>Personale rendicontabile</td><td id="salPersonale">€236.354</td></tr>
+          <tr><td>Fornitori R&S I SAL</td><td id="salFornitori">€424.000</td></tr>
+          <tr><td>Attivi materiali I SAL</td><td id="salAttivi">€16.250</td></tr>
+          <tr><td>Quota da riconciliare / integrare</td><td id="salGap">€16.020 quota integrativa</td></tr>
+          <tr><td><strong>Totale scenario SAL</strong></td><td><strong id="salTotale">€676.604</strong></td></tr>
+        </table>
+        <div style="font-size:11px;margin-top:10px;padding:8px;border-radius:2px;font-weight:600;background:rgba(14,95,122,0.08);color:var(--accent)" id="salReading">
+          Scenario base: copertura quasi completa del target SAL, da completare con riconciliazione documentale.
         </div>
       </div>
     </div>
 
-    <!-- Output colonna dx -->
     <div>
-      <div class="sim-output-box" style="margin-bottom:20px">
-        <h4>Agevolazione stimata</h4>
+      <div class="sim-output-box" style="margin-bottom:16px">
+        <h4>Copertura target SAL</h4>
         <div class="sim-kpi">
-          <div class="sim-kpi-val accent" id="totalAgev">€0</div>
-          <div class="sim-kpi-lbl">Agevolazione totale prevista (RI + SS)</div>
+          <div class="sim-kpi-val accent" id="salCoverageVal">98%</div>
+          <div class="sim-kpi-lbl">Copertura del target economico SAL 50%</div>
         </div>
-        <div class="marg-bar-wrap">
-          <div class="marg-bar-fill" id="agevFill" style="width:0%;background:var(--accent)"></div>
-        </div>
-        <div style="font-size:11px;color:var(--ink-light);margin-top:6px" id="agevPct">— % del budget R&S</div>
+        <div class="marg-bar-wrap"><div class="marg-bar-fill" id="salCoverageFill" style="width:98%;background:var(--accent)"></div></div>
+        <div style="font-size:11px;color:var(--ink-light);margin-top:6px" id="salCoverageText">Totale scenario vs. target €692.624</div>
       </div>
 
-      <div class="sim-output-box" style="margin-bottom:20px">
-        <h4>Schema finanziario</h4>
+      <div class="sim-output-box" style="margin-bottom:16px">
+        <h4>Lettura operativa</h4>
         <table class="breakdown-table">
-          <tr><td>Budget R&S LUM Enterprise</td><td>€1.345.248</td></tr>
-          <tr><td style="padding-left:12px;color:var(--accent)">– Agevolazione RI</td><td style="color:var(--accent)" id="bd_agev_ri">€0</td></tr>
-          <tr><td style="padding-left:12px;color:var(--gold)">– Agevolazione SS</td><td style="color:var(--gold)" id="bd_agev_ss">€0</td></tr>
-          <tr><td>di cui: Personale interno</td><td id="bd_personale">€0</td></tr>
-          <tr><td>di cui: Fornitori R&S</td><td id="bd_fornitori">€0</td></tr>
-          <tr><td><strong>Costo netto LUM Enterprise</strong></td><td><strong id="bd_netto">€0</strong></td></tr>
+          <tr><td>Stato OR1</td><td><span class="status-pill status-closed">Documentabile</span></td></tr>
+          <tr><td>Stato OR5</td><td><span class="status-pill status-progress">In corso</span></td></tr>
+          <tr><td>Evidenze tecniche</td><td><span class="status-pill status-evidence">Da allegare</span></td></tr>
+          <tr><td>Focus SAL</td><td>Relazione tecnica + documenti fornitori + data ingestion Mariani</td></tr>
         </table>
-        <div style="font-size:11px;margin-top:10px;padding:8px;border-radius:2px;font-weight:600" id="simReading"></div>
       </div>
 
-      <div class="chart-container" style="height:200px">
-        <canvas id="simChart"></canvas>
+      <div class="chart-container" style="height:210px;margin-bottom:0!important">
+        <canvas id="salScenarioChart"></canvas>
       </div>
     </div>
   </div>
@@ -2758,121 +2744,78 @@ const navObs = new IntersectionObserver(entries => {
 }, { rootMargin: '-30% 0px -60% 0px' });
 sections.forEach(s => navObs.observe(s));
 
-// ── Formatter ──
 const fmt = v => '€' + Math.round(Math.abs(v)).toLocaleString('it-IT');
-function _set(id, prop, val) { const el = document.getElementById(id); if (el) el[prop] = val; }
-function _style(id, prop, val) { const el = document.getElementById(id); if (el) el.style[prop] = val; }
-
-// ── Simulatore ──
-const BUDGET_RS = 1345248;
-
-function calcSim() {
-  const riPct = parseFloat(document.getElementById('sRIPct').value) / 100;
-  const fornPct = parseFloat(document.getElementById('sFornPct').value) / 100;
-  const agevRI = parseFloat(document.getElementById('sAgevRI').value) / 100;
-  const agevSS = parseFloat(document.getElementById('sAgevSS').value) / 100;
-
-  const budgetRI = BUDGET_RS * riPct;
-  const budgetSS = BUDGET_RS * (1 - riPct);
-  const totAgRI = budgetRI * agevRI;
-  const totAgSS = budgetSS * agevSS;
-  const totalAgev = totAgRI + totAgSS;
-  const coperturaPct = (totalAgev / BUDGET_RS) * 100;
-  const costoNetto = BUDGET_RS - totalAgev;
-  const budgetForn = BUDGET_RS * fornPct;
-  const budgetPers = BUDGET_RS * (1 - fornPct);
-
-  // Update slider labels
-  _set('outRIPct', 'textContent', Math.round(riPct*100) + '%');
-  _set('outFornPct', 'textContent', Math.round(fornPct*100) + '%');
-  _set('outAgevRI', 'textContent', Math.round(agevRI*100) + '%');
-  _set('outAgevSS', 'textContent', Math.round(agevSS*100) + '%');
-
-  // Update explanations
-  _set('budgetRI', 'textContent', fmt(budgetRI));
-  _set('budgetSS', 'textContent', fmt(budgetSS));
-  _set('budgetFornitori', 'textContent', fmt(budgetForn));
-  _set('budgetPersonale', 'textContent', fmt(budgetPers));
-
-  // Update outputs
-  _set('totalAgev', 'textContent', fmt(totalAgev));
-  _set('agevPct', 'textContent', Math.round(coperturaPct) + '% del budget R&S coperto da agevolazione');
-  _set('bd_agev_ri', 'textContent', '– ' + fmt(totAgRI));
-  _set('bd_agev_ss', 'textContent', '– ' + fmt(totAgSS));
-  _set('bd_personale', 'textContent', fmt(budgetPers));
-  _set('bd_fornitori', 'textContent', fmt(budgetForn));
-  _set('bd_netto', 'textContent', fmt(costoNetto));
-
-  // Bar fill
-  const fillPct = Math.min(100, coperturaPct / 80 * 100);
-  _style('agevFill', 'width', fillPct + '%');
-  _style('agevFill', 'background', coperturaPct >= 55 ? 'var(--accent)' : coperturaPct >= 45 ? 'var(--gold)' : 'var(--danger)');
-
-  // Reading
-  const readingEl = document.getElementById('simReading');
-  if (coperturaPct >= 55) {
-    readingEl.textContent = '✓ Scenario favorevole: agevolazione solida. Copertura ' + Math.round(coperturaPct) + '% del budget R&S.';
-    readingEl.style.background = 'rgba(14,95,122,0.08)';
-    readingEl.style.color = 'var(--accent)';
-  } else if (coperturaPct >= 45) {
-    readingEl.textContent = '⚡ Scenario bilanciato: copertura ' + Math.round(coperturaPct) + '%. Valutare incremento quota RI.';
-    readingEl.style.background = 'var(--gold-light)';
-    readingEl.style.color = 'var(--gold)';
-  } else {
-    readingEl.textContent = '⚠ Scenario critico: copertura ' + Math.round(coperturaPct) + '%. Rivedere ripartizione RI/SS.';
-    readingEl.style.background = '#f5eaea';
-    readingEl.style.color = 'var(--danger)';
+const SAL_TARGET = 692624;
+const salScenarios = {
+  base: {
+    personale: 236353.80,
+    fornitori: 424000,
+    attivi: 16250.20,
+    extra: 16020.00,
+    label: 'Scenario base: copertura quasi completa del target SAL, da completare con riconciliazione documentale e aggancio puntuale alle evidenze tecniche.'
+  },
+  prudente: {
+    personale: 236353.80,
+    fornitori: 398500,
+    attivi: 16250.20,
+    extra: 8000,
+    label: 'Scenario prudente: considera solo componenti maggiormente consolidate; richiede integrazione documentale più ampia per arrivare al target SAL.'
+  },
+  completo: {
+    personale: 236353.80,
+    fornitori: 424000,
+    attivi: 16250.20,
+    extra: 0,
+    label: 'Scenario completo: include quota integrativa da documentare e consente l’allineamento pieno al target SAL 50%.'
   }
+};
+// correzione numerica separata per evitare ambiguità nei separatori
+salScenarios.completo.extra = SAL_TARGET - salScenarios.completo.personale - salScenarios.completo.fornitori - salScenarios.completo.attivi;
+salScenarios.base.extra = SAL_TARGET - salScenarios.base.personale - salScenarios.base.fornitori - salScenarios.base.attivi;
 
-  // Chart
-  if (window.simChartInst) {
-    window.simChartInst.data.datasets[0].data = [Math.round(budgetRI), Math.round(totAgRI), Math.round(budgetSS), Math.round(totAgSS), Math.round(costoNetto)];
-    window.simChartInst.update();
+function applySalScenario(name){
+  const s = salScenarios[name] || salScenarios.base;
+  const totale = s.personale + s.fornitori + s.attivi + s.extra;
+  const coverage = Math.round((totale / SAL_TARGET) * 100);
+  const gap = SAL_TARGET - totale;
+  document.getElementById('salPersonale').textContent = fmt(s.personale);
+  document.getElementById('salFornitori').textContent = fmt(s.fornitori);
+  document.getElementById('salAttivi').textContent = fmt(s.attivi);
+  document.getElementById('salGap').textContent = gap > 0 ? fmt(gap) + ' da integrare' : fmt(s.extra) + ' quota integrativa';
+  document.getElementById('salTotale').textContent = fmt(totale);
+  document.getElementById('salCoverageVal').textContent = coverage + '%';
+  document.getElementById('salCoverageText').textContent = fmt(totale) + ' su target ' + fmt(SAL_TARGET);
+  document.getElementById('salReading').textContent = s.label;
+  const fill = Math.max(0, Math.min(100, coverage));
+  document.getElementById('salCoverageFill').style.width = fill + '%';
+  document.getElementById('salCoverageFill').style.background = coverage >= 98 ? 'var(--accent)' : coverage >= 90 ? 'var(--gold)' : 'var(--danger)';
+  if(window.salScenarioChartInst){
+    window.salScenarioChartInst.data.datasets[0].data = [Math.round(s.personale), Math.round(s.fornitori), Math.round(s.attivi), Math.round(Math.max(s.extra,0))];
+    window.salScenarioChartInst.update();
   }
 }
 
-// Preset presets
-function applyPreset(name) {
-  const presets = {
-    current:     { sRIPct: 70, sFornPct: 60, sAgevRI: 65, sAgevSS: 40 },
-    maxRI:       { sRIPct: 82, sFornPct: 62, sAgevRI: 65, sAgevSS: 40 },
-    maxSS:       { sRIPct: 55, sFornPct: 58, sAgevRI: 65, sAgevSS: 45 },
-    internalize: { sRIPct: 70, sFornPct: 38, sAgevRI: 68, sAgevSS: 42 },
-    external:    { sRIPct: 70, sFornPct: 75, sAgevRI: 65, sAgevSS: 40 },
-  };
-  const p = presets[name];
-  if (!p) return;
-  Object.entries(p).forEach(([id, val]) => { const el = document.getElementById(id); if (el) el.value = val; });
-  calcSim();
-}
-
-// Chart
-window.simChartInst = new Chart(document.getElementById('simChart'), {
+window.salScenarioChartInst = new Chart(document.getElementById('salScenarioChart'), {
   type: 'bar',
   data: {
-    labels: ['Budget RI', 'Agevolaz. RI', 'Budget SS', 'Agevolaz. SS', 'Costo netto'],
+    labels: ['Personale', 'Fornitori', 'Attivi', 'Quota integrazione'],
     datasets: [{
-      data: [0, 0, 0, 0, 0],
-      backgroundColor: ['rgba(14,95,122,0.25)', '#0e5f7a', 'rgba(184,146,42,0.25)', '#b8922a', '#c5877a'],
-      barPercentage: 0.65
+      data: [236354, 424000, 16250, 16020],
+      backgroundColor: ['#0e5f7a', '#b8922a', 'rgba(14,95,122,0.35)', 'rgba(184,146,42,0.35)'],
+      barPercentage: 0.62
     }]
   },
   options: {
-    responsive: true, maintainAspectRatio: false,
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
-      x: { grid:{display:false}, border:{display:false}, ticks:{font:{size:10,family:'Montserrat'},color:'#8a8a84'} },
-      y: { grid:{color:'rgba(0,0,0,0.05)'}, border:{display:false},
-           ticks:{ callback: v => '€'+(v/1000).toFixed(0)+'k', font:{size:10,family:'Montserrat'}, color:'#8a8a84' } }
+      x: { grid:{display:false}, border:{display:false}, ticks:{font:{size:10,family:'Montserrat'}, color:'#8a8a84'} },
+      y: { grid:{color:'rgba(0,0,0,0.05)'}, border:{display:false}, ticks:{ callback: v => '€'+(v/1000).toFixed(0)+'k', font:{size:10,family:'Montserrat'}, color:'#8a8a84' } }
     },
-    plugins: {
-      legend: {display:false},
-      tooltip: { callbacks: { label: ctx => '€ ' + Math.abs(ctx.raw).toLocaleString('it-IT') } }
-    }
+    plugins: { legend:{display:false}, tooltip:{ callbacks:{ label: ctx => '€ ' + Math.abs(ctx.raw).toLocaleString('it-IT') } } }
   }
 });
-
-// Init
-calcSim();
+applySalScenario('base');
 </script>
 
 <!-- LUCE ADVANCED GANTT -->
