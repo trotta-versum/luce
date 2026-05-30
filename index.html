@@ -728,8 +728,8 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
         <tr><td><strong>Costi Ricerca Industriale</strong></td><td>OR1</td><td class="num">€944.673,60</td><td class="num">€639.634,00</td><td>Avanzamento RI 67,70% — attività A1.1–A1.7</td></tr>
         <tr><td><strong>Costi Sviluppo Sperimentale</strong></td><td>OR5</td><td class="num">€400.574,40</td><td class="num">€20.719,80</td><td>Avanzamento SS 5,17% — Task A5.1 avviato</td></tr>
         
-        <tr><td>di cui: personale interno RI</td><td>OR1</td><td class="num">€353.600</td><td class="num">€215.634</td><td>Quote interne rendicontate I SAL</td></tr>
-        <tr><td>di cui: personale interno SS</td><td>OR5</td><td class="num">€100.000</td><td class="num">€20.719,80</td><td>Iusco — Task A5.1</td></tr>
+        <tr><td><strong>di cui: personale interno RI</strong></td><td>OR1</td><td class="num">€353.600</td><td class="num" style="color:var(--accent);font-weight:700">€215.634,00</td><td>6 risorse su A1.1–A1.7 · Magaletti, Di Molfetta, Leogrande, Massaro, Trotta, Notarnicola</td></tr>
+        <tr><td><strong>di cui: personale interno SS</strong></td><td>OR5</td><td class="num">€100.000</td><td class="num" style="color:var(--gold);font-weight:700">€20.719,80</td><td>A. Iusco — OR5 Task A5.1 · sviluppo prototipo piattaforma</td></tr>
         <tr><td>di cui: consulenze esterne RI</td><td>OR1</td><td class="num">€570.000</td><td class="num">€424.000</td><td>GD Services €300k · Enablit €80k · Software Design €44k</td></tr>
         <tr class="total-row"><td><strong>TOTALE R&S</strong></td><td>OR1–OR5</td><td class="num"><strong>€1.345.248,00</strong></td><td class="num"><strong>€660.353,80</strong></td><td><strong>RI €639.634 + SS €20.719,80 — indice aggregato 72,88%</strong></td></tr>
       </tbody>
@@ -1068,6 +1068,24 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
   <!-- Tabella personale -->
   <div class="reveal">
     <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:10px">Personale coinvolto nel progetto LUCE · fonte: Tabella 3 Relazione Tecnica I SAL</p>
+
+  <div class="grid-3 reveal" style="margin-bottom:20px">
+    <div class="metric">
+      <span class="metric-val accent">€215.634,00</span>
+      <span class="metric-lbl">PERSONALE INTERNO RI</span>
+      <p class="metric-sub">OR1 · attività A1.1–A1.7 rendicontate I SAL</p>
+    </div>
+    <div class="metric">
+      <span class="metric-val gold">€20.719,80</span>
+      <span class="metric-lbl">PERSONALE INTERNO SS</span>
+      <p class="metric-sub">OR5 · Task A5.1 · A. Iusco</p>
+    </div>
+    <div class="metric">
+      <span class="metric-val accent">€236.353,80</span>
+      <span class="metric-lbl">TOTALE PERSONALE I SAL</span>
+      <p class="metric-sub">RI €215.634 + SS €20.719,80</p>
+    </div>
+  </div>
     <table class="profile-table" style="margin-bottom:24px">
       <thead>
         <tr>
@@ -1114,6 +1132,14 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
           <td><span class="badge badge-blue">RI</span> <span class="badge badge-gold">SS</span> OR1(A1.3–A1.6)+OR5(A5.1)</td>
           <td class="num">16,00</td><td class="num">—</td><td class="num">€2.160</td>
         </tr>
+        <tr style="background:rgba(14,95,122,0.06);border-top:2px solid var(--accent)">
+          <td colspan="5" style="font-weight:700;color:var(--accent);font-size:12px;padding:8px 12px">
+            Subtotale Personale RI (OR1) — Magaletti · Di Molfetta · Leogrande · Massaro · Trotta · Notarnicola
+          </td>
+          <td class="num" style="color:var(--accent);font-weight:700">853,96 gg</td>
+          <td class="num">—</td>
+          <td class="num" style="color:var(--accent);font-weight:700">€215.634,00</td>
+        </tr>
         <tr>
           <td>5</td>
           <td><div style="display:flex;align-items:center;gap:8px"><div class="profile-avatar av-ss">AI</div><strong>A. Iusco</strong></div></td>
@@ -1121,6 +1147,14 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
           <td>Impiegato</td>
           <td><span class="badge badge-gold">SS</span> OR5 (A5.1) · prototipo piattaforma</td>
           <td class="num">—</td><td class="num">95,93</td><td class="num">€20.719,80</td>
+        </tr>
+        <tr style="background:rgba(184,146,42,0.06);border-top:1px solid var(--gold)">
+          <td colspan="5" style="font-weight:700;color:var(--gold);font-size:12px;padding:8px 12px">
+            Subtotale Personale SS (OR5) — Iusco · Task A5.1
+          </td>
+          <td class="num">—</td>
+          <td class="num" style="color:var(--gold);font-weight:700">95,93 gg</td>
+          <td class="num" style="color:var(--gold);font-weight:700">€20.719,80</td>
         </tr>
         <tr>
           <td>6</td>
@@ -1147,7 +1181,7 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
           <td class="num">—</td><td class="num">—</td><td class="num">vedi prospetto</td>
         </tr>
         <tr class="total-row">
-          <td colspan="5"><strong>Totale personale I SAL</strong></td>
+          <td colspan="5"><strong>Totale personale I SAL · RI €215.634,00 + SS €20.719,80</strong></td>
           <td class="num"><strong>853,96 gg (RI)</strong></td>
           <td class="num"><strong>95,93 gg (SS)</strong></td>
           <td class="num"><strong>€236.353,80</strong></td>
