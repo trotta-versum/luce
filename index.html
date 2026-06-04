@@ -969,344 +969,371 @@ input[type=range].gold-slider::-webkit-slider-thumb { background: var(--gold); b
 <!-- ═══ GANTT LUCE ═══ -->
 <!-- ═══ GANTT LUCE ═══ -->
 <!-- ═══ GANTT LUCE ═══ -->
+<!-- ═══ GANTT LUCE ═══ -->
 <section class="section reveal" id="gantt">
-  <p class="section-eyebrow">03b &nbsp;·&nbsp; Pianificazione e avanzamento · I SAL vs SAL Finale</p>
-  <h2 class="section-title">Gantt LUCE · <em>avanzamento reale</em> vs pianificazione Sezione 3</h2>
-  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:14px;max-width:880px;line-height:1.75">
-    Le barre mostrano tre strati: <strong>grigio tenue</strong> = durata pianificata Sezione 3 · <strong>colore pieno</strong> = avanzamento reale da data di allocazione a I SAL (16/04/2026) · <strong>colore sfumato</strong> = residuo da completare post-SAL. La <strong style="color:#c0392b">linea rossa</strong> marca il I SAL del 16/04/2026. Scostamento grigio/colore = ritardo avvio reale vs pianificato.
-  </p>
+  <p class="section-eyebrow">03b &nbsp;·&nbsp; Pianificazione e avanzamento · Figura 1 Relazione Tecnica I SAL</p>
+  <h2 class="section-title">Gantt LUCE · <em>confronto pianificazione teorica vs stato reale</em></h2>
 
-  <!-- Legenda -->
-  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;font-size:11px;color:var(--ink-mid);align-items:center;padding:10px 14px;background:var(--paper-warm);border-radius:3px;border:var(--border)">
-    <span style="display:flex;align-items:center;gap:6px"><span style="width:28px;height:6px;background:rgba(160,160,160,0.35);display:inline-block;border-radius:3px"></span>Pianif. Sezione 3 (ideale)</span>
-    <span style="display:flex;align-items:center;gap:6px"><span style="width:28px;height:12px;background:#2563eb;display:inline-block;border-radius:3px"></span>Avanzamento reale RI (OR1)</span>
-    <span style="display:flex;align-items:center;gap:6px"><span style="width:28px;height:12px;background:rgba(37,99,235,0.2);display:inline-block;border-radius:3px;border:1px solid rgba(37,99,235,0.4)"></span>Residuo RI da completare</span>
-    <span style="display:flex;align-items:center;gap:6px"><span style="width:28px;height:12px;background:#059669;display:inline-block;border-radius:3px"></span>Avanzamento reale SS (OR5)</span>
-    <span style="display:flex;align-items:center;gap:6px"><span style="width:28px;height:12px;background:rgba(5,150,105,0.2);display:inline-block;border-radius:3px;border:1px solid rgba(5,150,105,0.35)"></span>Residuo SS da completare</span>
-    <span style="display:flex;align-items:center;gap:6px"><span style="width:2px;height:18px;background:#c0392b;display:inline-block"></span><strong style="color:#c0392b">I SAL 16/04/2026</strong></span>
-  </div>
-
-  <!-- Gantt Chart Canvas -->
-  <div style="position:relative;border:var(--border);border-radius:var(--radius);background:var(--paper);overflow:hidden">
-    <canvas id="ganttChartMain" style="display:block"></canvas>
+  <!-- Canvas -->
+  <div id="gantt-wrap" style="border:1px solid var(--ink-faint);border-radius:var(--radius);background:#fff;overflow:hidden">
+    <canvas id="ganttCanvas" style="display:block;width:100%"></canvas>
   </div>
 
   <!-- Footer note -->
-  <p style="font-size:11px;color:var(--ink-light);margin-top:8px;line-height:1.6">
-    <strong>Pianificazione Sez.3</strong> in grigio — barre colorate = avanzamento reale da allocazione I SAL &nbsp;·&nbsp;
-    <strong>RI: 67,70% (€639.634)</strong> · <strong>SS: 5,17% (€20.720)</strong> · Indice aggregato: <strong>72,88%</strong>
-  </p>
+  <div style="margin-top:10px;font-size:10.5px;color:var(--ink-mid);line-height:1.7">
+    <strong>Barra colorata</strong> = % completata fino al I SAL (16/04/2026). &nbsp;·&nbsp;
+    <strong>Barra tratteggiata/chiara</strong> = % residua da completare dopo il I SAL e fino alla fine del progetto (03/12/2026). &nbsp;·&nbsp;
+    <strong>Barra grigia</strong> = durata pianificata Sez.3.
+  </div>
 
-  <!-- Milestone footer -->
-  <div class="grid-4 reveal" style="margin-top:16px">
-    <div class="metric">
-      <span class="metric-val accent" style="font-size:16px">03/12/2023</span>
-      <span class="metric-lbl">AVVIO PROGETTO · M0</span>
-    </div>
-    <div class="metric">
-      <span class="metric-val" style="font-size:16px;color:#c0392b">16/04/2026</span>
-      <span class="metric-lbl">I SAL · LINEA ROSSA</span>
-      <p class="metric-sub">RI 67,70% · SS 5,17%</p>
-    </div>
-    <div class="metric">
-      <span class="metric-val accent" style="font-size:16px">€660.353,80</span>
-      <span class="metric-lbl">VALORIZZAZIONE I SAL</span>
-      <p class="metric-sub">RI €639.634 + SS €20.720</p>
-    </div>
-    <div class="metric">
-      <span class="metric-val" style="font-size:16px">03/12/2026</span>
-      <span class="metric-lbl">SAL FINALE · M36</span>
-    </div>
+  <!-- Footer metrics -->
+  <div class="grid-4 reveal" style="margin-top:14px">
+    <div class="metric"><span class="metric-val accent" style="font-size:15px">03/12/2023</span><span class="metric-lbl">AVVIO PROGETTO</span></div>
+    <div class="metric"><span class="metric-val" style="font-size:15px;color:#c0392b">16/04/2026</span><span class="metric-lbl">I SAL</span><p class="metric-sub">RI 67,70% · SS 5,17%</p></div>
+    <div class="metric"><span class="metric-val accent" style="font-size:15px">€660.354</span><span class="metric-lbl">VALORIZZAZIONE I SAL</span></div>
+    <div class="metric"><span class="metric-val" style="font-size:15px">03/12/2026</span><span class="metric-lbl">FINE PROGETTO · M36</span></div>
   </div>
 </section>
 
 <script>
-(function() {
-  // ─── Timeline: Q1'24=0 … Q4'26=12 (12 quarters, each = 1 unit) ───
-  // I SAL = 16 Apr 2026 = Q2'26 start (= 9) + 15/91 * 1 ≈ 9.16
-  const ISAL = 9.16;
-  const TMAX = 12;
+(function(){
+  // ─── CONFIG ───
+  const ISAL = 9.16;  // Q2'26 mid-April ≈ 9 + 15/91
+  const TMAX = 12;    // Q4'26 end
+  const DPR  = Math.min(window.devicePixelRatio||1, 2);
 
-  // Quarter label positions (centre of each quarter)
-  const qLabels = ['Q1\'24','Q2\'24','Q3\'24','Q4\'24','Q1\'25','Q2\'25','Q3\'25','Q4\'25','Q1\'26','Q2\'26','Q3\'26','Q4\'26'];
+  // ─── PALETTE ───
+  const C = {
+    navy:    '#1a3a5c',
+    ri:      '#2563eb',
+    riR:     'rgba(37,99,235,0.18)',
+    riRS:    'rgba(37,99,235,0.45)',
+    ss:      '#059669',
+    ssR:     'rgba(5,150,105,0.18)',
+    ssRS:    'rgba(5,150,105,0.45)',
+    grey:    'rgba(150,155,165,0.28)',
+    grid:    '#e8ecef',
+    gridY:   '#c8ced8',
+    ink:     '#1a1a18',
+    ink2:    '#3a3a36',
+    ink3:    '#7a7a70',
+    sal:     '#c0392b',
+    white:   '#ffffff',
+    orRI:    'rgba(37,99,235,0.07)',
+    orSS:    'rgba(5,150,105,0.07)',
+  };
 
-  // Activity rows: label, greyStart, greyEnd, blueStart (actual alloc), pct (% at ISAL)
-  // Rows marked type 'or' are section headers (no bars)
+  // ─── ROW DATA ───
+  // gs=planned start, bs=actual blue start, pct=% at ISAL
+  // For type='or': section header. For residual-only (pct=0): only faded bar post-ISAL
   const rows = [
-    { label:'OR1 – Ricerca Industriale (RI)', type:'or', color:'ri' },
-    { label:'A1.1 – Framework Ecosystem',        gs:0,   ge:2,    bs:0,   pct:100, type:'ri' },
-    { label:'A1.2 – Traiettorie di mercato',     gs:0,   ge:3,    bs:0,   pct:100, type:'ri' },
-    { label:'A1.3 – KPI Framework',              gs:1,   ge:9,    bs:2,   pct:78,  type:'ri' },
-    { label:'A1.4 – Modelli predittivi',         gs:2,   ge:10,   bs:3,   pct:60,  type:'ri' },
-    { label:'A1.5 – Algoritmi PMI',              gs:4,   ge:10,   bs:4,   pct:55,  type:'ri' },
-    { label:'A1.6 – Ranking dinamico',           gs:4,   ge:11,   bs:4,   pct:50,  type:'ri' },
-    { label:'A1.7 – Digital Twin / What-if',     gs:4,   ge:12,   bs:4,   pct:40,  type:'ri' },
-    { label:'OR5 – Sviluppo Sperimentale (SS)',  type:'or', color:'ss' },
-    { label:'A5.1 – Data Extraction proto.',     gs:3,   ge:12,   bs:3,   pct:22,  type:'ss' },
-    { label:'A5.2 – Simulatore integrato',       gs:7,   ge:12,   bs:null,pct:0,   type:'ss' },
-    { label:'A5.3 – Dashboard KPI',              gs:7,   ge:12,   bs:null,pct:0,   type:'ss' },
-    { label:'A5.4 – Suite Ranking',              gs:8,   ge:12,   bs:null,pct:0,   type:'ss' },
-    { label:'A5.5 – Digital Twin proto.',        gs:9,   ge:12,   bs:null,pct:0,   type:'ss' },
-    { label:'A5.6 – Framework integrato',        gs:9,   ge:12,   bs:null,pct:0,   type:'ss' },
+    { label:'OR1 – Ricerca Industriale (RI)',   type:'or',  color:'ri', info:'avanzamento 67,70% · budget €944.674' },
+    { label:'A1.1 – Framework Ecosystem',        type:'ri',  gs:1,  bs:1,    pct:100 },
+    { label:'A1.2 – Traiettorie mercato',        type:'ri',  gs:1,  bs:1,    pct:100 },
+    { label:'A1.3 – KPI Framework',             type:'ri',  gs:1.5,bs:1.5,  pct:82  },
+    { label:'A1.4 – Modelli predittivi',         type:'ri',  gs:2.5,bs:2.5,  pct:65  },
+    { label:'A1.5 – Algoritmi PMI',              type:'ri',  gs:1,  bs:1,    pct:52  },
+    { label:'A1.6 – Ranking dinamico',           type:'ri',  gs:1,  bs:1,    pct:48  },
+    { label:'A1.7 – Digital Twin',               type:'ri',  gs:1,  bs:1,    pct:42  },
+    { label:'OR5 – Sviluppo Sperimentale (SS)',  type:'or',  color:'ss', info:'avanzamento 5,17% · budget €400.574' },
+    { label:'A5.1 – Data Extraction proto.',     type:'ss',  gs:5,  bs:7,    pct:20  },
+    { label:'A5.2 – Simulatore integrato',       type:'ss',  gs:7,  bs:null, pct:0   },
+    { label:'A5.3 – Dashboard KPI',              type:'ss',  gs:7,  bs:null, pct:0   },
+    { label:'A5.4 – Suite Ranking',              type:'ss',  gs:8,  bs:null, pct:0   },
+    { label:'A5.5 – Digital Twin proto.',        type:'ss',  gs:9,  bs:null, pct:0   },
+    { label:'A5.6 – Framework integrato',        type:'ss',  gs:9.5,bs:null, pct:0   },
   ];
 
-  const canvas = document.getElementById('ganttChartMain');
-  const DPR = window.devicePixelRatio || 1;
-  const ROW_H = 34;
-  const LABEL_W = 210;
-  const STATUS_W = 52;
-  const PAD_T = 28; // top header
-  const PAD_B = 28; // bottom footer
-  const TOTAL_H = PAD_T + rows.length * ROW_H + PAD_B;
+  // ─── LAYOUT ───
+  const LABEL_W = 195;
+  const PAD_TOP = 62;   // legend + year + quarter headers
+  const PAD_BOT = 38;   // footer note + "Fine progetto" box
+  const ROW_H   = 36;
+  const TOTAL_H = PAD_TOP + rows.length * ROW_H + PAD_BOT;
 
-  function resize() {
-    const W = canvas.parentElement.offsetWidth;
-    canvas.width = W * DPR;
+  const canvas = document.getElementById('ganttCanvas');
+  if(!canvas) return;
+
+  function resize(){
+    const W = canvas.parentElement.clientWidth;
+    canvas.width  = W * DPR;
     canvas.height = TOTAL_H * DPR;
-    canvas.style.width = W + 'px';
     canvas.style.height = TOTAL_H + 'px';
     draw(W);
   }
 
-  function toX(t, W) {
-    const chartW = W - LABEL_W - STATUS_W;
-    return LABEL_W + (t / TMAX) * chartW;
+  function toX(t, W){ return LABEL_W + (t/TMAX)*(W - LABEL_W - 2); }
+  function roundRect(ctx,x,y,w,h,r){
+    if(w<=0||h<=0) return;
+    r = Math.min(r, w/2, h/2);
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y);
+    ctx.quadraticCurveTo(x+w,y,x+w,y+r); ctx.lineTo(x+w,y+h-r);
+    ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); ctx.lineTo(x+r,y+h);
+    ctx.quadraticCurveTo(x,y+h,x,y+h-r); ctx.lineTo(x,y+r);
+    ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
   }
 
-  function draw(W) {
+  function draw(W){
     const ctx = canvas.getContext('2d');
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    ctx.clearRect(0, 0, W, TOTAL_H);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    ctx.clearRect(0,0,W,TOTAL_H);
 
-    const chartW = W - LABEL_W - STATUS_W;
-    const BG = '#f5f8fa';
-    const GRID = '#e4e8ea';
-    const INK = '#1a1a18';
-    const INK2 = '#4a4a46';
-    const INK3 = '#8a8a84';
-    const RI_SOLID = '#2563eb';
-    const RI_PLAN = 'rgba(160,168,200,0.28)';
-    const RI_RESID = 'rgba(37,99,235,0.18)';
-    const SS_SOLID = '#059669';
-    const SS_PLAN = 'rgba(160,200,180,0.28)';
-    const SS_RESID = 'rgba(5,150,105,0.18)';
-    const SAL_RED = '#c0392b';
+    const chartW = W - LABEL_W - 2;
+    const qW = chartW / TMAX;
 
     // ─── Background ───
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, W, TOTAL_H);
+    ctx.fillStyle = C.white;
+    ctx.fillRect(0,0,W,TOTAL_H);
 
-    // ─── Alternating row backgrounds ───
-    rows.forEach((row, i) => {
-      const y = PAD_T + i * ROW_H;
-      if (row.type === 'or') {
-        ctx.fillStyle = row.color === 'ri' ? 'rgba(37,99,235,0.05)' : 'rgba(5,150,105,0.05)';
-        ctx.fillRect(0, y, W, ROW_H);
-      } else if (i % 2 === 0) {
-        ctx.fillStyle = 'rgba(0,0,0,0.012)';
-        ctx.fillRect(LABEL_W, y, chartW, ROW_H);
+    // ─── LEGEND (top) ───
+    const leg = [
+      { color:'rgba(160,165,175,0.5)', label:'Pianif. Sez.3 (ideale)', dash:false },
+      { color:C.ri,   label:'Completato RI (fino al SAL)', dash:false },
+      { color:C.riRS, label:'Residuo RI (dopo il SAL)',    dash:true  },
+      { color:C.ss,   label:'Completato SS (fino al SAL)', dash:false },
+      { color:C.ssRS, label:'Residuo SS (dopo il SAL)',    dash:true  },
+    ];
+    let lx = 10;
+    ctx.font = `500 9px 'Helvetica Neue',Arial,sans-serif`;
+    ctx.fillStyle = C.ink3;
+    leg.forEach(l => {
+      // color swatch
+      ctx.fillStyle = l.color;
+      if(l.dash){
+        ctx.strokeStyle = l.color.replace('0.18','0.7').replace('0.5','0.7');
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3,2]);
+        ctx.strokeRect(lx,6,22,8);
+        ctx.setLineDash([]);
+      } else {
+        roundRect(ctx,lx,6,22,8,2); ctx.fill();
       }
+      ctx.fillStyle = C.ink2;
+      ctx.fillText(l.label, lx+26, 14);
+      lx += 27 + ctx.measureText(l.label).width + 14;
+    });
+    // I SAL legend item
+    ctx.strokeStyle = C.sal; ctx.lineWidth = 2; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(lx,10); ctx.lineTo(lx,22); ctx.stroke();
+    ctx.fillStyle = C.sal;
+    ctx.font = `700 9px 'Helvetica Neue',Arial,sans-serif`;
+    ctx.fillText('I SAL 16/04/2026', lx+4, 17);
+
+    // ─── Year header row ───
+    const years = [{label:'2024',qs:0,qe:4},{label:'2025',qs:4,qe:8},{label:'2026',qs:8,qe:12}];
+    const yearY = 28;
+    years.forEach(y => {
+      const x1 = toX(y.qs, W); const x2 = toX(y.qe, W);
+      ctx.fillStyle = C.navy;
+      ctx.fillRect(x1, yearY, x2-x1-1, 14);
+      ctx.fillStyle = C.white;
+      ctx.font = `700 9px 'Helvetica Neue',Arial,sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText(y.label, (x1+x2)/2, yearY+10);
     });
 
-    // ─── Vertical quarter grid lines ───
-    ctx.strokeStyle = GRID;
-    ctx.lineWidth = 1;
-    for (let q = 0; q <= TMAX; q++) {
+    // ─── Quarter header row ───
+    const qNames = ['Q1','Q2','Q3','Q4','Q1','Q2','Q3','Q4','Q1','Q2','Q3','Q4'];
+    const qY = 43;
+    qNames.forEach((q,i) => {
+      const x1 = toX(i, W); const x2 = toX(i+1, W);
+      const isISAL = i===9;
+      ctx.fillStyle = isISAL ? 'rgba(192,57,43,0.1)' : (i%2===0? '#f7f9fb':'#fff');
+      ctx.fillRect(x1, qY, x2-x1-1, 15);
+      ctx.fillStyle = isISAL ? C.sal : C.ink3;
+      ctx.font = `${isISAL?'800':'600'} 8px 'Helvetica Neue',Arial,sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText(q, (x1+x2)/2, qY+10);
+    });
+
+    // ─── Grid vertical lines ───
+    for(let q=0; q<=TMAX; q++){
       const x = toX(q, W);
-      // year boundaries thicker
-      if (q === 4 || q === 8) { ctx.strokeStyle = 'rgba(0,0,0,0.12)'; ctx.lineWidth = 1.5; }
-      else { ctx.strokeStyle = GRID; ctx.lineWidth = 0.8; }
-      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, TOTAL_H); ctx.stroke();
+      ctx.strokeStyle = (q===0||q===4||q===8||q===12) ? C.gridY : C.grid;
+      ctx.lineWidth = (q===0||q===4||q===8||q===12) ? 1.2 : 0.7;
+      ctx.beginPath(); ctx.moveTo(x, PAD_TOP); ctx.lineTo(x, TOTAL_H - PAD_BOT); ctx.stroke();
     }
 
-    // ─── Quarter labels header ───
-    ctx.font = `700 9px 'Helvetica Neue', Arial, sans-serif`;
-    ctx.textAlign = 'center';
-    for (let q = 0; q < TMAX; q++) {
-      const x = toX(q + 0.5, W);
-      const isIsal = q === 9;
-      ctx.fillStyle = isIsal ? SAL_RED : INK3;
-      ctx.fillText(qLabels[q], x, PAD_T - 10);
-    }
-    // Year labels
-    ctx.font = `800 10px 'Helvetica Neue', Arial, sans-serif`;
-    ctx.fillStyle = INK2;
-    ctx.fillText('2024', toX(2, W), 12);
-    ctx.fillText('2025', toX(6, W), 12);
-    ctx.fillText('2026', toX(10, W), 12);
-
-    // ─── I SAL vertical line ───
-    const xSAL = toX(ISAL, W);
-    ctx.save();
-    ctx.strokeStyle = SAL_RED;
-    ctx.lineWidth = 2;
-    ctx.setLineDash([]);
-    ctx.beginPath();
-    ctx.moveTo(xSAL, 0);
-    ctx.lineTo(xSAL, TOTAL_H - PAD_B);
-    ctx.stroke();
-    // Label
-    ctx.fillStyle = SAL_RED;
-    ctx.font = `800 9px 'Helvetica Neue', Arial, sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.fillText('I SAL', xSAL, TOTAL_H - PAD_B + 13);
-    ctx.fillText('16/04/26', xSAL, TOTAL_H - PAD_B + 24);
-    ctx.restore();
-
-    // ─── SAL Finale diamond marker at Q4'26 end ───
-    const xFin = toX(12, W) - 2;
-    ctx.save();
-    ctx.fillStyle = INK;
-    ctx.beginPath();
-    ctx.translate(xFin, TOTAL_H - PAD_B + 13);
-    ctx.rotate(Math.PI / 4);
-    ctx.fillRect(-5, -5, 10, 10);
-    ctx.restore();
-    ctx.fillStyle = INK;
-    ctx.font = `700 8px 'Helvetica Neue', Arial, sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.fillText('SAL Finale', xFin, TOTAL_H - PAD_B + 26);
-
-    // ─── Draw each row ───
+    // ─── Draw rows ───
     rows.forEach((row, i) => {
-      const y = PAD_T + i * ROW_H;
-      const midY = y + ROW_H / 2;
+      const y  = PAD_TOP + i*ROW_H;
+      const cy = y + ROW_H/2;
 
-      // Label column separator
-      ctx.strokeStyle = GRID;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(LABEL_W, y);
-      ctx.lineTo(LABEL_W, y + ROW_H);
-      ctx.stroke();
-
-      // Row bottom border
-      ctx.strokeStyle = GRID;
-      ctx.lineWidth = 0.7;
-      ctx.beginPath();
-      ctx.moveTo(0, y + ROW_H);
-      ctx.lineTo(W, y + ROW_H);
-      ctx.stroke();
-
-      // ─── Label text ───
-      if (row.type === 'or') {
-        ctx.font = `800 10px 'Helvetica Neue', Arial, sans-serif`;
-        ctx.fillStyle = row.color === 'ri' ? '#2563eb' : '#059669';
+      // Row bg for OR headers
+      if(row.type==='or'){
+        ctx.fillStyle = C.navy;
+        ctx.fillRect(0, y, W, ROW_H);
+        // Label
+        ctx.fillStyle = C.white;
+        ctx.font = `800 10px 'Helvetica Neue',Arial,sans-serif`;
         ctx.textAlign = 'left';
-        ctx.fillText(row.label, 10, midY + 4);
-      } else {
-        ctx.font = `700 10.5px 'Helvetica Neue', Arial, sans-serif`;
-        ctx.fillStyle = INK;
-        ctx.textAlign = 'left';
-        // Bold activity code
-        const dash = row.label.indexOf('–');
-        const code = dash > 0 ? row.label.slice(0, dash) : row.label;
-        const desc = dash > 0 ? row.label.slice(dash) : '';
-        ctx.fillText(code, 10, midY + 3);
-        const codeW = ctx.measureText(code).width;
-        ctx.font = `400 10px 'Helvetica Neue', Arial, sans-serif`;
-        ctx.fillStyle = INK2;
-        ctx.fillText(desc, 10 + codeW, midY + 3);
+        ctx.fillText(row.label, 10, cy+3.5);
+        // Info right
+        if(row.info){
+          ctx.font = `400 8.5px 'Helvetica Neue',Arial,sans-serif`;
+          ctx.fillStyle = 'rgba(255,255,255,0.65)';
+          ctx.fillText('· '+row.info, 10 + ctx.measureText(row.label).width + 4, cy+3.5);
+        }
+        // Bottom border
+        ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath(); ctx.moveTo(0,y+ROW_H); ctx.lineTo(W,y+ROW_H); ctx.stroke();
+        return;
       }
 
-      if (!row.gs && row.gs !== 0) return; // section header, no bars
+      // Alternating bg
+      ctx.fillStyle = i%2===0 ? '#fafbfc' : C.white;
+      ctx.fillRect(0, y, W, ROW_H);
 
-      const barH = ROW_H * 0.36;
-      const greyH = ROW_H * 0.18;
+      // Bottom border
+      ctx.strokeStyle = C.grid;
+      ctx.lineWidth = 0.6;
+      ctx.beginPath(); ctx.moveTo(0,y+ROW_H); ctx.lineTo(W,y+ROW_H); ctx.stroke();
+
+      // Activity label
+      ctx.fillStyle = C.ink2;
+      ctx.font = `500 10px 'Helvetica Neue',Arial,sans-serif`;
+      ctx.textAlign = 'left';
+      const dash = row.label.indexOf('–');
+      if(dash>0){
+        ctx.font = `700 10px 'Helvetica Neue',Arial,sans-serif`;
+        ctx.fillStyle = C.ink;
+        const code = row.label.slice(0,dash);
+        ctx.fillText(code, 10, cy+3.5);
+        const cw = ctx.measureText(code).width;
+        ctx.font = `400 9.5px 'Helvetica Neue',Arial,sans-serif`;
+        ctx.fillStyle = C.ink2;
+        ctx.fillText(row.label.slice(dash), 10+cw, cy+3.5);
+      } else {
+        ctx.fillText(row.label, 10, cy+3.5);
+      }
+
       const isRI = row.type === 'ri';
-      const planColor = isRI ? RI_PLAN : SS_PLAN;
-      const solidColor = isRI ? RI_SOLID : SS_SOLID;
-      const residColor = isRI ? RI_RESID : SS_RESID;
+      const solidC = isRI ? C.ri  : C.ss;
+      const residC = isRI ? C.riR : C.ssR;
+      const residS = isRI ? C.riRS: C.ssRS;
 
-      // ─── 1. Grey planning bar (thin, full planned duration) ───
-      const x1g = toX(row.gs, W);
-      const x2g = toX(row.ge, W);
-      ctx.fillStyle = planColor;
-      ctx.beginPath();
-      const gr = 3;
-      const gy = midY - greyH / 2;
-      roundRect(ctx, x1g, gy, x2g - x1g, greyH, gr);
-      ctx.fill();
+      const BH  = ROW_H*0.38;   // main bar height
+      const GH  = ROW_H*0.15;   // grey bar height
+      const bY  = cy - BH/2;
+      const gY  = cy - GH/2;
 
-      // ─── 2. Actual (solid) bar ───
-      if (row.bs !== null && row.bs !== undefined) {
-        const xBStart = toX(row.bs, W);
-        const xBEnd = toX(ISAL, W);
-        if (xBEnd > xBStart) {
-          const barY = midY - barH / 2;
-          const barW = xBEnd - xBStart;
-          ctx.fillStyle = solidColor;
-          ctx.beginPath();
-          roundRect(ctx, xBStart, barY, barW, barH, 4);
-          ctx.fill();
-
-          // Percentage label inside bar
-          if (row.pct > 0) {
-            ctx.fillStyle = '#ffffff';
-            ctx.font = `700 9px 'Helvetica Neue', Arial, sans-serif`;
-            ctx.textAlign = 'center';
-            const labelX = xBStart + barW / 2;
-            ctx.fillText(row.pct + '%', labelX, midY + 3.5);
-          }
+      // ─── GREY planning bar ───
+      if(row.gs !== undefined){
+        const xGs = toX(row.gs, W);
+        // Grey extends to: for 100% → ISAL; otherwise → residual end
+        let greyEnd = ISAL;
+        if(row.pct < 100){
+          const blueW = (row.bs !== null ? ISAL - row.bs : 0);
+          const residW = row.pct > 0 ? blueW * (100-row.pct)/row.pct : (TMAX-ISAL);
+          greyEnd = Math.min(TMAX, ISAL + residW);
+        }
+        const xGe = toX(Math.min(TMAX, greyEnd), W);
+        if(xGe > xGs){
+          ctx.fillStyle = 'rgba(150,155,165,0.3)';
+          roundRect(ctx, xGs, gY, xGe-xGs, GH, 2); ctx.fill();
         }
       }
 
-      // ─── 3. Residual (faded) bar from I SAL to plan end ───
-      const xResStart = toX(ISAL, W);
-      const xResEnd = toX(row.ge, W);
-      if (xResEnd > xResStart) {
-        const barY = midY - barH / 2;
-        ctx.fillStyle = residColor;
-        ctx.strokeStyle = isRI ? 'rgba(37,99,235,0.35)' : 'rgba(5,150,105,0.3)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        roundRect(ctx, xResStart, barY, xResEnd - xResStart, barH, 4);
-        ctx.fill();
-        ctx.stroke();
+      // ─── BLUE/GREEN solid bar (pct > 0 and bs not null) ───
+      if(row.pct > 0 && row.bs !== null){
+        const xBs = toX(row.bs, W);
+        const xBe = toX(ISAL, W);
+        if(xBe > xBs){
+          ctx.fillStyle = solidC;
+          roundRect(ctx, xBs, bY, xBe-xBs, BH, 4); ctx.fill();
+          // % label at right of bar
+          ctx.fillStyle = row.pct === 100 ? solidC : solidC;
+          ctx.font = `700 9px 'Helvetica Neue',Arial,sans-serif`;
+          ctx.textAlign = 'left';
+          ctx.fillText(row.pct+'%', xBe + 4, cy+3.5);
+        }
       }
 
-      // ─── Status (% complete) ───
-      if (row.pct !== undefined) {
-        ctx.font = `700 10px 'Helvetica Neue', Arial, sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.fillStyle = row.pct === 100 ? '#059669' : (row.pct > 0 ? (isRI ? '#2563eb' : '#059669') : INK3);
-        ctx.fillText(row.pct > 0 ? row.pct + '%' : '—', W - STATUS_W / 2, midY + 4);
+      // ─── RESIDUAL faded bar ───
+      if(row.pct < 100){
+        const residPct = 100 - row.pct;
+        let residW;
+        if(row.pct > 0 && row.bs !== null){
+          const blueW = ISAL - row.bs;
+          residW = blueW * residPct / row.pct;
+        } else {
+          // No blue bar: residual from ISAL to TMAX (or from gs if gs > ISAL)
+          const start = Math.max(ISAL, row.gs || ISAL);
+          residW = TMAX - start;
+        }
+        const xRs = row.gs && row.gs > ISAL ? toX(row.gs, W) : toX(ISAL, W);
+        const xRe = toX(Math.min(TMAX, ISAL + residW), W);
+        if(xRe > xRs){
+          ctx.fillStyle = residC;
+          ctx.strokeStyle = residS;
+          ctx.lineWidth = 1;
+          ctx.setLineDash([3,2]);
+          roundRect(ctx, xRs, bY, xRe-xRs, BH, 4);
+          ctx.fill(); ctx.stroke();
+          ctx.setLineDash([]);
+          // residual % label
+          ctx.fillStyle = isRI ? 'rgba(37,99,235,0.8)' : 'rgba(5,150,105,0.8)';
+          ctx.font = `700 9px 'Helvetica Neue',Arial,sans-serif`;
+          ctx.textAlign = 'left';
+          ctx.fillText(residPct+'%', xRe+4, cy+3.5);
+        }
       }
     });
 
-    // ─── Left border ───
-    ctx.strokeStyle = GRID;
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(0, PAD_T);
-    ctx.lineTo(0, TOTAL_H - PAD_B);
-    ctx.stroke();
+    // ─── ISAL vertical line ───
+    const xSAL = toX(ISAL, W);
+    ctx.strokeStyle = C.sal; ctx.lineWidth = 2; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(xSAL, PAD_TOP-2); ctx.lineTo(xSAL, TOTAL_H-PAD_BOT+4); ctx.stroke();
+    // Label box above
+    ctx.fillStyle = C.sal;
+    ctx.font = `800 8.5px 'Helvetica Neue',Arial,sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText('I SAL 16/04/2026', xSAL, PAD_TOP - 6);
+
+    // ─── FOOTER ───
+    const fY = TOTAL_H - PAD_BOT + 8;
+    ctx.fillStyle = C.ink3;
+    ctx.font = `400 8px 'Helvetica Neue',Arial,sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.fillText('Pianificazione Sez.3 in grigio — barre colorate = avanzamento reale da allocazione I SAL', 4, fY+10);
+    ctx.fillText('RI: 67,70% (€639.634) · SS: 5,17% (€20.720) · Indice aggregato: 72,88%', 4, fY+22);
+
+    // "Fine progetto" box
+    const fpText = 'Fine progetto: 03/12/2026';
+    ctx.font = `700 8.5px 'Helvetica Neue',Arial,sans-serif`;
+    const fpW = ctx.measureText(fpText).width + 16;
+    const fpX = W - fpW - 4;
+    ctx.fillStyle = C.navy;
+    roundRect(ctx, fpX, fY+2, fpW, 18, 3); ctx.fill();
+    ctx.fillStyle = C.white;
+    ctx.textAlign = 'center';
+    ctx.fillText(fpText, fpX + fpW/2, fY+14);
+
+    // ─── Label column separator ───
+    ctx.strokeStyle = '#d0d5dc'; ctx.lineWidth = 1; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(LABEL_W, PAD_TOP); ctx.lineTo(LABEL_W, TOTAL_H-PAD_BOT); ctx.stroke();
   }
 
-  function roundRect(ctx, x, y, w, h, r) {
-    if (w < 2 * r) r = w / 2;
-    if (h < 2 * r) r = h / 2;
-    ctx.moveTo(x + r, y);
-    ctx.lineTo(x + w - r, y);
-    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-    ctx.lineTo(x + w, y + h - r);
-    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-    ctx.lineTo(x + r, y + h);
-    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-    ctx.lineTo(x, y + r);
-    ctx.quadraticCurveTo(x, y, x + r, y);
-    ctx.closePath();
+  // ─── Init (dopo DOM ready) ───
+  function init(){
+    const el = document.getElementById('ganttCanvas');
+    if(!el){ return; }
+    resize();
   }
-
-  // ─── Init & resize ───
-  resize();
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(resize, 120);
-  });
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  let timer;
+  window.addEventListener('resize', ()=>{ clearTimeout(timer); timer=setTimeout(resize,100); });
 })();
 </script>
+
+
+
 
 
 
