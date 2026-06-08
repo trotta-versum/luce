@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <title>
       LUCE – LUtech Campus Ecosystem | PIA2021-2027 | LUM Enterprise
     </title>
@@ -5287,8 +5288,46 @@
     </section>
 
     <script>
-    document.getElementById('fileUpload').addEventListener('change', function() {
+      <script>
+      const fileUpload = document.getElementById('fileUpload');
       const fileList = document.getElementById('fileList');
+
+      function renderFiles(files) {
+        if (!files || files.length === 0) {
+          fileList.innerHTML = 'Nessun documento caricato';
+          return;
+        }
+
+        fileList.innerHTML = '';
+
+        files.forEach(file => {
+          const row = document.createElement('div');
+          row.style.padding = '10px';
+          row.style.margin = '8px 0';
+          row.style.border = '1px solid #d9d9d9';
+          row.style.borderRadius = '8px';
+
+          row.innerHTML =
+            '<strong>' + file.name + '</strong><br>' +
+            file.size + ' KB';
+
+          fileList.appendChild(row);
+        });
+      }
+
+      const savedFiles = JSON.parse(localStorage.getItem('dashboardFiles')) || [];
+      renderFiles(savedFiles);
+
+      fileUpload.addEventListener('change', function() {
+        const newFiles = Array.from(this.files).map(file => ({
+          name: file.name,
+          size: Math.round(file.size / 1024)
+        }));
+
+        localStorage.setItem('dashboardFiles', JSON.stringify(newFiles));
+        renderFiles(newFiles);
+      });
+      </script>
 
       fileList.innerHTML = '';
 
