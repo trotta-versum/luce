@@ -5276,142 +5276,151 @@
     </script>
 
     <section class="section" id="documenti">
-      <p class="section-eyebrow">07 · Documenti</p>
 
-      <h2 class="section-title">
-        Gestione <em>Documentale</em>
-      </h2>
+      <section class="section" id="documenti">
+  <p class="section-eyebrow">07 · Documenti</p>
 
-      <p style="font-size:13px;color:#666;margin-bottom:20px;">
-        Carica un PDF. Il sistema proverà a leggere il testo e preparare i dati per la dashboard.
-      </p>
+  <h2 class="section-title">Gestione <em>Documentale</em></h2>
 
-      <input type="file" id="fileUpload" accept="application/pdf" />
+  <p style="font-size:13px;color:#666;margin-bottom:20px;">
+    Carica un PDF. Il sistema proverà a leggere il testo e preparare i dati per la dashboard.
+  </p>
 
-      <div id="fileList" style="margin-top:20px;">
-        Nessun documento caricato
-      </div>
+  <input type="file" id="fileUpload" accept="application/pdf" />
 
-      <div style="margin-top:30px;">
-        <h3>Testo estratto</h3>
+  <div id="fileList" style="margin-top:20px;">
+    Nessun documento caricato
+  </div>
 
-        <textarea
-          id="extractedText"
-          style="width:100%;min-height:180px;padding:12px;"
-          placeholder="Qui comparirà il testo estratto dal PDF..."
-        ></textarea>
-      </div>
+  <div style="margin-top:30px;">
+    <h3>Testo estratto</h3>
+    <textarea
+      id="extractedText"
+      style="width:100%;min-height:180px;padding:12px;"
+      placeholder="Qui comparirà il testo estratto dal PDF..."
+    ></textarea>
+  </div>
 
-      <div style="margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+  <div style="margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div>
+      <label>Tipo documento</label>
+      <input id="docType" style="width:100%;padding:10px;">
+    </div>
 
-        <div>
-          <label>Tipo documento</label>
-          <input id="docType" style="width:100%;padding:10px;">
-        </div>
+    <div>
+      <label>Fornitore / Persona</label>
+      <input id="docSubject" style="width:100%;padding:10px;">
+    </div>
 
-        <div>
-          <label>Fornitore / Persona</label>
-          <input id="docSubject" style="width:100%;padding:10px;">
-        </div>
+    <div>
+      <label>Importo (€)</label>
+      <input id="docAmount" type="number" style="width:100%;padding:10px;">
+    </div>
 
-        <div>
-          <label>Importo (€)</label>
-          <input id="docAmount" type="number" style="width:100%;padding:10px;">
-        </div>
+    <div>
+      <label>OR / Task</label>
+      <input id="docOR" style="width:100%;padding:10px;">
+    </div>
+  </div>
 
-        <div>
-          <label>OR / Task</label>
-          <input id="docOR" style="width:100%;padding:10px;">
-        </div>
+  <button
+    id="applyDocData"
+    style="margin-top:20px;padding:12px 18px;background:#0d6985;color:white;border:none;border-radius:6px;"
+  >
+    Applica alla Dashboard
+  </button>
 
-      </div>
+  <div id="updateStatus" style="margin-top:15px;"></div>
+</section>
 
-      <button
-        id="applyDocData"
-        style="margin-top:20px;padding:12px 18px;background:#0d6985;color:white;border:none;border-radius:6px;"
-      >
-        Applica alla Dashboard
-      </button>
+<script>
+const fileUpload = document.getElementById('fileUpload');
+const fileList = document.getElementById('fileList');
+const extractedText = document.getElementById('extractedText');
 
-      <div id="updateStatus" style="margin-top:15px;"></div>
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    </section>
+fileUpload.addEventListener('change', async function () {
+  const file = this.files[0];
 
-      <script>
-      const fileUpload = document.getElementById('fileUpload');
-      const fileList = document.getElementById('fileList');
+  if (!file) {
+    fileList.innerHTML = 'Nessun documento caricato';
+    return;
+  }
 
-      function renderFiles(files) {
-        if (!files || files.length === 0) {
-          fileList.innerHTML = 'Nessun documento caricato';
-          return;
-        }
+  fileList.innerHTML =
+    '<div style="padding:10px;margin:8px 0;border:1px solid #d9d9d9;border-radius:8px;">' +
+    '<strong>' + file.name + '</strong><br>' +
+    Math.round(file.size / 1024) + ' KB</div>';
 
-        fileList.innerHTML = '';
+  extractedText.value = 'Lettura PDF in corso...';
 
-        files.forEach(file => {
-          const row = document.createElement('div');
-          row.style.padding = '10px';
-          row.style.margin = '8px 0';
-          row.style.border = '1px solid #d9d9d9';
-          row.style.borderRadius = '8px';
+  const reader = new FileReader();
 
-          row.innerHTML =
-            '<strong>' + file.name + '</strong><br>' +
-            file.size + ' KB';
+  reader.onload = async function () {
+    const typedArray = new Uint8Array(reader.result);
+    const pdf = await pdfjsLib.getDocument(typedArray).promise;
 
-          fileList.appendChild(row);
-        });
-      }
+    let text = '';
 
-      const savedFiles = JSON.parse(localStorage.getItem('dashboardFiles')) || [];
-      renderFiles(savedFiles);
+    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+      const page = await pdf.getPage(pageNumber);
+      const content = await page.getTextContent();
+      const strings = content.items.map(item => item.str);
+      text += '\n\n--- PAGINA ' + pageNumber + ' ---\n' + strings.join(' ');
+    }
 
-      fileUpload.addEventListener('change', function() {
-        const newFiles = Array.from(this.files).map(file => ({
-          name: file.name,
-          size: Math.round(file.size / 1024)
-        }));
+    extractedText.value = text.trim();
 
-        localStorage.setItem('dashboardFiles', JSON.stringify(newFiles));
-        renderFiles(newFiles);
-      });
-      </script>
+    document.getElementById('docType').value = 'Documento rendicontazione';
+    document.getElementById('docSubject').value = detectSupplier(text);
+    document.getElementById('docAmount').value = detectAmount(text);
+    document.getElementById('docOR').value = detectOR(text);
+  };
 
+  reader.readAsArrayBuffer(file);
+});
 
-    </section>
+function detectSupplier(text) {
+  if (text.includes('GD Services') || text.includes('GD Service')) return 'GD Services';
+  if (text.includes('Software Design')) return 'Software Design';
+  if (text.includes('Enablit')) return 'Enablit';
+  if (text.includes('VJ Technology')) return 'VJ Technology';
+  return '';
+}
 
-    <script>
-    document.getElementById('fileUpload').addEventListener('change', function() {
+function detectAmount(text) {
+  if (text.includes('300.000')) return 300000;
+  if (text.includes('80.000')) return 80000;
+  if (text.includes('44.000')) return 44000;
+  if (text.includes('25.000')) return 25000;
+  return '';
+}
 
-      const fileList = document.getElementById('fileList');
+function detectOR(text) {
+  if (text.includes('OR5') || text.includes('SS')) return 'OR5 / SS';
+  if (text.includes('OR1') || text.includes('RI')) return 'OR1 / RI';
+  return '';
+}
 
-      if (this.files.length === 0) {
-        fileList.innerHTML = 'Nessun documento caricato';
-        return;
-      }
+document.getElementById('applyDocData').addEventListener('click', function () {
+  const tipo = document.getElementById('docType').value;
+  const soggetto = document.getElementById('docSubject').value;
+  const importo = Number(document.getElementById('docAmount').value || 0);
+  const orTask = document.getElementById('docOR').value;
 
-      fileList.innerHTML = '';
+  localStorage.setItem('ultimoDocumentoLUCE', JSON.stringify({
+    tipo,
+    soggetto,
+    importo,
+    orTask
+  }));
 
-      Array.from(this.files).forEach(file => {
+  document.getElementById('updateStatus').innerHTML =
+    '✔ Dati letti e salvati. Prossimo step: collegarli ai KPI della dashboard.';
+});
+</script>
 
-        const row = document.createElement('div');
-
-        row.style.padding = '10px';
-        row.style.margin = '8px 0';
-        row.style.border = '1px solid #d9d9d9';
-        row.style.borderRadius = '8px';
-
-        row.innerHTML =
-          '<strong>' + file.name + '</strong><br>' +
-          Math.round(file.size / 1024) + ' KB';
-
-        fileList.appendChild(row);
-
-      });
-
-    });
-    </script>
-
-    </body>
-    </html>
+</body>
+</html>
