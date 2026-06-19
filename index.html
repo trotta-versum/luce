@@ -1630,42 +1630,140 @@ h2 em.sc{color:var(--green);font-weight:900;}
   §09 · RACCOMANDAZIONI PMO
 ═══════════════════════════════════════════════════ -->
 <section class="sec rev" id="raccomandazioni">
-  <p class="eyebrow">09 · Raccomandazioni PMO · Piano d'azione SAL finale</p>
-  <h2>Azioni <em>operative prioritarie</em></h2>
+  <p class="eyebrow">09 · Valutazione PMO · Scenari di Avanzamento</p>
+  <h2>Raccomandazioni operative <em>derivate dall'analisi di avanzamento</em></h2>
 
-  <div class="g2 rev">
-    <div>
-      <div class="call gr" style="margin-bottom:12px;">
-        <strong>R1 · IMMEDIATO — Attivazione formale OR5 (Maggio 2026)</strong><br>
-        Emettere ordine di lavoro <strong>GD Services</strong> (AI engine, NLP) e <strong>Software Design</strong> (architettura DSS, integrazione moduli) su A5.2 e A5.3 entro il 05/05/2026. D5.1 (completato) e D1.3 (completato) forniscono già le specifiche necessarie. Non attendere il completamento di A1.4–A1.5: queste attività OR1 procedono in parallelo. Il ritardo nell'avvio OR5 è il principale rischio di execution dell'intero progetto.
-      </div>
-      <div class="call ri" style="margin-bottom:12px;">
-        <strong>R2 · GIUGNO 2026 — Checkpoint avanzamento OR1.2</strong><br>
-        A1.4 deve essere ≥85% a fine giugno (attualmente 65%: +20pp in 2 mesi). A1.5 deve essere ≥75% (attualmente 52%: +23pp). Se questi target non sono raggiunti, attivare ore aggiuntive Enablit senza superare il budget contrattuale di €424k+€146k residuo. Metriche di controllo: numero di run di validazione completati per A1.4 (target: almeno 3 iterazioni di tuning completate).
-      </div>
-      <div class="call am" style="margin-bottom:12px;">
-        <strong>R3 · LUGLIO–AGOSTO 2026 — Sequenza critica D1.6 → D5.4</strong><br>
-        D1.6 (Ranking RL) deve essere completato entro il 31 luglio per non bloccare D5.4 (Suite Ranking), che dipende direttamente da esso. Questa è la dipendenza critica più pericolosa del progetto: un ritardo di 2 settimane su D1.6 si trasferisce direttamente su D5.4 e poi su D5.6. Allocare Enablit dedicato a A1.6 da metà luglio se l'avanzamento è <80%.
-      </div>
-    </div>
-    <div>
-      <div class="call rd" style="margin-bottom:12px;">
-        <strong>R4 · SETTEMBRE 2026 — Integrazione A5.6 e gestione qualità</strong><br>
-        A5.6 è il deliverable di integrazione totale: non comprimibile sotto 4 settimane di testing. Avvio non oltre il 01/09/2026. Allocare Software Design in modo esclusivo. Il rischio di sotto-investimento in testing è alto in questa fase: una qualità insufficiente in D5.6 comprometterebbe l'accettazione dell'intero SAL finale.
-      </div>
-      <div class="call p" style="margin-bottom:12px;">
-        <strong>R5 · OTTOBRE 2026 — Chiusura operativa e avvio rendicontazione</strong><br>
-        Chiusura operativa entro 31/10/2026. Da 01/11: avvio compilazione Relazione Tecnica SAL finale (Allegato D6), raccolta timesheet, fatture fornitori, riconciliazione matrice economica. Trotta e Di Molfetta: 70% del tempo dedicato. Target bozza: 20/11/2026. Buffer tecnico: 13 giorni prima della scadenza contrattuale.
-      </div>
-      <div class="call gr">
-        <strong>R6 · NOVEMBRE 2026 — Dissemination e DemoLab conclusivo</strong><br>
-        Organizzare DemoLab conclusivo con presentazione integrata della piattaforma LUCE. Inviare paper D1.6–D1.7 a rivista indicizzata. Rilasciare dataset su Zenodo/Kaggle. Aggiornare pagine web LUM Enterprise e profili accademici (Scopus, Google Scholar). Contributo principale: Leogrande + Notarnicola. Il DemoLab finale è evidenza di dissemination richiesta dal Contratto di Programma.
-      </div>
-    </div>
+  <div class="call p rev" style="margin-bottom:24px;">
+    <strong>Nota metodologica — natura di questa sezione:</strong> Le raccomandazioni riportate rappresentano <strong>valutazioni PMO elaborate sulla base dei dati disponibili al I SAL</strong>, delle dipendenze progettuali e degli scenari di completamento. Esse derivano dall'analisi del Gantt, dal forecast economico, dalla simulazione delle risorse e dalle dipendenze OR1→OR5 — non dal contratto PIA né da prescrizioni formali del Programma. <strong>Non costituiscono obblighi contrattuali</strong> né impegni del progetto, ma indicazioni operative finalizzate a supportare il monitoraggio e la gestione del rischio fino alla chiusura del progetto.
   </div>
 
-  <div class="call p" style="margin-top:4px;">
-    <strong>Sintesi PMO Senior — Valutazione finale difendibile in audit:</strong> Il progetto LUCE si trova in una posizione di solidità metodologica documentata al I SAL. La concentrazione del budget SS nel periodo residuo (€379.855 intatti) non è una criticità finanziaria — è una conseguenza pianificata della sequenzialità OR1→OR5. Il forecast realistico (Scenario B) stima un assorbimento complessivo dell'88,4% del budget approvato, con un contributo ammesso previsto di ~€802.000 su €908.792 massimi. La probabilità di chiusura nei termini contrattuali è dell'80% a condizione che l'attivazione di <strong>GD Services e Software Design su OR5</strong> avvenga entro Maggio 2026. Ogni valore è accompagnato dal reasoning che lo giustifica e può essere presentato in sede di audit o revisione regionale.
+  <!-- Struttura a 6 schede — layout identico al precedente ma riformulato -->
+  <div class="g2 rev">
+    <div>
+
+      <!-- R1 -->
+      <div style="border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden;">
+        <div style="background:var(--green);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);">R1 · Osservazione strategica</span>
+          <span style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:2px 10px;border-radius:2px;">Priorità: Alta</span>
+        </div>
+        <div style="padding:14px 16px;font-size:12.5px;color:var(--ink2);line-height:1.75;">
+          <strong style="color:var(--green);display:block;margin-bottom:6px;">📊 Osservazione</strong>
+          L'analisi del percorso critico evidenzia che un avvio anticipato delle attività OR5 potrebbe ridurre il rischio di concentrazione delle attività residue nel periodo finale del progetto. D5.1 (completato) e D1.3 (completato) forniscono già le specifiche di base necessarie per l'avvio delle prime attività sperimentali.
+          <strong style="color:var(--red);display:block;margin-top:10px;margin-bottom:4px;">⚠ Rischio identificato</strong>
+          Un avvio tardivo di OR5 potrebbe comprimere il margine operativo disponibile per la fase di integrazione e testing (A5.6), aumentando il rischio qualitativo sui deliverable finali.
+          <strong style="color:var(--ri);display:block;margin-top:10px;margin-bottom:4px;">💡 Possibile azione PMO</strong>
+          Potrebbe essere valutata l'opportunità di avviare le attività A5.2 e A5.3 in anticipo rispetto alla conclusione delle attività OR1 ancora in corso, previa verifica della disponibilità delle risorse e della coerenza con il piano di progetto approvato.
+          <div style="margin-top:10px;padding:7px 10px;background:var(--warm);border-radius:var(--r);font-size:11px;color:var(--ink3);">
+            <strong>Fonte del ragionamento:</strong> Gantt · Forecast · Dipendenze OR1→OR5 · Scenario PMO (Scenario B — Realistico)
+          </div>
+        </div>
+      </div>
+
+      <!-- R2 -->
+      <div style="border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden;">
+        <div style="background:var(--ri);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);">R2 · Monitoraggio avanzamento OR1.2</span>
+          <span style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:2px 10px;border-radius:2px;">Priorità: Media-Alta</span>
+        </div>
+        <div style="padding:14px 16px;font-size:12.5px;color:var(--ink2);line-height:1.75;">
+          <strong style="color:var(--ri);display:block;margin-bottom:6px;">📊 Osservazione</strong>
+          Al I SAL, A1.4 risulta al 65% e A1.5 al 52%. Il raggiungimento di un avanzamento significativo di queste attività nel periodo estivo favorirebbe la disponibilità degli output algoritmici necessari alle attività successive e in particolare alle dipendenze con OR5.
+          <strong style="color:var(--red);display:block;margin-top:10px;margin-bottom:4px;">⚠ Rischio identificato</strong>
+          Un avanzamento insufficiente di A1.4 e A1.5 potrebbe ritardare le attività OR5 dipendenti (A5.2, A5.4) e comprimere i margini di completamento del secondo semestre 2026.
+          <strong style="color:var(--ri);display:block;margin-top:10px;margin-bottom:4px;">💡 Possibile azione PMO</strong>
+          Potrebbe essere utile pianificare un momento di verifica intermedia dell'avanzamento di A1.4 e A1.5 nel corso del periodo giugno–luglio, al fine di valutare se l'intensità delle attività in corso sia adeguata ai tempi previsti e, qualora necessario, identificare azioni correttive compatibili con il piano delle risorse.
+          <div style="margin-top:10px;padding:7px 10px;background:var(--warm);border-radius:var(--r);font-size:11px;color:var(--ink3);">
+            <strong>Fonte del ragionamento:</strong> Dipendenze OR1→OR5 · Forecast · Allocazione risorse · Gantt
+          </div>
+        </div>
+      </div>
+
+      <!-- R3 -->
+      <div style="border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden;">
+        <div style="background:var(--amber);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);">R3 · Dipendenza critica D1.6 → D5.4</span>
+          <span style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:2px 10px;border-radius:2px;">Priorità: Alta</span>
+        </div>
+        <div style="padding:14px 16px;font-size:12.5px;color:var(--ink2);line-height:1.75;">
+          <strong style="color:var(--amber);display:block;margin-bottom:6px;">📊 Osservazione</strong>
+          L'analisi delle dipendenze tra attività evidenzia che D1.6 (Ranking Dinamico) è un prerequisito metodologico per A5.4 (Suite Ranking). La sequenza D1.6 → D5.4 → D5.6 rappresenta il percorso critico più lungo del progetto nel secondo semestre 2026.
+          <strong style="color:var(--red);display:block;margin-top:10px;margin-bottom:4px;">⚠ Rischio identificato</strong>
+          Eventuali ritardi nella conclusione di A1.6 potrebbero propagarsi sulle attività OR5 successive, riducendo il margine disponibile per la fase finale di integrazione (A5.6) e potenzialmente comprimendo i tempi di rendicontazione.
+          <strong style="color:var(--ri);display:block;margin-top:10px;margin-bottom:4px;">💡 Possibile azione PMO</strong>
+          Potrebbe risultare utile prestare particolare attenzione all'avanzamento di A1.6 nel periodo luglio–agosto, in modo da verificare per tempo la disponibilità degli output necessari ad alimentare A5.4. Qualora l'avanzamento risultasse inferiore alle aspettative, potrebbe essere valutata un'intensificazione delle attività di analisi algoritmica, compatibilmente con le risorse disponibili e con il piano autorizzato.
+          <div style="margin-top:10px;padding:7px 10px;background:var(--warm);border-radius:var(--r);font-size:11px;color:var(--ink3);">
+            <strong>Fonte del ragionamento:</strong> Dipendenze OR1→OR5 · Gantt · Scenario PMO
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end colonna sx -->
+    <div>
+
+      <!-- R4 -->
+      <div style="border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden;">
+        <div style="background:var(--red);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);">R4 · Fase di integrazione e qualità A5.6</span>
+          <span style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:2px 10px;border-radius:2px;">Priorità: Alta</span>
+        </div>
+        <div style="padding:14px 16px;font-size:12.5px;color:var(--ink2);line-height:1.75;">
+          <strong style="color:var(--red);display:block;margin-bottom:6px;">📊 Osservazione</strong>
+          A5.6 rappresenta il deliverable di integrazione finale dell'intera piattaforma OR5. Per sua natura, richiede che tutti i moduli precedenti (A5.2–A5.5) abbiano raggiunto un livello di maturità sufficiente prima di poter avviare le attività di testing e validazione integrata.
+          <strong style="color:var(--red);display:block;margin-top:10px;margin-bottom:4px;">⚠ Rischio identificato</strong>
+          Una compressione eccessiva della fase di testing di A5.6 — per recuperare ritardi accumulati nelle attività precedenti — potrebbe incidere sulla qualità e sulla completezza del deliverable finale, con potenziali impatti sulla valutazione in sede di SAL.
+          <strong style="color:var(--ri);display:block;margin-top:10px;margin-bottom:4px;">💡 Possibile azione PMO</strong>
+          Nella pianificazione operativa del periodo settembre–ottobre, potrebbe essere opportuno riservare una finestra temporale adeguata alle attività di testing e validazione di A5.6, valutando in anticipo la disponibilità dei fornitori specialistici. Qualora fossero previste ulteriori attività specialistiche esterne, potrebbe essere considerato il coinvolgimento di fornitori già presenti nel progetto, previa verifica della coerenza con gli atti autorizzativi e con la rendicontazione.
+          <div style="margin-top:10px;padding:7px 10px;background:var(--warm);border-radius:var(--r);font-size:11px;color:var(--ink3);">
+            <strong>Fonte del ragionamento:</strong> Gantt · Forecast · Scenario PMO · Allocazione risorse
+          </div>
+        </div>
+      </div>
+
+      <!-- R5 -->
+      <div style="border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden;">
+        <div style="background:var(--purple);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);">R5 · Chiusura operativa e rendicontazione</span>
+          <span style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:2px 10px;border-radius:2px;">Priorità: Alta</span>
+        </div>
+        <div style="padding:14px 16px;font-size:12.5px;color:var(--ink2);line-height:1.75;">
+          <strong style="color:var(--purple);display:block;margin-bottom:6px;">📊 Osservazione</strong>
+          Il Scenario B (realistico) prevede la chiusura operativa entro ottobre 2026, lasciando un margine di circa 33 giorni rispetto alla scadenza contrattuale del 03/12/2026 per le attività di rendicontazione finale. Tale margine è considerato adeguato ma non ampliabile in caso di ritardi operativi.
+          <strong style="color:var(--red);display:block;margin-top:10px;margin-bottom:4px;">⚠ Rischio identificato</strong>
+          Eventuali slittamenti nella chiusura operativa ridurrebbero la finestra disponibile per la compilazione della Relazione Tecnica SAL finale (Allegato D6), con potenziale impatto sulla qualità della documentazione e sul rispetto della scadenza contrattuale.
+          <strong style="color:var(--ri);display:block;margin-top:10px;margin-bottom:4px;">💡 Possibile azione PMO</strong>
+          Potrebbe essere utile avviare in anticipo le attività preparatorie di rendicontazione (raccolta timesheet, verifica fatture fornitori, riconciliazione matrice economica) anche prima della chiusura formale delle attività operative, in modo da distribuire il carico documentale nel tempo e ridurre il rischio di concentrazione nella fase finale.
+          <div style="margin-top:10px;padding:7px 10px;background:var(--warm);border-radius:var(--r);font-size:11px;color:var(--ink3);">
+            <strong>Fonte del ragionamento:</strong> Forecast · Scenario PMO · Gantt
+          </div>
+        </div>
+      </div>
+
+      <!-- R6 -->
+      <div style="border:1px solid var(--border);border-radius:var(--r);overflow:hidden;">
+        <div style="background:var(--green);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);">R6 · Dissemination e valorizzazione scientifica</span>
+          <span style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:2px 10px;border-radius:2px;">Priorità: Media</span>
+        </div>
+        <div style="padding:14px 16px;font-size:12.5px;color:var(--ink2);line-height:1.75;">
+          <strong style="color:var(--green);display:block;margin-bottom:6px;">📊 Osservazione</strong>
+          Il progetto ha già prodotto un corpus scientifico rilevante (3 pubblicazioni, di cui 1 Q1 IEEE). Il piano di dissemination prevede ulteriori attività nel periodo residuo: DemoLab conclusivo, pubblicazioni su riviste indicizzate e rilascio di dataset open. Queste attività rafforzano l'evidenza scientifica del progetto e supportano la valutazione del SAL finale.
+          <strong style="color:var(--red);display:block;margin-top:10px;margin-bottom:4px;">⚠ Rischio identificato</strong>
+          Un'eventuale mancanza di copertura scientifica su D1.6 (Ranking Dinamico) e D1.7 (Digital Twin) potrebbe lasciare alcune attività prive di evidenza pubblicistica diretta, riducendo la completezza del corpus di dissemination al SAL finale.
+          <strong style="color:var(--ri);display:block;margin-top:10px;margin-bottom:4px;">💡 Possibile azione PMO</strong>
+          Potrebbe essere valutata l'opportunità di produrre un contributo scientifico dedicato alle attività A1.7/A5.5 (Digital Twin per Technology Transfer) nel corso del periodo settembre–ottobre, in modo da ampliare la copertura pubblicistica del progetto prima della chiusura. Il coordinamento con la Prof.ssa Secundo e il contributo di Leogrande e Notarnicola rappresentano la risorsa naturale per questa attività.
+          <div style="margin-top:10px;padding:7px 10px;background:var(--warm);border-radius:var(--r);font-size:11px;color:var(--ink3);">
+            <strong>Fonte del ragionamento:</strong> Scenario PMO · Allocazione risorse · Forecast dissemination
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end colonna dx -->
+  </div><!-- end g2 -->
+
+  <!-- Sintesi finale riformulata -->
+  <div class="call p rev" style="margin-top:16px;">
+    <strong>Sintesi della valutazione PMO al I SAL:</strong> Il progetto LUCE si trova in una posizione di solidità metodologica documentata. La concentrazione del budget SS nel periodo residuo (€379.855 intatti) non costituisce una criticità finanziaria, ma riflette la sequenzialità pianificata OR1→OR5. Il forecast realistico (Scenario B) stima un assorbimento complessivo dell'88,4% del budget approvato, con un contributo ammesso previsto di circa €802.000 su €908.792 massimi. La probabilità di completamento nei termini contrattuali è stimata all'80% sulla base delle dipendenze analizzate e della capacità operativa disponibile. I valori riportati sono elaborati sulla base dei dati al I SAL e degli scenari di simulazione — ogni stima è accompagnata dal ragionamento che la supporta e può essere presentata come analisi PMO in sede di monitoraggio interno o di interlocuzione con il soggetto gestore.
   </div>
 </section>
 
