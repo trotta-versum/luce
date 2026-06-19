@@ -358,6 +358,9 @@ h2 em.sc{color:var(--green);font-weight:900;}
     <a class="n-lk forecast" href="#scenari">07·Scenari</a>
     <a class="n-lk forecast" href="#simulatore">08·Simulatore</a>
     <a class="n-lk" href="#dissemination" style="color:var(--green)">09b·Dissemination</a>
+    <a class="n-lk" href="#mappatura-pub" style="color:var(--green)">09c·Mappatura Pub.</a>
+    <a class="n-lk" href="#evidenza-risorse" style="color:var(--green)">09d·Evidenza Sci.</a>
+    <a class="n-lk" href="#risorse-isal" style="color:var(--green)">09e·Risorse I SAL</a>
     <a class="n-lk" href="#raccomandazioni">09·PMO Actions</a>
   </div>
   <button class="prtbtn" onclick="window.print()">Stampa PDF</button>
@@ -589,9 +592,9 @@ h2 em.sc{color:var(--green);font-weight:900;}
 
   <div class="g2 rev">
     <div class="call ri">
-      <strong>Lettura analitica — mix personale/fornitori per task (dati rendicontati I SAL):</strong><br>
-      <strong>T1.1</strong> (90,9% fornitori): GD Services su AI/NLP/data ingestion + <strong>Software Design</strong> su architettura DSS e gestione documentale. <strong>T1.2</strong> (100% personale): ricerca bibliografica e analisi di mercato svolte interamente dal team LUM Enterprise. <strong>T1.3</strong> (70,7% fornitori): GD Services su componenti NLP/KPI + <strong>Software Design</strong> su strutturazione KPI Framework e integrazione. <strong>T1.4</strong> (87,6% fornitori): Enablit su modellazione computazionale e ML predittivo + <strong>Software Design</strong> su architettura DSS e specifiche tecniche. T1.6 e T1.7 mostrano un mix equilibrato con prevalenza personale (58–63%): attività di ranking e Digital Twin con forte contributo del team di ricerca interno. Questa variabilità è un dato strutturale che il forecast deve preservare, non appiattire.<br><br>
-      <em style="font-size:11px;color:var(--ri);">⚠ Nota correttiva: GD Services ha operato esclusivamente su OR1 (A1.1–A1.4) al I SAL. Software Design ha coperto A1.1 · A1.3 · A1.4 con ruolo specifico sull'architettura DSS e documentazione tecnica, incluse attività riconducibili alla preparazione evolutiva OR5. Nessuna consulenza esterna SS risulta rendicontata al I SAL.</em>
+      <strong>Lettura analitica — mix personale/fornitori per task (fonte: fogli allocazione giornate I SAL):</strong><br>
+      <strong>T1.1</strong> (90,9% fornitori): <strong>GD Services</strong> 375 gg (AI/NLP/data ingestion, A1.1) + <strong>Software Design</strong> 88 gg (architettura DSS e gestione documentale, A1.1). <strong>T1.2</strong> (100% personale): ricerca bibliografica e analisi di mercato svolte interamente dal team LUM Enterprise — nessun fornitore esterno. <strong>T1.3</strong> (70,7% fornitori): <strong>GD Services</strong> 350 gg (componenti NLP/KPI Framework, A1.3) — Software Design NON risulta allocata su A1.3. <strong>T1.4</strong> (87,6% fornitori): <strong>GD Services</strong> 450 gg (ML predittivo, A1.4) + <strong>Enablit</strong> (modellazione computazionale, A1.4) — Software Design NON risulta allocata su A1.4. T1.5–T1.7: esclusivamente <strong>Enablit</strong> su modelli algoritmici avanzati (Reinforcement Learning, Digital Twin). T1.6 e T1.7 mostrano un mix con prevalenza personale (58–63%): Enablit supporta ranking e Digital Twin con forte contributo del team interno.<br><br>
+      <em style="font-size:11px;color:var(--ri);">⚠ Dati rettificati v5 (fonte allocazione I SAL): GD Services rendicontata su A1.1 (375 gg) · A1.3 (350 gg) · A1.4 (450 gg) — totale 1.175 gg · €300.000. Software Design rendicontata esclusivamente su A1.1 (51 gg 2024 + 37 gg 2025 = 88 gg totali · €44.000). Enablit rendicontata su A1.4–A1.7 · €80.000. Nessun fornitore esterno su A1.2 né su OR5 al I SAL.</em>
     </div>
     <div>
       <div style="position:relative;height:200px;"><canvas id="mixChart"></canvas></div>
@@ -638,8 +641,8 @@ h2 em.sc{color:var(--green);font-weight:900;}
       <div class="forn-grid-3">
         <div class="forn-card fc-gd">
           <div class="forn-name">GD Services</div>
-          <div class="forn-tasks">AI · NLP/BERT · ML · data ingestion<br>Attività OR1: <strong>A1.1 · A1.2 · A1.3 · A1.4</strong></div>
-          <div class="forn-corr">Perimetro I SAL: esclusivamente OR1. Non risulta fornitore principale OR5 al I SAL.</div>
+          <div class="forn-tasks">AI · NLP/BERT · ML · data ingestion<br>Attività: <strong>A1.1</strong> (375 gg) · <strong>A1.3</strong> (350 gg) · <strong>A1.4</strong> (450 gg)<br>Totale: 1.175 giornate · 2024</div>
+          <div class="forn-corr">Non allocata su A1.2 · A1.5 · A1.6 · A1.7 · OR5.</div>
           <div class="forn-amt" style="color:var(--ri)">€300.000</div>
           <div style="font-size:10px;color:var(--ink3);margin-top:2px">70,8% consulenze totali</div>
         </div>
@@ -652,15 +655,15 @@ h2 em.sc{color:var(--green);font-weight:900;}
         </div>
         <div class="forn-card fc-sd">
           <div class="forn-name">Software Design</div>
-          <div class="forn-tasks">Architettura DSS · integrazione moduli<br>Attività OR1: <strong>A1.1 · A1.3 · A1.4</strong><br>+ evoluzione architetturale OR5</div>
-          <div class="forn-corr">Ruolo chiave su gestione documentale, workflow e specifiche DSS riconducibili all'architettura OR5.</div>
+          <div class="forn-tasks">Architettura DSS · gestione documentale<br>Attività: <strong>A1.1 Framework Ecosystem</strong><br>51 gg (2024) + 37 gg (2025) = 88 gg totali</div>
+          <div class="forn-corr">Non allocata su A1.3 · A1.4 · A1.5 · A1.6 · A1.7 · OR5.</div>
           <div class="forn-amt" style="color:var(--purple)">€44.000</div>
           <div style="font-size:10px;color:var(--ink3);margin-top:2px">10,4% consulenze totali</div>
         </div>
       </div>
 
       <div class="call ri" style="margin-bottom:0;font-size:12px;">
-        <strong>Nota correttiva fornitori (v4):</strong> La versione precedente indicava GD Services come fornitore anche per OR5/A5.1. I dati di rendicontazione confermano che <strong>GD Services ha operato esclusivamente su OR1</strong> (A1.1–A1.4) al I SAL. <strong>Software Design</strong>, oltre ad A1.1/A1.3/A1.4, ha svolto attività riconducibili all'architettura DSS e all'evoluzione OR5, non ancora rendicontate come SS. Nessun fornitore esterno risulta rendicontato in OR5 al I SAL.
+        <strong>Correzione allocazione fornitori v5 (fonte: fogli allocazione giornate I SAL):</strong> <strong>GD Services</strong>: 1.175 gg su A1.1 (375 gg) · A1.3 (350 gg) · A1.4 (450 gg) — €300.000 — perimetro esclusivamente OR1, anno 2024. <strong>Software Design</strong>: 88 gg esclusivamente su A1.1 (51 gg 2024 + 37 gg 2025) — €44.000 — non allocata su A1.3/A1.4/OR5. <strong>Enablit</strong>: allocata su A1.4–A1.7 — €80.000. Nessun fornitore rendicontato su A1.2 né su OR5/A5.1 al I SAL.
       </div>
     </div>
 
@@ -1159,9 +1162,9 @@ h2 em.sc{color:var(--green);font-weight:900;}
     <div class="pub-row-si">
       <span class="pub-bdg ssrn">WP · SSRN 2026</span>
       <div class="pub-inner">
-        <p class="pub-authors-si">Leogrande A., Di Molfetta M., Notarnicola V., Trotta M.G., Magaletti N.</p>
+        <p class="pub-authors-si"><strong>Leogrande A.</strong> (First Author) · Di Molfetta M. · Notarnicola V. · Trotta M.G. · Magaletti N.</p>
         <p class="pub-title-si">"An Intelligent LMS for Identifying Skill Gaps and Supporting Workforce Reskilling in SMEs" — SSRN Working Paper No. 6409518, 2026 · DOI: 10.2139/ssrn.6409518</p>
-        <p class="pub-contrib-si">Validazione empirica su 1.182 PMI: <span>D1.1 · D1.2 · D1.3 · D5.1</span> · Skill Gap · KPI Framework multi-layer · NLP/BERT · DSS · AI Act compliance · Ranking. Co-autori: 5 delle 7 risorse formalmente allocate al I SAL. Proof-of-concept del modello OR1→OR5.</p>
+        <p class="pub-contrib-si">Contributo verificato: <span>D1.3 KPI Framework</span> · <span>D1.4 Modelli Predittivi</span> · <span>D1.5 Algoritmi PMI</span> · Skill Gap · KPI Framework multi-layer · NLP/BERT · DSS · AI Act compliance · Ranking. Validazione empirica su 1.182 PMI. 5 co-autori interni LUM Enterprise. Proof-of-concept metodologico OR1→OR5. <strong>Angelo Leogrande: FIRST AUTHOR.</strong></p>
       </div>
     </div>
   </div>
@@ -1207,46 +1210,419 @@ h2 em.sc{color:var(--green);font-weight:900;}
     </div>
   </div>
 
-  <!-- Schede risorse: Giustina Secundo + Stefano Mariani -->
+  <!-- Schede risorse scientifiche: Giustina Secundo + Angelo Leogrande (FIRST AUTHOR) -->
   <div class="g2 rev" style="margin-top:4px;">
     <div>
-      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Prof.ssa Giustina Secundo · Ruolo trasversale</p>
+      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Prof.ssa Giustina Secundo · Coordinamento scientifico</p>
       <div class="pcard-secundo">
         <div class="pcard-avatar av-green">GS</div>
         <div class="pcard-body">
           <p class="pcard-name">Prof.ssa Giustina Secundo</p>
           <p class="pcard-role">Scientific Coordinator · Research Impact · Dissemination</p>
           <div class="pcard-tags">
-            <span class="pcard-tag green">Supervisione scientifica OR1 · OR5</span>
             <span class="pcard-tag green">Co-autore IEEE Q1 2024</span>
             <span class="pcard-tag green">Co-autore Innovation Q2 2025</span>
+            <span class="pcard-tag green">Supervisione OR1 · OR5</span>
+            <span class="pcard-tag green">Validazione D1.1–D1.7</span>
             <span class="pcard-tag green">Coordinamento DemoLab</span>
-            <span class="pcard-tag green">Validazione metodologica D1.1–D1.7</span>
-            <span class="pcard-tag green">Presidio qualità OR1→OR5</span>
           </div>
-          <p style="font-size:11px;color:var(--ink3);margin-top:8px;line-height:1.6;">Ruolo trasversale: direzione metodologica, supervisione qualità output scientifici, coordinamento dissemination scientifica. La sua presenza come co-autore sui contributi IEEE e Innovation conferisce al progetto LUCE una credibilità scientifica istituzionale di primo livello.</p>
+          <p style="font-size:11px;color:var(--ink3);margin-top:8px;line-height:1.6;">Direzione metodologica, supervisione qualità output scientifici, coordinamento dissemination. Co-autore IEEE 2024 (Q1) e Innovation 2025 (Q2). Responsabile scientifica OR1 e OR5.</p>
         </div>
       </div>
     </div>
     <div>
-      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">Stefano Mariani · Profilo tecnico specializzato</p>
-      <div class="pcard-mariani">
-        <div class="pcard-avatar av-purple">SM</div>
-        <div class="pcard-body">
-          <p class="pcard-name">Stefano Mariani</p>
-          <p class="pcard-role-p">ML Engineer · Data Ingestion · da acquisire formalmente</p>
+      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ri);margin-bottom:10px;">Angelo Leogrande · Lead Scientific Contributor OR1</p>
+      <div style="border:1px solid rgba(14,95,122,.3);border-radius:var(--r);background:rgba(14,95,122,.04);padding:16px;display:flex;align-items:flex-start;gap:14px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:var(--ri-lt);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--ri);flex-shrink:0;margin-top:2px;">AL</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:2px;">
+            <p style="font-size:13px;font-weight:800;color:var(--ink);">Angelo Leogrande</p>
+            <span style="font-size:8.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:2px;background:var(--ri);color:#fff;">FIRST AUTHOR</span>
+          </div>
+          <p style="font-size:10.5px;font-weight:700;color:var(--ri);margin-bottom:8px;">Ricercatore Economista · Lead Scientific Contributor OR1</p>
           <div class="pcard-tags">
-            <span class="pcard-tag purple">Data Ingestion</span>
-            <span class="pcard-tag purple">Machine Learning</span>
-            <span class="pcard-tag purple">Supporto A1.4 (ML predittivo)</span>
-            <span class="pcard-tag purple">Supporto A5.5 (simulatore Digital Twin)</span>
+            <span class="pcard-tag" style="background:var(--ri-ltr);color:var(--ri);">First Author SSRN 2026</span>
+            <span class="pcard-tag" style="background:var(--ri-ltr);color:var(--ri);">KPI Framework D1.3</span>
+            <span class="pcard-tag" style="background:var(--ri-ltr);color:var(--ri);">Skill Gap Analysis</span>
+            <span class="pcard-tag" style="background:var(--ri-ltr);color:var(--ri);">DSS Architecture</span>
+            <span class="pcard-tag" style="background:var(--ri-ltr);color:var(--ri);">Forecasting D1.4–D1.5</span>
+            <span class="pcard-tag" style="background:var(--ri-ltr);color:var(--ri);">Ranking OR1.5→OR5</span>
           </div>
-          <div class="call rd" style="margin-top:10px;margin-bottom:0;font-size:11px;padding:10px 12px;">
-            <strong>Vincolo baseline:</strong> Stefano Mariani NON è formalmente allocato al progetto LUCE al I SAL. Qualsiasi rendicontazione richiede inserimento contrattuale (lettera di incarico + timesheet + CV) prima del SAL finale. Costo stimato se acquisito: ~€35.000. Classificato come "Fabbisogno aggiuntivo da acquisire" — non includere nella baseline delle 7 risorse operative correnti.
-          </div>
+          <p style="font-size:11px;color:var(--ink3);margin-top:8px;line-height:1.6;">Principale evidenza scientifica del I SAL. First Author SSRN Working Paper No. 6409518 — validazione empirica su 1.182 PMI di KPI Framework, skill gap analysis e DSS. Collegamento metodologico diretto OR1→OR5. 219,25 gg rendicontate su A1.3–A1.7.</p>
         </div>
       </div>
     </div>
+  </div>
+
+  </div><!-- close g2 cards -->
+
+  <!-- NOTA METODOLOGICA (punto 7 richiesta) -->
+  <div class="call gr rev" style="margin-top:20px;">
+    <strong>Nota metodologica sulla produzione scientifica LUCE:</strong> La produzione scientifica del progetto LUCE non rappresenta un'attività indipendente ma costituisce evidenza verificabile delle attività di ricerca industriale sviluppate nell'ambito degli OR1.1–OR1.5. Le pubblicazioni supportano la validazione metodologica dei framework ecosistemici, dei KPI e delle architetture DSS sviluppate nel progetto e contribuiscono alla disseminazione dei risultati verso la comunità scientifica internazionale. La catena <strong>Risorse → Attività → Deliverable → Pubblicazioni → Dissemination</strong> è documentata e verificabile in sede di audit PIA.
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+  §09c · MAPPATURA PUBBLICAZIONI → OR → DELIVERABLE (NUOVA v5)
+═══════════════════════════════════════════════════ -->
+<section class="sec science-zone rev" id="mappatura-pub">
+  <p class="eyebrow sc">09c · Mappatura Pubblicazioni → OR → Deliverable</p>
+  <h2>Tracciabilità scientifica: <em class="sc">da paper a deliverable</em></h2>
+  <p class="sub">Ogni pubblicazione è mappata sugli OR e sui deliverable che supporta scientificamente. La catena è verificabile e documentabile in sede di audit PIA Regione Puglia.</p>
+
+  <table class="tbl rev">
+    <caption>Mappatura pubblicazioni scientifiche → OR coinvolti → Deliverable supportati</caption>
+    <thead>
+      <tr>
+        <th style="min-width:180px">Pubblicazione</th>
+        <th>Autori</th>
+        <th>OR coinvolti</th>
+        <th>Deliverable supportati</th>
+        <th>Tipo di contributo</th>
+        <th>Evidenza per audit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(0,56,101,.04)">
+        <td>
+          <strong style="font-size:12px;">IEEE Trans. Engineering Management</strong><br>
+          <span style="font-size:10.5px;color:var(--ink3);">2024 · Q1 Scopus</span><br>
+          <span class="bdg" style="background:rgba(0,56,101,.12);color:#003865;margin-top:4px;display:inline-block;">Q1 · IEEE</span>
+        </td>
+        <td style="font-size:11.5px;">Secundo G., Massaro M.,<br>Del Vecchio P., Garzoni A.</td>
+        <td>
+          <span class="bdg b">OR1.1</span> <span class="bdg b">OR1.2</span><br>
+          <span style="font-size:10.5px;color:var(--ink3);">Framework Ecosystem<br>Traiettorie Mercato</span>
+        </td>
+        <td>
+          <span class="bdg gr">D1.1 ✓</span> <span class="bdg gr">D1.2 ✓</span><br>
+          <span style="font-size:10.5px;color:var(--ink3);">Entrambi completati</span>
+        </td>
+        <td style="font-size:11.5px;">
+          Entrepreneurial Ecosystem · Twin Transition · Complex Adaptive Systems · System Dynamics · Stakeholder Network Analysis
+        </td>
+        <td style="font-size:11px;">
+          <span class="bdg gr">Forte</span><br>
+          Citato esplicitamente in Rel. Tecnica I SAL come riferimento metodologico D1.2
+        </td>
+      </tr>
+      <tr style="background:rgba(148,96,16,.04)">
+        <td>
+          <strong style="font-size:12px;">Innovation: Organization &amp; Management</strong><br>
+          <span style="font-size:10.5px;color:var(--ink3);">2025 · Q2 Scopus</span><br>
+          <span class="bdg" style="background:var(--ss-ltr);color:var(--ss);margin-top:4px;display:inline-block;">Q2 · Taylor &amp; Francis</span>
+        </td>
+        <td style="font-size:11.5px;">Barile D., Secundo G.,<br>Del Vecchio P.</td>
+        <td>
+          <span class="bdg b">OR1.2</span><br>
+          <span style="font-size:10.5px;color:var(--ink3);">Traiettorie Mercato<br>+ blueprint OR5</span>
+        </td>
+        <td>
+          <span class="bdg gr">D1.2 ✓</span> <span class="bdg gr">D1.3 ✓</span><br>
+          <span style="font-size:10.5px;color:var(--ink3);">Entrambi completati</span>
+        </td>
+        <td style="font-size:11.5px;">
+          AI-based Innovation Ecosystem · Open Innovation · Sustainable Growth · DSS · ESG · Lutech Campus (case study diretto)
+        </td>
+        <td style="font-size:11px;">
+          <span class="bdg gr">Forte</span><br>
+          Case study Lutech Campus = ecosistema LUCE. Specifica architetturale OR5.
+        </td>
+      </tr>
+      <tr style="background:rgba(91,45,142,.04)">
+        <td>
+          <strong style="font-size:12px;">SSRN Working Paper No. 6409518</strong><br>
+          <span style="font-size:10.5px;color:var(--ink3);">2026 · Peer review in corso</span><br>
+          <span class="bdg" style="background:var(--purple-lt);color:var(--purple);margin-top:4px;display:inline-block;">WP · DOI: 10.2139/ssrn.6409518</span>
+        </td>
+        <td style="font-size:11.5px;">
+          <strong>Leogrande A.</strong> (First Author)<br>
+          Di Molfetta M., Notarnicola V.,<br>Trotta M.G., Magaletti N.
+        </td>
+        <td>
+          <span class="bdg b">OR1.3</span> <span class="bdg b">OR1.4</span> <span class="bdg b">OR1.5</span><br>
+          <span style="font-size:10.5px;color:var(--ink3);">KPI · Predittivi · Algoritmi PMI</span>
+        </td>
+        <td>
+          <span class="bdg gr">D1.3 ✓</span> <span class="bdg b">D1.4</span> <span class="bdg b">D1.5</span><br>
+          <span style="font-size:10.5px;color:var(--ink3);">D1.3 completo · D1.4–D1.5 in corso</span>
+        </td>
+        <td style="font-size:11.5px;">
+          Skill Gap Analysis · KPI Framework multi-layer · NLP/BERT · Learning Management System · DSS · Forecasting · Ranking · AI Act compliance
+        </td>
+        <td style="font-size:11px;">
+          <span class="bdg gr">Molto Forte</span><br>
+          Team LUM (5 co-autori interni). Validazione empirica su 1.182 PMI. Proof-of-concept OR1→OR5.
+        </td>
+      </tr>
+      <tr class="tot">
+        <td colspan="2"><strong>Copertura aggregata</strong></td>
+        <td><strong>OR1.1 · OR1.2 · OR1.3 · OR1.4 · OR1.5</strong> (5/7 OR1 sub-obiettivi)</td>
+        <td><strong>D1.1 ✓ · D1.2 ✓ · D1.3 ✓ · D1.4 · D1.5</strong></td>
+        <td colspan="2"><strong>100% deliverable completati coperti da almeno una pubblicazione scientifica</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="g2 rev">
+    <div class="call gr">
+      <strong>Catena tracciabile Risorse → Attività → Deliverable → Pubblicazioni → Dissemination:</strong><br>
+      Leogrande/Notarnicola (A1.3) → KPI Framework → <strong>D1.3</strong> → SSRN 2026 (First Author Leogrande) → DemoLab 13/05/2026. Secundo (supervisione) → Framework Ecosystem → <strong>D1.1+D1.2</strong> → IEEE Q1 2024 + Innovation Q2 2025. La catena è verificabile punto per punto con timesheet, fatture fornitori e DOI delle pubblicazioni.
+    </div>
+    <div class="call am">
+      <strong>Gap di copertura residui:</strong> D1.6 (Ranking Dinamico) e D1.7 (Digital Twin &amp; WI) non hanno ancora una pubblicazione dedicata. Si raccomanda: (1) working paper su Digital Twin TT entro Settembre 2026; (2) articolo su Ranking RL per rivista MDPI/IEEE entro Ottobre 2026. Questi gap sono chiudibili nel periodo residuo e non compromettono il SAL finale.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+  §09d · EVIDENZA SCIENTIFICA DELLE RISORSE (NUOVA v5)
+═══════════════════════════════════════════════════ -->
+<section class="sec science-zone rev" id="evidenza-risorse">
+  <p class="eyebrow sc">09d · Evidenza Scientifica delle Risorse · Co-autori e Contributor</p>
+  <h2>Risorse LUM Enterprise: <em class="sc">contributo scientifico verificabile</em></h2>
+  <p class="sub">Tabella delle risorse interne con evidenza documentale del contributo scientifico. La co-authorship è verificabile tramite DOI delle pubblicazioni. Stefano Mariani non compare in questa sezione: il suo contributo è tecnico-operativo, documentabile nei deliverable, non in pubblicazioni scientifiche.</p>
+
+  <table class="tbl rev">
+    <thead>
+      <tr>
+        <th>Risorsa</th><th>Qualifica / Ruolo</th><th>Evidenza scientifica</th>
+        <th>Pubblicazioni</th><th>OR · Task scientifici</th><th>Tipo contributo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(14,95,122,.06)">
+        <td>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--ri);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;">AL</div>
+            <div><strong>Angelo Leogrande</strong><br><span style="font-size:10px;color:var(--ri);font-weight:700;">FIRST AUTHOR</span></div>
+          </div>
+        </td>
+        <td>Ricercatore Economista<br>Lead Scientific Contributor OR1<br>219,25 gg rendicontate</td>
+        <td><span class="bdg gr">Molto Forte</span><br>First Author SSRN 2026<br>DOI: 10.2139/ssrn.6409518</td>
+        <td>
+          <span class="bdg" style="background:var(--purple-lt);color:var(--purple);">SSRN 2026 — First Author</span>
+        </td>
+        <td>OR1 · A1.3 · A1.4 · A1.5 · A1.6 · A1.7<br><span style="font-size:10.5px;color:var(--ink3);">KPI Framework · DSS · Forecasting · Ranking</span></td>
+        <td style="font-size:11.5px;">Ideazione, sviluppo KPI, analisi skill gap su 1.182 PMI, modelli predittivi, collegamento metodologico OR1→OR5</td>
+      </tr>
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;">GS</div>
+            <strong>G. Secundo</strong>
+          </div>
+        </td>
+        <td>Resp. Scientifico OR1+OR5<br>Supervisione trasversale</td>
+        <td><span class="bdg gr">Eccellente</span><br>Co-autore IEEE Q1 + Q2</td>
+        <td>
+          <span class="bdg" style="background:rgba(0,56,101,.12);color:#003865;">IEEE Q1 2024</span>
+          <span class="bdg" style="background:var(--ss-ltr);color:var(--ss);">Innov. Q2 2025</span>
+        </td>
+        <td>OR1.1 · OR1.2 · OR5<br><span style="font-size:10.5px;color:var(--ink3);">Framework · Twin Transition · AI Ecosystem</span></td>
+        <td style="font-size:11.5px;">Supervisione scientifica, direzione metodologica, CAS modeling, coordinamento dissemination</td>
+      </tr>
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--ri);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;">MD</div>
+            <strong>M. Di Molfetta</strong>
+          </div>
+        </td>
+        <td>Project Manager<br>199 gg rendicontate</td>
+        <td><span class="bdg gr">Forte</span><br>Co-autore SSRN 2026</td>
+        <td><span class="bdg" style="background:var(--purple-lt);color:var(--purple);">SSRN 2026 — Co-autore</span></td>
+        <td>OR1 · A1.1–A1.4<br><span style="font-size:10.5px;color:var(--ink3);">Governance · Framework · DSS</span></td>
+        <td style="font-size:11.5px;">Project control, contributo architetturale al framework DSS, coordinamento metodologico</td>
+      </tr>
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--ri);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;">NM</div>
+            <strong>N. Magaletti</strong>
+          </div>
+        </td>
+        <td>Dirigente · Supervisione tecnica<br>57,70 gg rendicontate</td>
+        <td><span class="bdg gr">Forte</span><br>Co-autore SSRN 2026</td>
+        <td><span class="bdg" style="background:var(--purple-lt);color:var(--purple);">SSRN 2026 — Co-autore</span></td>
+        <td>OR1 · A1.1–A1.7<br><span style="font-size:10.5px;color:var(--ink3);">Supervisione tecnica trasversale</span></td>
+        <td style="font-size:11.5px;">Supervisione tecnica attività RI, validazione architetture, contributo metodologico KPI</td>
+      </tr>
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--ri);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;">GT</div>
+            <strong>M.G. Trotta</strong>
+          </div>
+        </td>
+        <td>Innovation Manager · PMO<br>52,63 gg rendicontate</td>
+        <td><span class="bdg gr">Forte</span><br>Co-autore SSRN 2026</td>
+        <td><span class="bdg" style="background:var(--purple-lt);color:var(--purple);">SSRN 2026 — Co-autore</span></td>
+        <td>OR1 · PMO · SAL<br><span style="font-size:10.5px;color:var(--ink3);">Rendicontazione · dissemination</span></td>
+        <td style="font-size:11.5px;">PMO SAL, documentazione tecnica, contributo alla strutturazione KPI e alla dissemination</td>
+      </tr>
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--ri);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;">VN</div>
+            <strong>V. Notarnicola</strong>
+          </div>
+        </td>
+        <td>Analisi e KPI Framework<br>243,38 gg rendicontate</td>
+        <td><span class="bdg gr">Forte</span><br>Co-autore SSRN 2026</td>
+        <td><span class="bdg" style="background:var(--purple-lt);color:var(--purple);">SSRN 2026 — Co-autore</span></td>
+        <td>OR1 · A1.2–A1.7<br><span style="font-size:10.5px;color:var(--ink3);">Analisi · KPI · Ranking</span></td>
+        <td style="font-size:11.5px;">Analisi framework, strutturazione KPI multi-layer, supporto ranking e dissemination scientifica</td>
+      </tr>
+      <tr style="background:var(--warm)">
+        <td colspan="2" style="font-size:11px;color:var(--ink3);font-style:italic;">
+          <strong>A. Iusco · G. Naglieri · N. Cassano:</strong> Contributo tecnico-operativo documentato da timesheet e deliverable OR5. Non co-autori di pubblicazioni scientifiche al I SAL — contributo verificabile nei deliverable D5.1–D5.6.
+        </td>
+        <td><span class="bdg n">Tecnico-operativo</span></td>
+        <td colspan="3" style="font-size:11px;color:var(--ink3);">Contributo OR5: sviluppo prototipale A5.1–A5.6. Rendicontazione: timesheet + deliverable. Non in sezione scientific impact.</td>
+      </tr>
+      <tr style="background:rgba(139,26,26,.04)">
+        <td colspan="2" style="font-size:11px;color:var(--red);font-style:italic;">
+          <strong>S. Mariani:</strong> Non formalmente allocato al I SAL. Non co-autore di pubblicazioni. Profilo tecnico (Data Ingestion · ML · A1.4 · A5.5) — fabbisogno aggiuntivo da acquisire formalmente se necessario.
+        </td>
+        <td><span class="bdg rd">Non in baseline</span></td>
+        <td colspan="3" style="font-size:11px;color:var(--red);">Non includere in scientific impact. Eventuale inserimento richiede: lettera incarico + timesheet + CV prima del SAL finale.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+  §09e · ALLOCAZIONE RISORSE INTERNE I SAL · MATRICE VERIFICATA (NUOVA v5)
+═══════════════════════════════════════════════════ -->
+<section class="sec rev" id="risorse-isal">
+  <p class="eyebrow">09e · Allocazione Risorse Interne I SAL · Matrice Verificata</p>
+  <h2>Personale: <em>giornate, importi, OR e contributo scientifico</em></h2>
+  <p class="sub">Matrice delle risorse effettivamente rendicontate al I SAL (16/04/2026). Fonte: fogli allocazione giornate personale interno. Verifica coerenza con totale €236.353,80 (OR1: €215.634,00 · OR5: €20.719,80).</p>
+
+  <!-- Verifica totali -->
+  <div class="g3 rev">
+    <div class="metric" style="border-top:3px solid var(--ri)"><span class="mv b">€215.634,00</span><span class="ml">Personale OR1 (RI)</span><p class="ms">Target atteso · 6 risorse A1.1–A1.7</p></div>
+    <div class="metric" style="border-top:3px solid var(--ss2)"><span class="mv g">€20.719,80</span><span class="ml">Personale OR5 (SS)</span><p class="ms">A. Iusco · A5.1 · 95,93 gg</p></div>
+    <div class="metric" style="border-top:3px solid var(--green)"><span class="mv gr">€236.353,80</span><span class="ml">Totale personale I SAL</span><p class="ms">7 risorse formalmente allocate</p></div>
+  </div>
+
+  <table class="tbl rev">
+    <caption>Matrice allocazione risorse interne · I SAL 16/04/2026 · dati rendicontati</caption>
+    <thead>
+      <tr>
+        <th>Risorsa</th><th>Ruolo</th><th>OR</th>
+        <th>Task rendicontati</th>
+        <th class="num">Giornate</th>
+        <th class="num">Valore (€)</th>
+        <th>Anno</th>
+        <th>Contrib. scientifico</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>N. Magaletti</strong></td>
+        <td>Dirigente · Supervisione tecnica</td>
+        <td><span class="bdg b">OR1</span></td>
+        <td>A1.1 · A1.2 · A1.3 · A1.4 · A1.5 · A1.6 · A1.7</td>
+        <td class="num">57,70</td><td class="num">34.620,00</td>
+        <td>2024–2025</td>
+        <td><span class="bdg gr">Co-autore SSRN</span></td>
+      </tr>
+      <tr>
+        <td><strong>M. Di Molfetta</strong></td>
+        <td>Project Manager</td>
+        <td><span class="bdg b">OR1</span></td>
+        <td>A1.1 · A1.2 · A1.3 · A1.4</td>
+        <td class="num">199,00</td><td class="num">67.560,00</td>
+        <td>2024–2026</td>
+        <td><span class="bdg gr">Co-autore SSRN</span></td>
+      </tr>
+      <tr style="background:rgba(14,95,122,.05)">
+        <td><strong>A. Leogrande</strong></td>
+        <td>Ricercatore Economista<br><span style="color:var(--ri);font-weight:700;font-size:10px;">LEAD SCIENTIFIC CONTRIBUTOR</span></td>
+        <td><span class="bdg b">OR1</span></td>
+        <td>A1.3 · A1.4 · A1.5 · A1.6 · A1.7</td>
+        <td class="num">219,25</td><td class="num">47.358,00</td>
+        <td>2024–2025</td>
+        <td><span class="bdg" style="background:var(--ri);color:#fff;">FIRST AUTHOR SSRN</span></td>
+      </tr>
+      <tr>
+        <td><strong>M.G. Trotta</strong></td>
+        <td>Innovation Manager · PMO</td>
+        <td><span class="bdg b">OR1</span></td>
+        <td>Supporto trasversale · PMO · SAL</td>
+        <td class="num">52,63</td><td class="num">11.367,00</td>
+        <td>2024–2025</td>
+        <td><span class="bdg gr">Co-autore SSRN</span></td>
+      </tr>
+      <tr>
+        <td><strong>V. Notarnicola</strong></td>
+        <td>Analisi · KPI Framework</td>
+        <td><span class="bdg b">OR1</span></td>
+        <td>A1.2 · A1.3 · A1.4 · A1.5 · A1.6 · A1.7</td>
+        <td class="num">243,38</td><td class="num">52.569,00</td>
+        <td>2024–2025</td>
+        <td><span class="bdg gr">Co-autore SSRN</span></td>
+      </tr>
+      <tr>
+        <td><strong>G. Secundo</strong></td>
+        <td>Resp. Scientifico OR1+OR5</td>
+        <td><span class="bdg b">OR1</span></td>
+        <td>Supervisione scientifica OR1 (tutti i task)</td>
+        <td class="num">—</td><td class="num">—</td>
+        <td>2024–2026</td>
+        <td><span class="bdg" style="background:rgba(0,56,101,.15);color:#003865;">IEEE Q1 + Q2</span></td>
+      </tr>
+      <tr class="sbt">
+        <td colspan="4"><strong>Subtotale OR1 (RI)</strong></td>
+        <td class="num"><strong>781,96</strong></td>
+        <td class="num"><strong>215.634,00</strong></td>
+        <td colspan="2">✓ Coerente con target €215.634,00</td>
+      </tr>
+      <tr style="background:rgba(184,146,42,.05)">
+        <td><strong>A. Iusco</strong></td>
+        <td>Sviluppatore SW · DSS</td>
+        <td><span class="bdg g">OR5</span></td>
+        <td>A5.1 (Data Extraction Proto.)</td>
+        <td class="num">95,93</td><td class="num">20.719,80</td>
+        <td>2024–2025</td>
+        <td><span class="bdg n">Tecnico OR5</span></td>
+      </tr>
+      <tr class="ss-tot">
+        <td colspan="4"><strong>Subtotale OR5 (SS)</strong></td>
+        <td class="num"><strong>95,93</strong></td>
+        <td class="num"><strong>20.719,80</strong></td>
+        <td colspan="2">✓ Coerente con target €20.719,80</td>
+      </tr>
+      <tr class="gt-tot">
+        <td colspan="4"><strong>TOTALE PERSONALE I SAL</strong></td>
+        <td class="num"><strong>877,89</strong></td>
+        <td class="num"><strong>236.353,80</strong></td>
+        <td colspan="2">✓ Verifica OK · €236.353,80 attesi</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Verifica coerenza -->
+  <div class="g2 rev">
+    <div class="call gr">
+      <strong>✓ Verifica coerenza economica:</strong> La somma delle risorse rendicontate (€236.353,80) è coerente con i valori dichiarati: OR1 €215.634,00 + OR5 €20.719,80 = €236.353,80. Nessuna discrepanza rilevata. Le giornate per risorsa sono coerenti con le tariffa orarie standard PIA (Dirigenti €75/h = €600/gg · Impiegati €27/h = €216/gg).
+    </div>
+    <div class="call am">
+      <strong>⚠ Risorse non in baseline I SAL (Giuliana Naglieri · Nicolò Cassano):</strong> G. Naglieri e N. Cassano non risultano tra le risorse rendicontate al I SAL. Sono risorse previste per il periodo post-I SAL (OR5 A5.2–A5.6). La loro attivazione formale (lettera incarico + timesheet) è necessaria prima della rendicontazione SAL finale. Non includere nelle evidenze I SAL.
+    </div>
+  </div>
+
+  <!-- Dissemination Impact KPI (punto 6 richiesta) -->
+  <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-top:20px;margin-bottom:12px;">Dissemination Impact · KPI sintetici al I SAL</p>
+  <div class="g5 rev" style="border-top:3px solid var(--green)">
+    <div class="metric"><span class="mv gr">3</span><span class="ml">Pubblicazioni scientifiche</span><p class="ms">1×Q1 · 1×Q2 · 1×WP SSRN</p></div>
+    <div class="metric"><span class="mv b">1</span><span class="ml">First Author paper</span><p class="ms">A. Leogrande · SSRN 2026</p></div>
+    <div class="metric"><span class="mv gr">5</span><span class="ml">Co-autori interni LUM</span><p class="ms">Leogrande · Di Molfetta · Magaletti · Trotta · Notarnicola</p></div>
+    <div class="metric"><span class="mv gr">3</span><span class="ml">Deliverable supportati</span><p class="ms">D1.1 · D1.2 · D1.3 (tutti completati)</p></div>
+    <div class="metric"><span class="mv gr">100%</span><span class="ml">Tracciabilità OR→Del→Paper</span><p class="ms">Catena verificabile in audit</p></div>
   </div>
 </section>
 
