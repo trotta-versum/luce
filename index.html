@@ -247,6 +247,79 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
   .sec{padding:20px 28px;}
   canvas{max-width:100%!important;}
 }
+
+/* ════════════════════════════════════════════════
+   STILI ADDITI v4 — non modificano nulla di esistente
+════════════════════════════════════════════════ */
+/* Zona science (dissemination) */
+.sec.science-zone{background:rgba(26,110,58,.03);border-top:3px solid var(--green);}
+.eyebrow.sc{color:var(--green);}
+h2 em.sc{color:var(--green);font-weight:900;}
+
+/* Fornitore card allocazione */
+.forn-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;}
+.forn-card{border:1px solid var(--border);border-radius:var(--r);padding:16px;position:relative;overflow:hidden;}
+.forn-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;}
+.forn-card.fc-gd::before{background:var(--ri);}
+.forn-card.fc-en::before{background:var(--ss2);}
+.forn-card.fc-sd::before{background:var(--purple);}
+.forn-name{font-size:12px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.forn-tasks{font-size:11px;color:var(--ink3);line-height:1.6;margin-bottom:8px;}
+.forn-corr{font-size:10.5px;color:var(--ink3);font-style:italic;border-top:1px dotted var(--border);padding-top:6px;margin-top:4px;}
+.forn-amt{font-size:22px;font-weight:700;}
+
+/* Allocazione donut layout */
+.alloc-wrap{display:grid;grid-template-columns:1fr 220px;gap:28px;align-items:start;margin-bottom:20px;}
+.alloc-donut-box{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.alloc-legend{font-size:11px;color:var(--ink3);line-height:1.9;}
+.alloc-legend-item{display:flex;align-items:center;gap:8px;}
+.alloc-dot{width:11px;height:11px;border-radius:2px;flex-shrink:0;}
+
+/* Pub row (scientific impact) */
+.pub-row-si{border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;margin-bottom:10px;display:flex;align-items:flex-start;gap:16px;}
+.pub-bdg{font-size:8.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:2px;flex-shrink:0;margin-top:2px;white-space:nowrap;}
+.pub-bdg.ieee{background:rgba(0,56,101,.12);color:#003865;}
+.pub-bdg.inn{background:var(--ss-ltr);color:var(--ss);}
+.pub-bdg.ssrn{background:var(--purple-lt);color:var(--purple);}
+.pub-inner{flex:1;}
+.pub-authors-si{font-size:11.5px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.pub-title-si{font-size:11px;color:var(--ink2);font-style:italic;margin-bottom:5px;line-height:1.4;}
+.pub-contrib-si{font-size:10.5px;color:var(--ink3);line-height:1.5;}
+.pub-contrib-si span{color:var(--ri);font-weight:600;}
+
+/* Dissemination KPI strip */
+.diss-kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:20px;}
+
+/* Persona card Secundo / Mariani */
+.pcard-secundo{border:1px solid rgba(26,110,58,.3);border-radius:var(--r);background:rgba(26,110,58,.04);padding:16px;margin-bottom:12px;display:flex;align-items:flex-start;gap:14px;}
+.pcard-mariani{border:1px solid rgba(91,45,142,.25);border-radius:var(--r);background:rgba(91,45,142,.04);padding:16px;margin-bottom:12px;display:flex;align-items:flex-start;gap:14px;}
+.pcard-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;margin-top:2px;}
+.av-green{background:var(--green-lt);color:var(--green);}
+.av-purple{background:var(--purple-lt);color:var(--purple);}
+.pcard-body{flex:1;}
+.pcard-name{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:1px;}
+.pcard-role{font-size:10.5px;font-weight:700;color:var(--green);margin-bottom:8px;}
+.pcard-role-p{font-size:10.5px;font-weight:700;color:var(--purple);margin-bottom:8px;}
+.pcard-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.pcard-tag{font-size:9.5px;font-weight:700;padding:3px 10px;border-radius:2px;background:var(--warm);color:var(--ink3);}
+.pcard-tag.green{background:var(--green-lt);color:var(--green);}
+.pcard-tag.purple{background:var(--purple-lt);color:var(--purple);}
+
+/* Forecast DISS card */
+.task-card.fc-diss::before{background:var(--green);}
+.tc-id.fc-diss{color:var(--green);}
+
+/* Risk row */
+.risk-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px dotted var(--border);}
+.risk-item:last-child{border:none;}
+.risk-ico{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px;}
+.risk-txt{flex:1;font-size:12px;color:var(--ink2);line-height:1.7;}
+
+@media(max-width:900px){
+  .alloc-wrap{grid-template-columns:1fr;}
+  .forn-grid-3{grid-template-columns:1fr;}
+  .diss-kpi-strip{grid-template-columns:repeat(2,1fr);}
+}
 </style>
 </head>
 <body>
@@ -279,10 +352,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
     <a class="n-lk" href="#rimodulazione">02·Rimodulazione</a>
     <a class="n-lk" href="#isal">03·Stato I SAL</a>
     <a class="n-lk" href="#matrice">04·Matrice Economica</a>
+    <a class="n-lk" href="#allocazione" style="color:var(--green)">04b·Allocazione I SAL</a>
     <a class="n-lk" href="#gantt">05·Gantt</a>
     <a class="n-lk forecast" href="#forecast">06·Forecast SAL Finale</a>
     <a class="n-lk forecast" href="#scenari">07·Scenari</a>
     <a class="n-lk forecast" href="#simulatore">08·Simulatore</a>
+    <a class="n-lk" href="#dissemination" style="color:var(--green)">09b·Dissemination</a>
     <a class="n-lk" href="#raccomandazioni">09·PMO Actions</a>
   </div>
   <button class="prtbtn" onclick="window.print()">Stampa PDF</button>
@@ -514,11 +589,90 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
 
   <div class="g2 rev">
     <div class="call ri">
-      <strong>Lettura analitica — mix personale/fornitori per task:</strong><br>
-      T1.1 (90,9% fornitori) e T1.4 (87,6% fornitori) sono prevalentemente fornitore-intensivi: attività algoritmicamente avanzate affidate a GD Services ed Enablit. T1.2 è esclusivamente personale interno (100%): attività di ricerca bibliografica e analisi di mercato svolte dal team LUM. T1.6 e T1.7 mostrano un mix equilibrato con prevalenza personale (58–63%): attività di ranking e Digital Twin con forte contributo del team di ricerca interno. Questa variabilità è un dato strutturale che il forecast deve preservare, non appiattire.
+      <strong>Lettura analitica — mix personale/fornitori per task (dati rendicontati I SAL):</strong><br>
+      <strong>T1.1</strong> (90,9% fornitori): GD Services su AI/NLP/data ingestion + <strong>Software Design</strong> su architettura DSS e gestione documentale. <strong>T1.2</strong> (100% personale): ricerca bibliografica e analisi di mercato svolte interamente dal team LUM Enterprise. <strong>T1.3</strong> (70,7% fornitori): GD Services su componenti NLP/KPI + <strong>Software Design</strong> su strutturazione KPI Framework e integrazione. <strong>T1.4</strong> (87,6% fornitori): Enablit su modellazione computazionale e ML predittivo + <strong>Software Design</strong> su architettura DSS e specifiche tecniche. T1.6 e T1.7 mostrano un mix equilibrato con prevalenza personale (58–63%): attività di ranking e Digital Twin con forte contributo del team di ricerca interno. Questa variabilità è un dato strutturale che il forecast deve preservare, non appiattire.<br><br>
+      <em style="font-size:11px;color:var(--ri);">⚠ Nota correttiva: GD Services ha operato esclusivamente su OR1 (A1.1–A1.4) al I SAL. Software Design ha coperto A1.1 · A1.3 · A1.4 con ruolo specifico sull'architettura DSS e documentazione tecnica, incluse attività riconducibili alla preparazione evolutiva OR5. Nessuna consulenza esterna SS risulta rendicontata al I SAL.</em>
     </div>
     <div>
       <div style="position:relative;height:200px;"><canvas id="mixChart"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+  §04b · ALLOCAZIONE I SAL (NUOVA — v4 additive)
+  Personale Interno vs Fornitori Specializzati
+═══════════════════════════════════════════════════ -->
+<section class="sec rev" id="allocazione">
+  <p class="eyebrow sc">04b · Allocazione I SAL · Personale Interno vs Fornitori Specializzati</p>
+  <h2>Composizione della spesa: <em class="sc">chi ha fatto cosa</em></h2>
+  <p class="sub">Analisi della distribuzione delle €660.353,80 rendicontate al I SAL (16/04/2026) tra personale interno e consulenze specialistiche esterne. Fonte: matrice economica per task — dati rendicontati, non stimati.</p>
+
+  <div class="g3 rev">
+    <div class="metric"><span class="mv b">€236.353,80</span><span class="ml">Personale interno totale</span><p class="ms">35,8% della valorizzazione I SAL</p></div>
+    <div class="metric"><span class="mv g">€424.000</span><span class="ml">Consulenze esterne totali</span><p class="ms">64,2% · interamente OR1 al I SAL</p></div>
+    <div class="metric"><span class="mv">€660.353,80</span><span class="ml">Valorizzazione complessiva I SAL</span><p class="ms">RI €639.634 + SS €20.720</p></div>
+  </div>
+
+  <div class="alloc-wrap rev">
+    <!-- Colonna sinistra: breakdown tabellare -->
+    <div>
+      <!-- Personale interno -->
+      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ri);margin-bottom:12px;">Personale interno €236.353,80 · ripartizione per funzione</p>
+      <table class="tbl" style="margin-bottom:22px;">
+        <thead><tr><th>Funzione</th><th>Risorsa principale</th><th class="num">Importo stimato (€)</th><th class="num">%</th></tr></thead>
+        <tbody>
+          <tr><td>Project Management</td><td>M. Di Molfetta (199 gg)</td><td class="num">67.560</td><td class="num">28,6%</td></tr>
+          <tr><td>Ricerca scientifica</td><td>A. Leogrande (219,25 gg)</td><td class="num">47.358</td><td class="num">20,0%</td></tr>
+          <tr><td>Analisi e KPI framework</td><td>V. Notarnicola (243,38 gg)</td><td class="num">52.569</td><td class="num">22,2%</td></tr>
+          <tr><td>Supervisione tecnica</td><td>N. Magaletti (57,70 gg)</td><td class="num">34.620</td><td class="num">14,7%</td></tr>
+          <tr><td>PMO e supporto trasversale</td><td>M.G. Trotta (52,63 gg)</td><td class="num">11.367</td><td class="num">4,8%</td></tr>
+          <tr><td>Supporto OR5 (A5.1)</td><td>A. Iusco (95,93 gg)</td><td class="num">20.720</td><td class="num">8,8%</td></tr>
+          <tr><td>Dissemination / contrib. scientifici</td><td>Leogrande · Trotta · Notarnicola</td><td class="num">incluso</td><td class="num">—</td></tr>
+          <tr class="tot"><td><strong>Totale personale</strong></td><td>7 risorse formalmente allocate</td><td class="num"><strong>236.354</strong></td><td class="num"><strong>100%</strong></td></tr>
+        </tbody>
+      </table>
+
+      <!-- Fornitori -->
+      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;">Fornitori specialistici €424.000 · esclusivamente OR1 al I SAL</p>
+      <div class="forn-grid-3">
+        <div class="forn-card fc-gd">
+          <div class="forn-name">GD Services</div>
+          <div class="forn-tasks">AI · NLP/BERT · ML · data ingestion<br>Attività OR1: <strong>A1.1 · A1.2 · A1.3 · A1.4</strong></div>
+          <div class="forn-corr">Perimetro I SAL: esclusivamente OR1. Non risulta fornitore principale OR5 al I SAL.</div>
+          <div class="forn-amt" style="color:var(--ri)">€300.000</div>
+          <div style="font-size:10px;color:var(--ink3);margin-top:2px">70,8% consulenze totali</div>
+        </div>
+        <div class="forn-card fc-en">
+          <div class="forn-name">Enablit</div>
+          <div class="forn-tasks">Modellazione computazionale · algoritmi predittivi<br>Attività OR1: <strong>A1.4 · A1.5 · A1.6 · A1.7</strong></div>
+          <div class="forn-corr">Presidia le componenti ML a più alta densità computazionale.</div>
+          <div class="forn-amt" style="color:var(--ss2)">€80.000</div>
+          <div style="font-size:10px;color:var(--ink3);margin-top:2px">18,9% consulenze totali</div>
+        </div>
+        <div class="forn-card fc-sd">
+          <div class="forn-name">Software Design</div>
+          <div class="forn-tasks">Architettura DSS · integrazione moduli<br>Attività OR1: <strong>A1.1 · A1.3 · A1.4</strong><br>+ evoluzione architetturale OR5</div>
+          <div class="forn-corr">Ruolo chiave su gestione documentale, workflow e specifiche DSS riconducibili all'architettura OR5.</div>
+          <div class="forn-amt" style="color:var(--purple)">€44.000</div>
+          <div style="font-size:10px;color:var(--ink3);margin-top:2px">10,4% consulenze totali</div>
+        </div>
+      </div>
+
+      <div class="call ri" style="margin-bottom:0;font-size:12px;">
+        <strong>Nota correttiva fornitori (v4):</strong> La versione precedente indicava GD Services come fornitore anche per OR5/A5.1. I dati di rendicontazione confermano che <strong>GD Services ha operato esclusivamente su OR1</strong> (A1.1–A1.4) al I SAL. <strong>Software Design</strong>, oltre ad A1.1/A1.3/A1.4, ha svolto attività riconducibili all'architettura DSS e all'evoluzione OR5, non ancora rendicontate come SS. Nessun fornitore esterno risulta rendicontato in OR5 al I SAL.
+      </div>
+    </div>
+
+    <!-- Colonna destra: donut chart -->
+    <div class="alloc-donut-box">
+      <div style="position:relative;height:200px;width:200px;"><canvas id="allocDonutChart"></canvas></div>
+      <div class="alloc-legend">
+        <div class="alloc-legend-item"><div class="alloc-dot" style="background:var(--ri)"></div>Personale interno 35,8%</div>
+        <div class="alloc-legend-item"><div class="alloc-dot" style="background:#2563eb"></div>GD Services 45,4%</div>
+        <div class="alloc-legend-item"><div class="alloc-dot" style="background:var(--ss2)"></div>Enablit 12,1%</div>
+        <div class="alloc-legend-item"><div class="alloc-dot" style="background:var(--purple)"></div>Software Design 6,7%</div>
+      </div>
     </div>
   </div>
 </section>
@@ -560,7 +714,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
   <p class="sub">Ogni stima è calcolata per task applicando il mix storico personale/fornitori corretto per la percentuale residua e la natura specifica dell'attività. I valori non sono distribuzioni lineari: rispecchiano la logica economica reale del progetto.</p>
 
   <div class="call p" style="margin-bottom:20px;">
-    <strong>Premessa metodologica (Revisore PIA):</strong> Il forecast è costruito con tre vincoli fondamentali: (1) Il residuo RI (€305.040) deve coprire il completamento di A1.4–A1.7 con la stessa logica task-specifica del consumato; (2) Il residuo SS (€379.855) include la voce consulenze SS ancora intatta (€0 speso su €240k budget) — la sua mobilizzazione è necessaria ma non automatica: dipende dalla capacità operativa dei fornitori; (3) NON si assume che il 100% del residuo venga assorbito — si stima la capacità credibile di assorbimento nei mesi disponibili.
+    <strong>Premessa metodologica aggiornata (Revisore PIA — v4):</strong> Il forecast è costruito con i seguenti vincoli fondamentali: (1) Il residuo RI (€305.040) copre il completamento di A1.4–A1.7 con la stessa logica task-specifica del consumato; (2) Il residuo SS (€379.855) include consulenze ancora intatte — la mobilizzazione dipende dalla capacità operativa dei fornitori; (3) NON si assume che il 100% del residuo venga assorbito.<br><br>
+    <strong>La stima tiene conto:</strong> del completamento delle attività residue OR1 (A1.4–A1.7) · del completamento integrale OR5 (A5.2–A5.6) · delle attività PMO e SAL finale · delle <strong>attività di dissemination scientifica</strong> · delle <strong>pubblicazioni internazionali</strong> (sottomissione Leogrande et al. 2026 a rivista Q1/Q2; working paper Digital Twin TT entro Set 2026) · dei <strong>DemoLab previsti dal progetto</strong> (2 intermedi + 1 conclusivo) · della <strong>valorizzazione degli output scientifici prodotti dal gruppo di ricerca coordinato dalla Prof.ssa Giustina Secundo</strong>.
   </div>
 
   <!-- Budget residuo KPIs -->
@@ -652,7 +807,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
       <div class="tc-row"><span class="tc-k">Fornitori stimati</span><span class="tc-v">~€44.000</span></div>
       <div class="tc-row"><span class="tc-k">Target completamento</span><span class="tc-v">Lug 2026</span></div>
       <div class="fc-reasoning" style="margin-top:8px;font-size:10.5px">
-        <strong>Reasoning:</strong> A5.2 è analoga ad A1.4 nella natura (modelli previsionali applicati). Mix atteso prevalentemente fornitore (GD Services). Basato su complessità analoga e durata ~2,5 mesi.
+        <strong>Reasoning:</strong> A5.2 è il primo modulo operativo OR5: integra i modelli previsionali OR1 in un simulatore. Fornitore previsto: <strong>GD Services</strong> (AI engine, pipeline NLP/ML) + <strong>Software Design</strong> (architettura DSS, workflow). Mix atteso prevalentemente fornitore (80%). NB: GD Services non ha rendicontato attività OR5 al I SAL — si attiva su OR5 a partire dal periodo successivo.
       </div>
     </div>
 
@@ -715,6 +870,21 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
         <strong>Reasoning:</strong> A5.6 è il task di integrazione totale: dipende da tutti i moduli precedenti. Mix più personale-intensivo (35%) per testing interno, validazione con PMI reali e documentazione finale. Software Design principale fornitore.
       </div>
     </div>
+
+    <!-- DISS · Dissemination Scientifica (NUOVA — v4 additive) -->
+    <div class="task-card fc-diss">
+      <div class="tc-id fc-diss">DISS · Dissemination Scientifica</div>
+      <div class="tc-name">Pubblicazioni · DemoLab<br>Impatto scientifico e valorizzazione</div>
+      <div class="tc-row"><span class="tc-k">Avanzamento I SAL</span><span class="tc-v" style="color:var(--green)">Avviato — 1 WP + 2 riviste</span></div>
+      <div class="tc-row"><span class="tc-k">Forecast budget</span><span class="tc-v" style="color:var(--green)"><strong>~€15.000–25.000</strong></span></div>
+      <div class="tc-row"><span class="tc-k">Mix (100% personale)</span><span class="tc-v">Interamente interno</span></div>
+      <div class="tc-row"><span class="tc-k">Risorse</span><span class="tc-v">Leogrande · Trotta · Notarnicola</span></div>
+      <div class="tc-row"><span class="tc-k">Coordinamento</span><span class="tc-v">Prof.ssa G. Secundo</span></div>
+      <div class="tc-row"><span class="tc-k">Target</span><span class="tc-v">Nov 2026 · DemoLab conclusivo</span></div>
+      <div class="fc-reasoning" style="margin-top:8px;font-size:10.5px">
+        <strong>Reasoning:</strong> Le attività di dissemination sono parte integrante del Contratto di Programma (DemoLab × 3, pubblicazioni Scopus, open data Zenodo/Kaggle). Il costo è interamente personale interno — ore dei ricercatori già allocati. Include: sottomissione Leogrande et al. 2026 a rivista Q1/Q2 (entro luglio 2026); working paper Digital Twin A1.7/A5.5 (entro set 2026); DemoLab conclusivo (nov 2026). Coordinamento scientifico trasversale: Prof.ssa Giustina Secundo.
+      </div>
+    </div>
   </div>
 
   <!-- Tabella riepilogo forecast -->
@@ -741,6 +911,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
       <tr><td><strong>A5.4</strong></td><td><span class="bdg g">OR5</span></td><td>0%</td><td class="num">0</td><td class="num">16.250</td><td class="num">48.750</td><td class="num"><strong>65.000</strong></td><td>Ago '26</td><td><span class="bdg am">Medio</span></td></tr>
       <tr><td><strong>A5.5</strong></td><td><span class="bdg g">OR5</span></td><td>0%</td><td class="num">0</td><td class="num">22.500</td><td class="num">52.500</td><td class="num"><strong>75.000</strong></td><td>Set '26</td><td><span class="bdg rd">Alto</span></td></tr>
       <tr><td><strong>A5.6</strong></td><td><span class="bdg g">OR5</span></td><td>0%</td><td class="num">0</td><td class="num">24.500</td><td class="num">45.500</td><td class="num"><strong>70.000</strong></td><td>Ott '26</td><td><span class="bdg am">Medio</span></td></tr>
+      <tr style="background:rgba(26,110,58,.05)"><td><strong>DISS</strong></td><td><span class="bdg gr">Diss.</span></td><td>Avviato</td><td class="num">incluso</td><td class="num">~20.000</td><td class="num">0</td><td class="num"><strong>~20.000</strong></td><td>Nov '26</td><td><span class="bdg n">Basso</span></td></tr>
       <tr class="ss-tot"><td colspan="3"><strong>Subtotale OR5 forecast</strong></td><td class="num">0</td><td class="num"><strong>87.750</strong></td><td class="num"><strong>222.250</strong></td><td class="num"><strong>310.000</strong></td><td colspan="2">vs residuo €379.855</td></tr>
       <tr><td colspan="3"><strong>Spese generali (18% su pers.)</strong></td><td class="num">—</td><td class="num" colspan="2" style="text-align:right">18% × (€60.462 + €87.750)</td><td class="num"><strong>~26.674</strong></td><td colspan="2">Residuo gen. €81.648</td></tr>
       <tr class="gt-tot"><td colspan="3"><strong>FORECAST TOTALE · Scenario Realistico</strong></td><td class="num"><strong>660.354</strong></td><td class="num"><strong>148.212</strong></td><td class="num"><strong>353.999</strong></td><td class="num"><strong>528.885</strong></td><td colspan="2">+€660.354 = €1.189.239 totale</td></tr>
@@ -947,6 +1118,139 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
 </section>
 
 <!-- ═══════════════════════════════════════════════════
+  §09b · DISSEMINATION & SCIENTIFIC IMPACT (NUOVA — v4 additive)
+  Integrazione di LUCE_Scientific_Impact_Assessment
+  nella dashboard PMO master
+═══════════════════════════════════════════════════ -->
+<section class="sec science-zone rev" id="dissemination">
+  <p class="eyebrow sc">09b · Dissemination &amp; Scientific Impact</p>
+  <h2>Evidenze scientifiche LUCE: <em class="sc">corpus pubblicazioni</em></h2>
+  <p class="sub">Il gruppo di ricerca coordinato dalla Prof.ssa Giustina Secundo ha prodotto tre pubblicazioni che costituiscono la più forte evidenza disponibile della validità metodologica delle attività OR1. In sede di audit PIA, la presenza di una pubblicazione Q1 IEEE elimina il principale rischio di contestazione: l'originalità e la solidità della Ricerca Industriale.</p>
+
+  <!-- KPI Dissemination -->
+  <div class="diss-kpi-strip rev">
+    <div class="metric"><span class="mv" style="color:#003865">1 × Q1</span><span class="ml">IEEE Trans. Eng. Mgmt</span><p class="ms">Secundo et al. 2024</p></div>
+    <div class="metric"><span class="mv g">1 × Q2</span><span class="ml">Innovation: Org. &amp; Mgmt</span><p class="ms">Barile et al. 2025</p></div>
+    <div class="metric"><span class="mv p">1 × WP</span><span class="ml">SSRN · Peer review in corso</span><p class="ms">Leogrande et al. 2026</p></div>
+    <div class="metric"><span class="mv gr">Alta</span><span class="ml">Maturità scientifica OR1</span><p class="ms">D1.1 · D1.2 · D1.3 validati</p></div>
+    <div class="metric"><span class="mv b">65%</span><span class="ml">Indice dissemination</span><p class="ms">Target SAL finale: 100%</p></div>
+  </div>
+
+  <!-- Le tre pubblicazioni -->
+  <div class="rev">
+    <div class="pub-row-si">
+      <span class="pub-bdg ieee">Q1 · IEEE 2024</span>
+      <div class="pub-inner">
+        <p class="pub-authors-si">Secundo G., Massaro M., Del Vecchio P., Garzoni A.</p>
+        <p class="pub-title-si">"An Entrepreneurial University Ecosystem for Sustaining the Twin Transition Through a Complex Adaptive System Approach" — IEEE Transactions on Engineering Management, 2024</p>
+        <p class="pub-contrib-si">Contributo verificato: <span>D1.1 Framework Ecosystem</span> · <span>D1.2 Traiettorie di Mercato</span> · CAS modeling · System Dynamics · Twin Transition · Stakeholder Network Analysis. Citato esplicitamente nella Relazione Tecnica I SAL come riferimento metodologico per D1.2. Elimina il rischio di contestazione sull'originalità di OR1.</p>
+      </div>
+    </div>
+
+    <div class="pub-row-si">
+      <span class="pub-bdg inn">Q2 · Innov. 2025</span>
+      <div class="pub-inner">
+        <p class="pub-authors-si">Barile D., Secundo G., Del Vecchio P.</p>
+        <p class="pub-title-si">"An AI-Based Innovation Ecosystem Enabling Open Innovation and Sustainable Growth: Evidence from a Case Study (Lutech Campus)" — Innovation: Organization &amp; Management, 2025</p>
+        <p class="pub-contrib-si">Contributo verificato: <span>D1.2</span> · <span>D1.3 KPI Framework</span> · <span>OR5 A5.2–A5.6</span> blueprint architetturale · AI Ecosystem · Open Innovation · DSS · ESG. Case study: Lutech Campus Ecosystem — lo stesso ecosistema di LUCE. Fornisce la specifica architetturale della piattaforma OR5. Citato in Rel. Tecnica per D1.2.</p>
+      </div>
+    </div>
+
+    <div class="pub-row-si">
+      <span class="pub-bdg ssrn">WP · SSRN 2026</span>
+      <div class="pub-inner">
+        <p class="pub-authors-si">Leogrande A., Di Molfetta M., Notarnicola V., Trotta M.G., Magaletti N.</p>
+        <p class="pub-title-si">"An Intelligent LMS for Identifying Skill Gaps and Supporting Workforce Reskilling in SMEs" — SSRN Working Paper No. 6409518, 2026 · DOI: 10.2139/ssrn.6409518</p>
+        <p class="pub-contrib-si">Validazione empirica su 1.182 PMI: <span>D1.1 · D1.2 · D1.3 · D5.1</span> · Skill Gap · KPI Framework multi-layer · NLP/BERT · DSS · AI Act compliance · Ranking. Co-autori: 5 delle 7 risorse formalmente allocate al I SAL. Proof-of-concept del modello OR1→OR5.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impatto sul SAL finale e riduzione rischi -->
+  <div class="g2 rev" style="margin-top:20px;">
+    <div>
+      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:12px;">Riduzione rischi di audit — Pubblicazioni come evidenze obiettive</p>
+      <div style="border:1px solid var(--border);border-radius:var(--r);padding:16px;">
+        <div class="risk-item">
+          <div class="risk-ico" style="background:var(--green-lt)">✅</div>
+          <div class="risk-txt"><strong style="color:var(--green)">Originalità scientifica OR1</strong> → ELIMINATO. IEEE Q1 peer-reviewed garantisce allineamento con standard internazionali di primo livello. Nessun revisore PIA può contestare l'originalità di un contributo accettato da IEEE Transactions on Engineering Management.</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-ico" style="background:var(--green-lt)">✅</div>
+          <div class="risk-txt"><strong style="color:var(--green)">Natura consulenziale vs RI</strong> → DRASTICAMENTE RIDOTTO. Le pubblicazioni provano generazione di conoscenza nuova, verificabile e pubblicabile — criterio definitorio della RI ex Art. 2 Reg. UE 651/2014.</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-ico" style="background:var(--green-lt)">✅</div>
+          <div class="risk-txt"><strong style="color:var(--green)">Personale interno non verificabile</strong> → ELIMINATO per 5 risorse. Co-authorship Leogrande, Di Molfetta, Notarnicola, Trotta, Magaletti in SSRN 2026 documenta il contributo tecnico-scientifico diretto.</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-ico" style="background:var(--amber-lt)">⚡</div>
+          <div class="risk-txt"><strong style="color:var(--amber)">Gap residuo A1.7/A5.5</strong>: Digital Twin per TT non ha ancora pubblicazione dedicata. Raccomandato working paper entro Set 2026. Gestibile con anticipo.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:12px;">KPI Dissemination · target SAL finale</p>
+      <table class="tbl" style="margin-bottom:16px;">
+        <thead><tr><th>KPI</th><th class="num">Attuale</th><th class="num">Target SAL</th></tr></thead>
+        <tbody>
+          <tr><td>Pubblicazioni riviste indicizzate</td><td class="num">2</td><td class="num">≥3</td></tr>
+          <tr><td>Pubblicazioni Q1</td><td class="num">1</td><td class="num">≥1 ✓</td></tr>
+          <tr><td>Working paper / preprint</td><td class="num">1</td><td class="num">≥2</td></tr>
+          <tr><td>DemoLab eventi</td><td class="num">1</td><td class="num">3</td></tr>
+          <tr><td>Deliverable coperti da pubbl.</td><td class="num">4 (tutti compl.)</td><td class="num">≥9/13</td></tr>
+          <tr><td>Co-autori interni LUM</td><td class="num">5</td><td class="num">5</td></tr>
+          <tr><td>Dataset open (Zenodo/Kaggle)</td><td class="num">1</td><td class="num">≥3</td></tr>
+          <tr class="tot"><td><strong>Indice dissemination</strong></td><td class="num"><strong>65%</strong></td><td class="num"><strong>100%</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Schede risorse: Giustina Secundo + Stefano Mariani -->
+  <div class="g2 rev" style="margin-top:4px;">
+    <div>
+      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Prof.ssa Giustina Secundo · Ruolo trasversale</p>
+      <div class="pcard-secundo">
+        <div class="pcard-avatar av-green">GS</div>
+        <div class="pcard-body">
+          <p class="pcard-name">Prof.ssa Giustina Secundo</p>
+          <p class="pcard-role">Scientific Coordinator · Research Impact · Dissemination</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag green">Supervisione scientifica OR1 · OR5</span>
+            <span class="pcard-tag green">Co-autore IEEE Q1 2024</span>
+            <span class="pcard-tag green">Co-autore Innovation Q2 2025</span>
+            <span class="pcard-tag green">Coordinamento DemoLab</span>
+            <span class="pcard-tag green">Validazione metodologica D1.1–D1.7</span>
+            <span class="pcard-tag green">Presidio qualità OR1→OR5</span>
+          </div>
+          <p style="font-size:11px;color:var(--ink3);margin-top:8px;line-height:1.6;">Ruolo trasversale: direzione metodologica, supervisione qualità output scientifici, coordinamento dissemination scientifica. La sua presenza come co-autore sui contributi IEEE e Innovation conferisce al progetto LUCE una credibilità scientifica istituzionale di primo livello.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">Stefano Mariani · Profilo tecnico specializzato</p>
+      <div class="pcard-mariani">
+        <div class="pcard-avatar av-purple">SM</div>
+        <div class="pcard-body">
+          <p class="pcard-name">Stefano Mariani</p>
+          <p class="pcard-role-p">ML Engineer · Data Ingestion · da acquisire formalmente</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag purple">Data Ingestion</span>
+            <span class="pcard-tag purple">Machine Learning</span>
+            <span class="pcard-tag purple">Supporto A1.4 (ML predittivo)</span>
+            <span class="pcard-tag purple">Supporto A5.5 (simulatore Digital Twin)</span>
+          </div>
+          <div class="call rd" style="margin-top:10px;margin-bottom:0;font-size:11px;padding:10px 12px;">
+            <strong>Vincolo baseline:</strong> Stefano Mariani NON è formalmente allocato al progetto LUCE al I SAL. Qualsiasi rendicontazione richiede inserimento contrattuale (lettera di incarico + timesheet + CV) prima del SAL finale. Costo stimato se acquisito: ~€35.000. Classificato come "Fabbisogno aggiuntivo da acquisire" — non includere nella baseline delle 7 risorse operative correnti.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
   §09 · RACCOMANDAZIONI PMO
 ═══════════════════════════════════════════════════ -->
 <section class="sec rev" id="raccomandazioni">
@@ -957,7 +1261,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
     <div>
       <div class="call gr" style="margin-bottom:12px;">
         <strong>R1 · IMMEDIATO — Attivazione formale OR5 (Maggio 2026)</strong><br>
-        Emettere ordine di lavoro GD Services su A5.2 e A5.3 entro il 05/05/2026. D5.1 (completato) e D1.3 (completato) forniscono già le specifiche necessarie. Non attendere il completamento di A1.4–A1.5: queste attività OR1 procedono in parallelo. Il ritardo nell'avvio OR5 è il principale rischio di execution dell'intero progetto.
+        Emettere ordine di lavoro <strong>GD Services</strong> (AI engine, NLP) e <strong>Software Design</strong> (architettura DSS, integrazione moduli) su A5.2 e A5.3 entro il 05/05/2026. D5.1 (completato) e D1.3 (completato) forniscono già le specifiche necessarie. Non attendere il completamento di A1.4–A1.5: queste attività OR1 procedono in parallelo. Il ritardo nell'avvio OR5 è il principale rischio di execution dell'intero progetto.
       </div>
       <div class="call ri" style="margin-bottom:12px;">
         <strong>R2 · GIUGNO 2026 — Checkpoint avanzamento OR1.2</strong><br>
@@ -985,7 +1289,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
   </div>
 
   <div class="call p" style="margin-top:4px;">
-    <strong>Sintesi PMO Senior — Valutazione finale difendibile in audit:</strong> Il progetto LUCE si trova in una posizione di solidità metodologica documentata al I SAL. La concentrazione del budget SS nel periodo residuo (€379.855 intatti) non è una criticità finanziaria — è una conseguenza pianificata della sequenzialità OR1→OR5 esplicitamente dichiarata in fase di progettazione e confermata nella Relazione Tecnica. Il forecast realistico (Scenario B) stima un assorbimento complessivo dell'88,4% del budget approvato, con un contributo ammesso previsto di ~€802.000 su €908.792 massimi. La probabilità di chiusura nei termini contrattuali è dell'80% a condizione che l'attivazione di GD Services su OR5 avvenga entro Maggio 2026. Ogni valore in questo documento è accompagnato dal reasoning che lo giustifica e può essere presentato in sede di audit o revisione regionale.
+    <strong>Sintesi PMO Senior — Valutazione finale difendibile in audit:</strong> Il progetto LUCE si trova in una posizione di solidità metodologica documentata al I SAL. La concentrazione del budget SS nel periodo residuo (€379.855 intatti) non è una criticità finanziaria — è una conseguenza pianificata della sequenzialità OR1→OR5. Il forecast realistico (Scenario B) stima un assorbimento complessivo dell'88,4% del budget approvato, con un contributo ammesso previsto di ~€802.000 su €908.792 massimi. La probabilità di chiusura nei termini contrattuali è dell'80% a condizione che l'attivazione di <strong>GD Services e Software Design su OR5</strong> avvenga entro Maggio 2026. Ogni valore è accompagnato dal reasoning che lo giustifica e può essere presentato in sede di audit o revisione regionale.
   </div>
 </section>
 
@@ -1368,6 +1672,33 @@ const secs=document.querySelectorAll("section[id]");
 const nls=document.querySelectorAll(".n-lk");
 const nobs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){nls.forEach(l=>l.classList.remove("a"));const lk=document.querySelector('.n-lk[href="#'+x.target.id+'"]');if(lk)lk.classList.add("a");}});},{rootMargin:"-30% 0px -60% 0px"});
 secs.forEach(s=>nobs.observe(s));
+
+// ── Allocazione I SAL Donut (NUOVO v4) ───────────────
+(function(){
+  const el=document.getElementById("allocDonutChart");
+  if(!el)return;
+  new Chart(el,{
+    type:"doughnut",
+    data:{
+      labels:["Personale interno","GD Services","Enablit","Software Design"],
+      datasets:[{
+        data:[236354,300000,80000,44000],
+        backgroundColor:["#0e5f7a","#2563eb","#b8922a","#5b2d8e"],
+        borderWidth:3,borderColor:"#fff"
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,cutout:"62%",
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>{
+          const pct=((ctx.raw/660354)*100).toFixed(1);
+          return ctx.label+": €"+ctx.raw.toLocaleString("it-IT")+" ("+pct+"%)";
+        }}}
+      }
+    }
+  });
+})();
 </script>
 </body>
 </html>
